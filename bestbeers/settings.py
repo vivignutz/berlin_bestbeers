@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage' # cloudinary lib
+    'cloudinary_storage', # cloudinary lib
     'django.contrib.staticfiles',
     'cloudinary',
     'berlin_bestbeers',
@@ -60,7 +60,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'BESTBEERS.urls'
+ROOT_URLCONF = 'bestbeers.urls'
 
 TEMPLATES = [
     {
