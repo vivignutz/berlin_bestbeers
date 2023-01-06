@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class BerlinBestbeersConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'BERLIN_BESTBEERS'
+    name = 'berlin_bestbeers'
