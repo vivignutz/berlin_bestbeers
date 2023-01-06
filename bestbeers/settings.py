@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'cloudinary_storage' # cloudinary lib
     'django.contrib.staticfiles',
     'cloudinary',
-    'BERLIN_BESTBEERS',
+    'berlin_bestbeers',
 ]
 
 MIDDLEWARE = [
@@ -78,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'BESTBEERS.wsgi.application'
+WSGI_APPLICATION = 'bestbeers.wsgi.application'
 
 
 # Database

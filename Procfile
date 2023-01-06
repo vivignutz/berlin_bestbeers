@@ -1,1 +1,1 @@
-web: gunicorn BESTBEERS.wsgi
+web: gunicorn bestbeers.wsgi
