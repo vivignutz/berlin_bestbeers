@@ -1,7 +1,7 @@
 from django.db import models
 
 # Importing USER model
-from django.contrib.auth import User
+from django.contrib.auth.models import User
 
 #Importing Cloudinary field for geatured image
 from cloudinary.models import CloudinaryField

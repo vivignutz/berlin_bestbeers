@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'cloudinary_storage', # cloudinary lib
     'django.contrib.staticfiles',
     'cloudinary',
+    'django_summernote',
     'berlin_bestbeers',
 ]
 
