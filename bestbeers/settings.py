@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'cloudinary_storage', # cloudinary lib
     'django.contrib.staticfiles',
-    'cloudinary',
+    'cloudinary', # clouinary app
     'django_summernote',
     'berlin_bestbeers',
 ]
