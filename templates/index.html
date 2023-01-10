@@ -71,75 +71,89 @@ Blog Entries Column
                     {% endif %}
                     {% endfor %}
                 </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
-                                {% if 'placeholder' in post.featured_image.url %}
-                                <img class="card-img-top"
-                                    src="hhttps://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
-                                    alt="Image of XXXXXX">
-                                {% else %}
-                                <img class="card-img-top"
-                                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
-                                    alt="Image of XXXXXX">
-                                {% endif %}
-                                <img class="card-img-top"
-                                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
-                                    alt="Image of XXXXXX">
-                                {% else %}
-                                <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="Image if XXXXXX">
-                                {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ post.author}}</p>>
-                                </div>
-
-                                <!-- Display the newest post posted -->
-                                {% if post in post_list|slice:'0:1' %}
-                                <div class="image-new-flash">
-                                    <p class="author">NEW</p>
-                                </div>
-                                {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
+                <div class="col-12 mt-3 left">
+                    <div class="row">
+                        {% for post in post_list %}
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <div class="image-container">
+                                        {% if "placeholder" in post.featured_image.url %}
+                                        <img class="card-img-top"
+                                            src="hhttps://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
+                                            alt="Image of XXXXXX">
+                                        {% else %}
+                                        <img class="card-img-top" src="{{ post.featured_image.url }}">
+                                        {% endif %}
+                                        <div class="image-flash">
+                                            <p class="author">Author: {{ post.author}}</p>>
+                                        </div>
+                                    </div>
+                                    <a href="{% url 'post_detail' post.slug  %}" class="post-link">
+                                        <h2 class="card-title">{{ post.title }}</h2>
+                                        <p class="card-text">{{ post.excerpt }}</p>
+                                    </a>
+                                    <hr />
+                                    <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
+                                        {{ post.number_of_likes }}</p>
                                 </div>
                             </div>
-                            <a href="{% url 'post_detail' post.slug  %}" class="post-link">
-                                <p class="card-text h6 mt-2">
-                                    <i class="fa-solid fa-thumbs-up"></i> {{ post.likes|safe }}
-                                </p>
-
-                                <p class="card-title h4 mt-4">{{ post.title | truncatechars:30 }}</p>
-
-                                <!-- Display post content, 30 characters and appends an ellipsis if no excerpt provided -->
-                                {% if post.excerpt %}
-                                <p class="card-text">{{ post.excerpt }}</p>
-                                {% else %}
-                                <p class="card-text">{{ post.content | striptags | truncatechars:30 }}</p>
-                                {% endif %}
-                            </a>
-
-                            <hr>
-
-                            <!-- Horizontal rule for heart sign and number of likes -->
-                            <p class="card-text text-muted h6">{{ post.created_on }} <i class="far fa-message"></i>
-                                {{ post.number_of_likes }} &#8739; <i class="far fa-comments"></i>
-                                {{ post.comments.count }}
-                            </p>
                         </div>
+                        {% if forloop.counter|divisibleby:3 %}
+                    </div>
+                    <div class="row">
+                        {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
-            </div>
 
-            <div class="row">
+                <!-- Display the newest post posted -->
+                {% if post in post_list|slice:'0:1' %}
+                <div class="image-new-flash">
+                    <p class="author">NEW</p>
+                </div>
                 {% endif %}
-                {% endfor %}
+                <div class="image-flash">
+                    <p class="author">Author: {{ post.author }}</p>
+                </div>
             </div>
+            <a href="{% url 'post_detail' post.slug  %}" class="post-link">
+                <p class="card-text h6 mt-2">
+                    <i class="fa-solid fa-thumbs-up"></i> {{ post.likes|safe }}
+                </p>
+
+                <p class="card-title h4 mt-4">{{ post.title | truncatechars:30 }}</p>
+
+                <!-- Display post content, 30 characters and appends an ellipsis if no excerpt provided -->
+                {% if post.excerpt %}
+                <p class="card-text">{{ post.excerpt }}</p>
+                {% else %}
+                <p class="card-text">{{ post.content | striptags | truncatechars:30 }}</p>
+                {% endif %}
+            </a>
+
+            <hr>
+
+            <!-- Horizontal rule for heart sign and number of likes -->
+            <p class="card-text text-muted h6">{{ post.created_on }} <i class="far fa-message"></i>
+                {{ post.number_of_likes }} &#8739; <i class="far fa-comments"></i>
+                {{ post.comments.count }}
+            </p>
         </div>
     </div>
+    </div>
+    {% if forloop.counter|divisibleby:3 %}
+    </div>
+
+    <div class="row">
+        {% endif %}
+        {% endfor %}
+    </div>
+    </div>
+    </div>
     <br>
+
+    {% endblock %}
 
     <!-- Pagination of the blog -->
     {% if is_paginated %}
@@ -156,10 +170,5 @@ Blog Entries Column
     </nav>
     {% endif %}
 </section>
-
-
-
-
-
 
 {%endblock%}
