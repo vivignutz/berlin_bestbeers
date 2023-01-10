@@ -1,6 +1,14 @@
-from django.shortcuts import render
-from django.views import generic # immpost django lib
+from django.shortcuts import render, get_object_or_404, reverse
+from django.views import generic, View # immpost django lib
 from .models import Post # import post views
+from django.http import HttpResponseRedirect
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.messages.views import SuccessMessageMixin
+from django.urls import reverse_lazy
+from .models import Post, Comment
+#from .forms import CommentForm, PostForm
+
 
 #class RecentPostList(generic.ListView):
 #    """
