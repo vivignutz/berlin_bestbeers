@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404, reverse
-from django.views import generic, View # immpost django lib
+from django.shortcuts import render, get_object_or_404
+from django.views import generic, View # immport django View from django
 from .models import Post # import post views
 from django.http import HttpResponseRedirect
 from django.contrib import messages
@@ -36,8 +36,8 @@ class PostDetail(View):
     """
     def get(self, request, slug, *args, **kwargs):
         """
-        Get method to retrieve post details including comments and likes
-        and render post detail page
+        Used get method to recover post details including
+        comments and likes and render post detail page
         """
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -54,7 +54,7 @@ class PostDetail(View):
                 'comments': comments,
                 'commented': False,
                 'liked': liked,
-                'comment_form': CommentForm()
+                #'comment_form': CommentForm()
             },
         )
 
