@@ -21,9 +21,9 @@ Blog Entries Column
                 <h1>Berlin Bestbeers</h1>
                 <h2>Berlin, Germany</h2>
                 {% if user.is_authenticated %}
-                <a href="" class="btn btn-signup btn-lg mt-3">Visit our Page</a>
+                <a href="{% url 'account_signin' %}" class="btn btn-signup btn-lg mt-3">Share your Bar</a>
                 {% else %}
-                <a href="{% url 'account_signup' %}" class="btn btn-signup btn-lg mt-3">Register</a>
+                <a href="{% url 'account_signup' %}" class="btn btn-signup btn-lg mt-3">Register Now!</a>
                 {% endif %}
             </div>
         </div>
@@ -72,7 +72,7 @@ Blog Entries Column
                                     <div class="image-container">
                                         {% if "placeholder" in post.featured_image.url %}
                                         <img class="card-img-top"
-                                            src="hhttps://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
+                                            src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
                                             alt="Image of XXXXXX">
                                         {% else %}
                                         <img class="card-img-top" src="{{ post.featured_image.url }}">

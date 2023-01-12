@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'cloudinary', # clouinary app
     'django_summernote',
     'berlin_bestbeers',
+    'bestbeers'
 ]
 
 SIDE_ID = 1
