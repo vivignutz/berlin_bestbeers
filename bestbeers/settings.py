@@ -44,12 +44,20 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
+    'allauth.account',
+    'allauth.socialaccount',
     'cloudinary_storage', # cloudinary lib
     'django.contrib.staticfiles',
     'cloudinary', # clouinary app
     'django_summernote',
     'berlin_bestbeers',
 ]
+
+SIDE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
