@@ -21,7 +21,7 @@ Blog Entries Column
                 <h1>Berlin Bestbeers</h1>
                 <h2>Berlin, Germany</h2>
                 {% if user.is_authenticated %}
-                <a href="{% url 'blog' %}" class="btn btn-signup btn-lg mt-3">Visit our Page</a>
+                <a href="" class="btn btn-signup btn-lg mt-3">Visit our Page</a>
                 {% else %}
                 <a href="{% url 'account_signup' %}" class="btn btn-signup btn-lg mt-3">Register</a>
                 {% endif %}
@@ -62,14 +62,6 @@ Blog Entries Column
         <div class="row">
             <div class="col-12 mt-3 left">
                 <div class="row">
-                    {% for post in post_list %}
-
-                    {% if forloop.counter|divisibleby:3 %}
-                </div>
-
-                <div class="row">
-                    {% endif %}
-                    {% endfor %}
                 </div>
                 <div class="col-12 mt-3 left">
                     <div class="row">
@@ -89,7 +81,7 @@ Blog Entries Column
                                             <p class="author">Author: {{ post.author}}</p>>
                                         </div>
                                     </div>
-                                    <a href="{% url 'post_detail' post.slug  %}" class="post-link">
+                                    <a href="" class="post-link">
                                         <h2 class="card-title">{{ post.title }}</h2>
                                         <p class="card-text">{{ post.excerpt }}</p>
                                     </a>
@@ -99,10 +91,6 @@ Blog Entries Column
                                 </div>
                             </div>
                         </div>
-                        {% if forloop.counter|divisibleby:3 %}
-                    </div>
-                    <div class="row">
-                        {% endif %}
                         {% endfor %}
                     </div>
                 </div>
@@ -117,7 +105,7 @@ Blog Entries Column
                     <p class="author">Author: {{ post.author }}</p>
                 </div>
             </div>
-            <a href="{% url 'post_detail' post.slug  %}" class="post-link">
+            <a href="" class="post-link">
                 <p class="card-text h6 mt-2">
                     <i class="fa-solid fa-thumbs-up"></i> {{ post.likes|safe }}
                 </p>
@@ -140,15 +128,6 @@ Blog Entries Column
                 {{ post.comments.count }}
             </p>
         </div>
-    </div>
-    </div>
-    {% if forloop.counter|divisibleby:3 %}
-    </div>
-
-    <div class="row">
-        {% endif %}
-    </div>
-    </div>
     </div>
     <br>
 
