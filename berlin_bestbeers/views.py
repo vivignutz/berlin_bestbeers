@@ -1,12 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View # immport django View from django
-from .models import Post # import post views
+from .models import Post, Comment # import post views and comments
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-from .models import Post, Comment
 #from .forms import CommentForm, PostForm
 
 
@@ -26,7 +25,7 @@ class PostList(generic.ListView):
     """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
-    template_name = 'index.html'
+    template_name = 'blog.html'
     paginate_by = 6
 
 class PostDetail(View):
