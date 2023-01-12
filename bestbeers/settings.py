@@ -35,6 +35,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['berlin-bestbeers.herokuapp.com', 'localhost']
 
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
 
 # Application definition
 
@@ -52,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary', # clouinary app
     'django_summernote',
+    'crispy-forms'
     'berlin_bestbeers',
     'bestbeers'
 ]
@@ -60,6 +63,12 @@ SIDE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+SUMMERNOTE_CONFIG = {
+    'width': '100%',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

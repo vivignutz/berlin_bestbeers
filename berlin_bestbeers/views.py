@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-#from .forms import CommentForm, PostForm
+from .forms import CommentForm, PostForm
 
 
 class PostList(generic.ListView):
@@ -45,7 +45,7 @@ class PostDetail(View):
                 'comments': comments,
                 'commented': False,
                 'liked': liked,
-                #'comment_form': CommentForm()
+                'comment_form': CommentForm()
             },
         )
 
