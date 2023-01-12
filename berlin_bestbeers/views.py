@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View # immport django View from django
 from .models import Post, Comment # import post views and comments
 from django.http import HttpResponseRedirect
@@ -9,14 +9,6 @@ from django.urls import reverse_lazy
 #from .forms import CommentForm, PostForm
 
 
-#class RecentPostList(generic.ListView):
-#    """
-#    To display the 3 last posts in created date order
-#    """
-#    model = Post
-#    queryset = Post.objects.filter(status=1).order_by('-created_on')[:3]
-#    template_name = 'index.html'
-
 class PostList(generic.ListView):
     """
     This list will display all posts in order by
@@ -25,7 +17,7 @@ class PostList(generic.ListView):
     """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
-    template_name = 'blog.html'
+    template_name = 'index.html'
     paginate_by = 6
 
 class PostDetail(View):
