@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View # immport django View from django
-from .models import Post, Comment # import post views and comments
+from .models import Post, Comment #import post views and comments
 from django.http import HttpResponseRedirect
-from django.contrib import messages
+from django.contrib import messages #import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
@@ -27,7 +27,7 @@ class PostDetail(View):
     """
     def get(self, request, slug, *args, **kwargs):
         """
-        Used get method to recover post details including
+        Used GET method to recover post details including
         comments and likes and render post detail page
         """
         queryset = Post.objects.filter(status=1)
@@ -51,8 +51,8 @@ class PostDetail(View):
 
     def post(self, request, slug, *args, **kwargs):
         """
-        Methode for comment, save and upload post.
-        Success message as user feedback
+        Use POST methode to comment, save and upload post.
+        User gets a message of the post success
         """
         if request.user.is_authenticated:
             queryset = Post.objects.filter(status=1)

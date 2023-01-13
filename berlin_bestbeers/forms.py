@@ -1,6 +1,6 @@
 from django import forms
 #from django_summernote.widgets import SummernoteWidget
-from .models import Comment, #Post
+from .models import Comment, Post
 
 
 class CommentForm(forms.ModelForm):
@@ -30,6 +30,6 @@ class PostForm(forms.ModelForm):
             'featured_image',
             'content'
         ]
-        widgets = {
-            'content': SummernoteWidget(),
-        }
+#        widgets = {
+#            'content': SummernoteWidget(),
+#        }
