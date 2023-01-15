@@ -6,41 +6,96 @@ body {
     padding-top: 65px;
 }
 
-.brand {
-    font-family: Lato, sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #4A4A4F;
+
+/* Navigation */
+.navbar {
+    background-color: #343a40;
+    padding: 0;
 }
 
-.red-o {
-    color: #E84610;
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+    padding: 0;
 }
 
-.thin {
-    font-weight: 300;
+.navbar-brand i {
+    font-size: 1.4em;
+    border-radius: 50%;
+    margin-right: 10px;
+    padding: 10px;
 }
 
-.light-bg {
-    background-color: #fff;
+.navbar-nav {
+    margin-right: 10px;
 }
 
-.dark-bg {
-    background-color: #445261;
+.nav-item {
+    font-size: 1.2em;
+    font-weight: 500;
 }
 
-.main-bg {
-    background-color: #F9FAFC;
+.nav-item .active {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+    padding-bottom: 0px;
+    width: fit-content;
 }
 
-.card {
-    border: none;
-    background-color: transparent;
+.navbar-expand-lg .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.7);
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
 }
 
-.image-container {
-    position: relative;
+.navbar-dark .navbar-text {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2em;
+    font-weight: 500;
 }
+
+.navbar-text i {
+    color: #ffc107;
+}
+
+
+/* Hero */
+.hero {
+    background-color: #ffc107;
+    background-image: url("https://res.cloudinary.com/dovykh024/image/upload/v1673787289/background_hero_xd1mby.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom;
+    background-size: cover;
+}
+
+.hero-text {
+    min-height: 50vh;
+    color: #fff;
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-size: 8em;
+    font-weight: 400;
+}
+
+.hero-text h2 {
+    font-family: "Roboto", sans-serif;
+    font-size: 3em;
+}
+
+#wave {
+    width: 100%;
+}
+
+
+
+
+
+
 
 .image-flash {
     position: absolute;
@@ -54,40 +109,6 @@ body {
     color: white;
     margin: 4px;
     text-transform: uppercase;
-}
-
-.masthead {
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    height: 33vh;
-    width: 100%;
-}
-
-.masthead-text {
-    background-color: #445261;
-    color: white;
-    position: relative;
-}
-
-.masthead-image {
-    position: relative;
-    overflow: hidden;
-}
-
-.masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
 }
 
 .post-link {
@@ -128,7 +149,8 @@ body {
 
 .link:hover,
 .link:active {
-    color: #445261;
+    color: rgba(255, 255, 255, 0.7);
+    ;
     text-decoration: underline;
 }
 

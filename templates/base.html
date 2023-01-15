@@ -45,7 +45,7 @@
     <nav class="navbar navbar-expand-lg text-dark navbar-expand-lg bg-warning">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}"><i
-                    class="https://res.cloudinary.com/dovykh024/image/upload/v1673782311/logo_gknnjg.png"></i></a>
+                    href="https://res.cloudinary.com/dovykh024/image/upload/v1673782311/logo_gknnjg.png"></i></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -82,9 +82,6 @@
                     {% endif %}
                 </ul>
 
-                <span class="navbar-text text-muted">
-                    The best craft beer bars in Berlin!
-                </span>
                 {% if user.is_authenticated %}
 
                 <span class="navbar-text">
