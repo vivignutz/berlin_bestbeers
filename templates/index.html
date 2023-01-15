@@ -2,16 +2,6 @@
 
 {% block content %}
 
-<!--
-<div class="container-fluid">
-<div class="row">
-Blog Entries Column
-<div class="col-12 mt-3 left">
-<div class="row">
-</div>
-</div>
-</div>
-</div> -->
 
 <!-- Hero section starts here -->
 <section class="hero">
@@ -42,7 +32,7 @@ Blog Entries Column
             </div>
             <div class="col">
                 <i class="fa-solid fa-heart"></i>
-                <h3>WE LOVE BEERS</h3>
+                <h3 class="">WE LOVE BEERS</h3>
                 <hr>
                 <p>Since 2023</p>
             </div>
@@ -55,7 +45,6 @@ Blog Entries Column
         </div>
     </div>
 </section>
-
 <hr>
 
 <section>
@@ -77,7 +66,7 @@ Blog Entries Column
                                     <img class="card-img-top" src="{{ post.featured_image.url }}">
                                     {% endif %}
                                     <div class="image-flash">
-                                        <p class="author">Author: {{ post.author}}</p>>
+                                        <p class="author"> Author: {{ post.author}}</p>
                                     </div>
                                 </div>
                                 <a href="" class="post-link">
@@ -126,7 +115,6 @@ Blog Entries Column
             {{ post.number_of_likes }} &#8739; <i class="far fa-comments"></i>
             {{ post.comments.count }}
         </p>
-    </div>
     </div>
     <br>
 
