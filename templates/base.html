@@ -91,7 +91,7 @@
 
                 </div>
 
-                {{% endfor %}}
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -104,12 +104,35 @@
 
     <!-- Footer -->
     <footer class="footer mt-auto py-3 dark-bg">
-        <p class="m-0 text-center text-white">Made by Viviane Gnutzmann with <i class="fa-solid fa-heart"></i>"></p>
-        <p class="m-0 text-center text-white">Follow us:
-            <i class="fab fa-facebook-square ms-3"></i>
-            <i class="fab fa-twitter-square ms-3"></i>
-            <i class="fab fa-instagram-square ms-3"></i>
-            <i class="fab fa-youtube-square ms-3"></i></p>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3>About</h3>
+                    <hr>
+                    <p>Made by Viviane Gnutzmann with <i class="fa-solid fa-heart"></i>"></p>
+                    <p>This website is for educational purposes only</p>
+                    <a href="https://github.com/vivignutz/" target="_blank" rel="noopener"
+                        aria-label="Visit my GitHub (Opens in a new tab)" class="btn btn-signup"><i
+                            class="fa-brands fa-github"></i> Visit my GitHub</a>
+
+                    <!-- Social Networks -->
+                    <p class="m-0 text-center text-white">Follow us:
+                        <i class="fab fa-facebook-square ms-3"></i>
+                        <i class="fab fa-twitter-square ms-3"></i>
+                        <i class="fab fa-instagram-square ms-3"></i>
+                        <i class="fab fa-youtube-square ms-3"></i></p>
+                </div>
+                <div class="col d-none d-lg-block">
+                    <h3>Berlin Bestbeers Map</h3>
+                    <hr>
+
+                    <!-- Map took from https://withberlinlove.com/berlin-craft-beer/
+                        and embedded here. Credits are also at Readme. -->
+                    <iframe class="z-depth-2" title="googlemap"
+                        src="https://www.google.com/maps/d/viewer?mid=1bTDkwVh2jAzao1wn9MsPic9ksgjsrocJ&ll=52.500611839694876%2C13.392167799999978&z=11"></iframe>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- Bootstrap Script -->
