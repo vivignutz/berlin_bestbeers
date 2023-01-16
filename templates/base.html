@@ -19,6 +19,9 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
     </script>
@@ -42,14 +45,19 @@
 <body class="d-flex flex-column h-100 main-bg">
 
     <!-- Nav bar -->
-    <nav class="navbar navbar-expand-lg text-dark navbar-expand-lg bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}"><i
-                    href="https://res.cloudinary.com/dovykh024/image/upload/v1673782311/logo_gknnjg.png"></i></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="https://res.cloudinary.com/dovykh024/image/upload/v1673782311/logo_gknnjg.png"
+                    alt="bestbeers_logo" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+
 
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -134,7 +142,7 @@
                             <i style="color: #fff" class="fab fa-facebook-square ms-3"></i></a>
                         <a href="http://www.twitter.com" title="Follow us on Twitter">
                             <i style="color: #fff" class="fab fa-twitter-square ms-3"></i></a>
-                        <a href="http://www.instagram.ccom.com" title="Follow us on Instagram">
+                        <a href="http://www.instagram.com.com" title="Follow us on Instagram">
                             <i style="color: #fff" class="fab fa-instagram-square ms-3"></i></a>
                         <a href="http://www.youtube.com.com" title="Visit us on YouTube">
                             <i style="color: #fff" class="fab fa-youtube-square ms-3"></i></a>
@@ -153,8 +161,7 @@
         <hr>
 
         <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2023 Copyright:
-            <a href="/"> github.com/vivignutz</a>
+        <div class="footer-copyright text-white text-center py-3">© 2023 Copyright: all rights reserved</a>
         </div>
         <!-- Copyright -->
     </footer>
