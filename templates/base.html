@@ -61,7 +61,7 @@
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link {% if 'post/add' in request.path %} active {% endif %}"
-                            href="{% url 'post_add' %}">Add a Bar</a>
+                            href="{% url 'post_add' %}">Add a Post</a>
                     </li>
 
                     <li class="nav-item">
@@ -109,7 +109,7 @@
 
     <main class="flex-shrink-0 main-bg">
         {% block content %}
-        <!-- Content Goes here -->
+        <!-- Content of the page comes here -->
         {% endblock content %}
     </main>
 
