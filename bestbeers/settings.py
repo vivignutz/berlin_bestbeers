@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'cloudinary', # clouinary app
     'django_summernote',
     'crispy_forms',
-    'berlin_bestbeers',
+    'berlin-bestbeers',
 ]
 
 SITE_ID = 1
