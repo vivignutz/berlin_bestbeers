@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View # immport django View from django
-from .models import Post, Comment #import post views and comments
 from django.http import HttpResponseRedirect
 from django.contrib import messages #import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
+from .models import Post, Comment #import post views and comments
 from .forms import CommentForm, PostForm
 
 
