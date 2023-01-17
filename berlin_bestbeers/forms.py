@@ -30,6 +30,17 @@ class PostForm(forms.ModelForm):
             'featured_image',
             'content'
         ]
-#        widgets = {
-#            'content': SummernoteWidget(),
-#        }
+
+"""
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = "__all__"
+"""
+
+"""
+class BarReview(forms.ModelForm):
+    class Meta:
+        model = BarReview
+        fields = "__all__"
+"""

@@ -1,8 +1,6 @@
 from django.urls import path, include, path
-from . import views, PostDetail
-from posts.views import PostList, PostDetail
-from .views import *
-
+from . import views
+from .views import PostList, PostDetail
 
 
 urlpatterns = [
@@ -14,4 +12,5 @@ urlpatterns = [
 #    path('<slug:slug>/update/', views.PostUpdate.as_view(), name='post_update'),
 #    path('<slug:slug>/delete/', views.PostDelete.as_view(), name='post_delete'),
 #    path('<slug:slug>/comment-update/<int:pk>', views.CommentUpdate.as_view(), name='comment_update'),
+    path('ModelForm/', views.forms_ModelForm(), name='form_Modelform'),
 ]

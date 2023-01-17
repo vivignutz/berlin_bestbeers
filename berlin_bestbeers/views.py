@@ -109,7 +109,7 @@ class PostUpdate(LoginRequiredMixin, generic.UpdateView):
     model = Post
     template_name = 'post_update.html'
     form_class = PostForm
-    success_message = 'Post Updated'
+    success_message = 'Post updated'
 
     def form_valid(self, form):
         """Validate form after connecting form author to user"""
@@ -136,3 +136,8 @@ def handler500(request):
     Custom 500 page
     """
     return render(request, '500.html', status=500)
+
+"""
+def forms_ModelForm(request):
+    return render(request, 'forms.html')
+"""

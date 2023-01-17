@@ -1,10 +1,26 @@
 from django.db import models
-
-# Importing USER model
 from django.contrib.auth.models import User
-
-#Importing Cloudinary field for geatured image
 from cloudinary.models import CloudinaryField
+from django.urls import reverse
+#from django.template.defaultfilters import slugify
+
+"""
+# Create a tuple for user gender choice
+GENDER_CHOICES = (
+    ('m', 'Masculin'),
+    ('f', 'Feminin'),
+    ('d', 'Divers')
+)
+
+class User(models.Model):
+    name = models.CharField(max_length=30)
+    birthday = models.DateTimeField(blank=True, null=True)
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+    email = models.EmailField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+"""
 
 # Create a tuple for our status
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -74,16 +90,23 @@ class Bar(models.Model):
     name = models.CharField(max_length=150)
     address = models.CharField(max_length=250)
 
+    def __str__(self):
+        return self.bar
+
 
 class BarReview(models.Model):
     """
     Database model for bar review
     """
-    title = models.CharField()
-    content = models.TextField()
+    title = models.CharField(max_length=150)
+    content = models.TextField(max_length=600)
     created_on = models.DateTimeField()
 
     # To ensure that only admins can make bar reviews
-    bar = models.ForeignKey('Bar', on_delete=models.CASCADE)
-    author = models.ForeignKey('User', on_delete=models.CASCADE)
+    # to avoid double insertions of bar names
+    bar = models.ForeignKey(Bar, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.bar
 
