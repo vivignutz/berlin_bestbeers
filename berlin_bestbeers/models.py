@@ -24,7 +24,6 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name='blogpost_like', blank=True)
-    # currency_code = models.CharField(max_length=3)  #how to set this with € / €€ / €€€
 
     class Meta:
         """
@@ -67,3 +66,24 @@ class Comment(models.Model):
         Returns comment with body and name
         """
         return f'Comment {self.body} by {self.author}'
+
+class Bar(models.Model):
+    """
+    Database model for bar registration
+    """
+    name = models.CharField(max_length=150)
+    address = models.CharField(max_length=250)
+
+
+class BarReview(models.Model):
+    """
+    Database model for bar review
+    """
+    title = models.CharField()
+    content = models.TextField()
+    created_on = models.DateTimeField()
+
+    # To ensure that only admins can make bar reviews
+    bar = models.ForeignKey('Bar', on_delete=models.CASCADE)
+    author = models.ForeignKey('User', on_delete=models.CASCADE)
+
