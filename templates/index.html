@@ -88,8 +88,10 @@
                                 </a>
                                 <hr>
 
-                                <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
-                                    {{ post.number_of_likes }}</p>
+                                <p class="card-text text-muted h6">{{ post.created_on}}
+                                    <i class="far fa-heart"></i>
+                                    {{ post.number_of_likes }}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -107,14 +109,13 @@
             {% else %}
             <p class="card-text">{{ post.content | striptags | truncatechars:30 }}</p>
             {% endif %}
+            <hr>
         </a>
 
-        <hr>
-
         <!-- Horizontal rule for heart sign and number of likes -->
-        <p class="card-text text-muted h6">{{ post.created_on }} <i class="far fa-message"></i>
-            {{ post.number_of_likes }} &#8739; <i class="far fa-comments"></i>
-            {{ post.comments.count }}
+        <p class="card-text text-muted h6">{{ post.created_on }}
+            <i class="far fa-comments"></i>
+            {{ total_comments }}
         </p>
     </div>
     <br>
