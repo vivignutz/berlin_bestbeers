@@ -9,6 +9,7 @@ from .models import Post, Comment, Bar, BarReview #import post views and comment
 from .forms import CommentForm, PostForm
 
 
+
 class PostList(generic.ListView):
     """
     This list will display all posts in order by
