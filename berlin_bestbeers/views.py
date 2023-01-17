@@ -136,8 +136,3 @@ def handler500(request):
     Custom 500 page
     """
     return render(request, '500.html', status=500)
-
-"""
-def forms_ModelForm(request):
-    return render(request, 'forms.html')
-"""
