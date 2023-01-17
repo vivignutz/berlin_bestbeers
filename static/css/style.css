@@ -87,7 +87,7 @@ body {
 
 .hero-text h1,
 h2 {
-    font-family: "Roboto", sans-serif;
+    font-family: "Poppins", sans-serif;
     color: #ff1712;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
@@ -119,11 +119,11 @@ h2 {
 .info .col h3 {
     font-size: 3em;
     font-weight: 400;
+    font-family: "Poppins", sans-serif;
 }
 
 
 /* Blog/Post Detail */
-
 .card {
     border: none;
     background-color: transparent;
@@ -138,7 +138,7 @@ h2 {
     bottom: 5%;
     min-width: 30%;
     left: -5px;
-    background-color: #c3b75e;
+    background-color: #ffc107e0;
     padding-right: 10px;
     border-left: 5px double #F9FAFC;
 }
@@ -148,13 +148,13 @@ h2 {
     bottom: 25%;
     min-width: 20%;
     left: -5px;
-    background-color: #E84610;
+    background-color: #fe3209cb;
     padding-right: 10px;
     border-left: 5px double #F9FAFC;
 }
 
 .author {
-    color: #343a40;
+    color: #F9FAFC;
     margin: 4px;
     text-transform: uppercase;
 }
@@ -169,7 +169,7 @@ h2 {
 }
 
 .header-text {
-    background-color: #004d40;
+    background-color: #ffc107;
     color: white;
     position: relative;
 }
@@ -187,7 +187,7 @@ h2 {
     right: 90%;
     height: 100%;
     width: 150%;
-    background: #004d40;
+    background: #655115;
     -webkit-transform: skew(15deg);
     -moz-transform: skew(15deg);
     transform: skew(15deg);
@@ -205,22 +205,24 @@ h2 {
 
 .post-link {
     text-decoration: none;
-    color: #445261;
+    color: #ff1712;
 }
 
 .post-link:hover,
 .page-link {
-    color: #e86f47;
+    color: #e85332;
 }
 
 .post-title {
     margin-top: 20%;
     margin-left: 5%;
+    font-family: "Poppins", sans-serif;
 }
 
 .post-subtitle {
     margin-left: 5%;
     color: lightgray;
+    font-family: "Poppins", sans-serif;
 }
 
 .btn-signup {
@@ -235,7 +237,7 @@ h2 {
 }
 
 .link {
-    color: #235dbb;
+    color: #ff1712;
     text-decoration: none;
 }
 
