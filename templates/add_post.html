@@ -18,9 +18,6 @@
                 {% csrf_token %}
                 {{ form.featured_image | as_crispy_field }}
                 {{ form.content | as_crispy_field }}
-                <!--{% if request.user.is_superuser %}
-                {{ form.status | as_crispy_field }}
-                {% endif %}-->
 
                 {% if request.user.is_superuser %}
                 <select name="status" required>

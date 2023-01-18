@@ -81,6 +81,8 @@ class PostAdd(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
 
     def form_valid(self, form):
         """Validate form after connecting form author to user"""
+        if self.request.POST.get('status'):
+            form.instance.status = int(self.request.POST.get('status'))
         form.instance.author = self.request.user
         return super().form_valid(form)
 
