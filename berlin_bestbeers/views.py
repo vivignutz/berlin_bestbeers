@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse
-from django.views import generic, View, CreateView #Listview
+from django.views import generic, View #CreateView #Listview
 from django.http import HttpResponseRedirect
 from django.contrib import messages #import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
