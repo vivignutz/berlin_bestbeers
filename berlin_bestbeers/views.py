@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404, reverse
-from django.views import generic, View # immport django View from django
+from django.views import generic, View, CreateView #Listview
 from django.http import HttpResponseRedirect
 from django.contrib import messages #import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-from .models import Post, Comment, Bar, BarReview #import post views and comments
+from .models import Post, Comment #import post views and comments
 from .forms import CommentForm, PostForm
 
 
@@ -69,6 +69,23 @@ class PostDetail(View):
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+class PostAdd(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
+    """
+    User can add new post and get
+    message back
+    """
+    model = Post
+    template_name = 'add_post.html'
+    fields = '__all__'
+    form_class = PostForm
+    success_message = 'Post Added'
+
+    def form_valid(self, form):
+        """Validate form after connecting form author to user"""
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
 class PostLike(LoginRequiredMixin, View):
     """
     This view is to like or remove like on post
@@ -85,43 +102,6 @@ class PostLike(LoginRequiredMixin, View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
-
-class PostAdd(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
-    """
-    User can add new post and get
-    message back
-    """
-    model = Post
-    template_name = 'post_add.html'
-    form_class = PostForm
-    success_message = 'Post Added'
-
-    def form_valid(self, form):
-        """Validate form after connecting form author to user"""
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-
-class PostUpdate(LoginRequiredMixin, generic.UpdateView):
-    """
-    User can update their posts
-    and get the message tha it was successfull.
-    """
-    model = Post
-    template_name = 'post_update.html'
-    form_class = PostForm
-    success_message = 'Post updated'
-
-    def form_valid(self, form):
-        """Validate form after connecting form author to user"""
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-
-    def test_func(self):
-        """Test that logged in user is post author"""
-        post = self.get_object()
-        if self.request.user == post.author:
-            return True
-            return False
 
 
 def handler404(request, exception):
