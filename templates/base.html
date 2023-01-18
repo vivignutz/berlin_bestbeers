@@ -70,6 +70,11 @@
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
+                        <a class="nav-link {% if 'bars/list' in request.path %} active {% endif %}"
+                            href="{% url 'berlin_bestbeers' %}">Bars List</a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link {% if 'post/add' in request.path %} active {% endif %}"
                             href="{% url 'post_add' %}">Add a Post</a>
                     </li>

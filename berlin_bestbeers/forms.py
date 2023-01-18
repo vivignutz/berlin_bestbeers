@@ -1,5 +1,4 @@
 from django import forms
-#from django_summernote.widgets import SummernoteWidget
 from .models import Comment, Post
 
 
@@ -16,7 +15,7 @@ class CommentForm(forms.ModelForm):
         """Remove body label and add placeholder text"""
         super(CommentForm, self).__init__(*args, **kwargs)
         self.fields['body'].label = ''
-        self.fields['body'].widget.attrs['placeholder'] = 'Add comment...'
+        self.fields['body'].widget.attrs['placeholder'] = 'Add a comment here:'
 
 
 class PostForm(forms.ModelForm):

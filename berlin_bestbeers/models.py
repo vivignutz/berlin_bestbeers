@@ -4,13 +4,22 @@ from cloudinary.models import CloudinaryField
 from django.urls import reverse
 #from django.template.defaultfilters import slugify
 
-"""
+
+
 # Create a tuple for user gender choice
 GENDER_CHOICES = (
     ('m', 'Masculin'),
     ('f', 'Feminin'),
     ('d', 'Divers')
 )
+
+
+# Create a tuple for our status
+STATUS = (
+    (0, "Draft"),
+    (1, "Published")
+)
+
 
 class User(models.Model):
     name = models.CharField(max_length=30)
@@ -20,10 +29,7 @@ class User(models.Model):
 
     def __str__(self):
         return self.name
-"""
 
-# Create a tuple for our status
-STATUS = ((0, "Draft"), (1, "Published"))
 
 class Post(models.Model):
     """
@@ -59,6 +65,12 @@ class Post(models.Model):
         """
         return self.likes.count()
 
+        def get_absolute_url(self):
+            """
+            Returns successful post to related slug url
+            """
+            return reverse('post_detail', kwargs={'slug': self.slug})
+
 
 class Comment(models.Model):
     """
@@ -87,11 +99,14 @@ class Bar(models.Model):
     """
     Database model for bar registration
     """
-    name = models.CharField(max_length=150)
+    bar_name = models.CharField(max_length=150)
     address = models.CharField(max_length=250)
 
     def __str__(self):
-        return self.bar
+        """
+        Returns the post and name of the author
+        """
+        return f'Post {self.bar_name} by {self.author}'
 
 
 class BarReview(models.Model):
@@ -104,9 +119,12 @@ class BarReview(models.Model):
 
     # To ensure that only admins can make bar reviews
     # to avoid double insertions of bar names
-    bar = models.ForeignKey(Bar, on_delete=models.CASCADE)
+    bar_name = models.ForeignKey(Bar, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.bar
+        """
+        Returns reviewed bar by admin
+        """
+        return f'Bar Reviewed {self.bar_name} by {self.admin}'
 
