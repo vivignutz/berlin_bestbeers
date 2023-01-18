@@ -76,7 +76,6 @@ class PostAdd(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     """
     model = Post
     template_name = 'add_post.html'
-    fields = '__all__'
     form_class = PostForm
     success_message = 'Post Added'
 
