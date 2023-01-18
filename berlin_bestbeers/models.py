@@ -46,11 +46,11 @@ class Post(models.Model):
         """
         return self.likes.count()
 
-        def get_absolute_url(self):
-            """
-            Returns successful post to related slug url
-            """
-            return reverse('post_detail', kwargs={'slug': self.slug})
+    def get_absolute_url(self):
+        """
+        Returns successful post to related slug url
+        """
+        return reverse('post_detail', kwargs={'slug': self.slug})
 
 
 class Comment(models.Model):
@@ -95,7 +95,7 @@ class BarReview(models.Model):
     """
     Database model for bar review
     """
-    title = models.CharField(max_length=150)
+    #title = models.CharField(max_length=150)
     content = models.TextField(max_length=600)
     created_on = models.DateTimeField()
 

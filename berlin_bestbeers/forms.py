@@ -27,6 +27,5 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = [
             'featured_image',
-            'content',
-            'status'
+            'content'
         ]
