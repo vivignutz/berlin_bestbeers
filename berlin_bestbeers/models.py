@@ -82,6 +82,7 @@ class Bar(models.Model):
     """
     bar_name = models.CharField(max_length=150)
     address = models.CharField(max_length=250)
+    status = models.IntegerField(choices=STATUS, default=0)
 
     def __str__(self):
         """
