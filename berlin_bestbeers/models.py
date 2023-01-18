@@ -5,30 +5,11 @@ from django.urls import reverse
 #from django.template.defaultfilters import slugify
 
 
-
-# Create a tuple for user gender choice
-GENDER_CHOICES = (
-    ('m', 'Masculin'),
-    ('f', 'Feminin'),
-    ('d', 'Divers')
-)
-
-
 # Create a tuple for our status
 STATUS = (
     (0, "Draft"),
     (1, "Published")
 )
-
-
-class User(models.Model):
-    name = models.CharField(max_length=30)
-    birthday = models.DateTimeField(blank=True, null=True)
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
-    email = models.EmailField(blank=True, null=True)
-
-    def __str__(self):
-        return self.name
 
 
 class Post(models.Model):
@@ -41,7 +22,7 @@ class Post(models.Model):
         User, on_delete=models.CASCADE, related_name="blog_posts")
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
-    updated_on = models.DateTimeField(auto_now=True)
+    #updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
