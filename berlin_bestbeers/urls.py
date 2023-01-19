@@ -5,7 +5,7 @@ from .views import PostList, PostDetail, PostAdd, BarsList
 
 urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
-    path('berlin_bestbeers/', views.BarsList.as_view()),
+    #path('berlin_bestbeers/', views.BarsList.as_view()),
     path('barslist/', views.BarsList.as_view()),
     path('add_post/', views.PostAdd.as_view(), name='add_post'),
     path('post_detail/<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
