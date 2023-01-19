@@ -5,7 +5,7 @@ from .views import PostList, PostDetail, PostAdd, BarsList
 
 urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
-    path('berlin_bestbeers/', views.PostList.as_view(), name='berlin_bestbeers'),
+    path('berlin_bestbeers/', views.BarsList.as_view(), name='berlin_bestbeers'),
     path('barslist/', views.BarsList.as_view(), name='barslist'),
     path('add_post/', views.PostAdd.as_view(), name='add_post'),
     path('post_detail/<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
@@ -14,5 +14,4 @@ urlpatterns = [
 #    path('<slug:slug>/delete/', views.PostDelete.as_view(), name='post_delete'),
 #    path('<slug:slug>/comment-update/<int:pk>', views.CommentUpdate.as_view(), name='comment_update'),
 #    path('ModelForm/', views.forms_ModelForm(), name='form_Modelform'),
-
 ]
