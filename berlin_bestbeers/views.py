@@ -5,9 +5,8 @@ from django.contrib import messages #import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-from .models import Post, Comment #import post views and comments
+from .models import Post, Comment, Barslist #import post views and comments
 from .forms import CommentForm, PostForm
-
 
 
 class BarsList(generic.ListView):
@@ -20,11 +19,6 @@ class BarsList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'barslist.html'
     paginate_by = 6
-
-
-    def list(self, request, slug, *args, **kwargs):
-        list = 
-
 
 
 class PostDetail(View):
