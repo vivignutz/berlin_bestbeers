@@ -28,7 +28,7 @@ class BarsList(generic.ListView):
     posts on each page
     """
     model = Bar
-    queryset = Post.objects.filter(status=1).order_by('-created_on')
+    #queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'barslist.html'
     paginate_by = 12
 
