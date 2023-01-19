@@ -89,10 +89,6 @@ class Bar(models.Model):
         """
         return f'Bar {self.bar_name} added by {self.name}'
 
-class barlist(models.Model):
-    template_name = 'barlist.html'
-    paginate_by = 12
-
 
 class BarReview(models.Model):
     """
@@ -105,7 +101,7 @@ class BarReview(models.Model):
     # To ensure that only admins can make bar reviews
     # to avoid double insertions of bar names
     bar_name = models.ForeignKey(Bar, on_delete=models.CASCADE)
-    name = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         """
