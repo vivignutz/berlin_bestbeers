@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
-from django.views import generic, View #CreateView #Listview
+from django.views import generic, View
 from django.http import HttpResponseRedirect
-from django.contrib import messages #import messages
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
@@ -21,7 +21,7 @@ class PostList(generic.ListView):
     paginate_by = 6
 
 
-class BarsList(generic.ListView):
+class BarList(generic.ListView):
     """
     This list will display all posts in order by
     date of posting. It will be paginated by 6 blog
@@ -29,7 +29,7 @@ class BarsList(generic.ListView):
     """
     model = Bar
     #queryset = Post.objects.filter(status=1).order_by('-created_on')
-    template_name = 'barslist.html'
+    template_name = 'barlist.html'
     paginate_by = 12
 
 
