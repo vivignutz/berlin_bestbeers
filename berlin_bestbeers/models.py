@@ -89,7 +89,6 @@ class Bar(models.Model):
         """
         return f'Bar {self.bar_name} added by {self.name}'
 
-
 class BarReview(models.Model):
     """
     Database model for bar review
@@ -108,4 +107,3 @@ class BarReview(models.Model):
         Returns reviewed bar by admin
         """
         return f'Bar {self.bar_name} reviewed by admin.'
-
