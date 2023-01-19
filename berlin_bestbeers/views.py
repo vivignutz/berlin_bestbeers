@@ -5,7 +5,7 @@ from django.contrib import messages #import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-from .models import Post, Comment, barslist
+from .models import Post, Comment, BarsList
 from .forms import CommentForm, PostForm
 
 
@@ -15,7 +15,7 @@ class BarsList(generic.ListView):
     date of posting. It will be paginated by 6 blog
     posts on each page
     """
-    model = barslist
+    model = Bars
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'barslist.html'
     paginate_by = 6

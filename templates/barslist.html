@@ -14,26 +14,25 @@
                             <div class="image-container">
                                 {% if 'placeholder' in post.featured_image.url %}
                                 <!-- Display placeholder photos based on last bars posts -->
-                                {% if post.get_location_display == 'Alsterån' %}
+                                {% if post.get_location_display == 'xxxx' %}
                                 <img class="card-img-top"
                                     src="https://res.cloudinary.com/dwe8qxpnf/image/upload/v1658740641/alsteran_cdqutx.jpg"
-                                    alt="Image of Alsterån">
-                                {% elif post.get_location_display == 'Hällesjön' %}
+                                    alt="Image of location">
+                                {% elif post.get_location_display == 'xxxx' %}
                                 <img class="card-img-top"
                                     src="https://res.cloudinary.com/dwe8qxpnf/image/upload/v1658740653/hallesjon_pjqigq.jpg"
-                                    alt="Image of Hällesjön">
-                                {% elif post.get_location_display == 'Isgölen' %}
+                                    alt="Image of location">
+                                {% elif post.get_location_display == 'xxxx' %}
                                 <img class="card-img-top"
                                     src="https://res.cloudinary.com/dwe8qxpnf/image/upload/v1658740665/isgolen_px9qtt.jpg"
-                                    alt="Image of Isgölen">
+                                    alt="Image of xxxxx">
                                 {% else %}
                                 <img class="card-img-top"
                                     src="https://res.cloudinary.com/dwe8qxpnf/image/upload/v1658740684/other_nl9yv8.jpg"
-                                    alt="Image of random fishing location">
+                                    alt="Image of location">
                                 {% endif %}
                                 {% else %}
-                                <img class="card-img-top" src=" {{ post.featured_image.url }}"
-                                    alt="Uploaded fishing image">
+                                <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="Uploaded image">
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="author">Author: {{ post.author }}</p>
