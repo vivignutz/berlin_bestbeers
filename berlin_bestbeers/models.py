@@ -89,6 +89,11 @@ class Bar(models.Model):
         """
         return f'Bar {self.bar_name} added by {self.name}'
 
+class barlist(models.Model):
+    template_name = 'barlist.html'
+    paginate_by = 12
+
+
 class BarReview(models.Model):
     """
     Database model for bar review

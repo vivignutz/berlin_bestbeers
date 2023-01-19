@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-from .models import Post, Comment, BarReview, Bar
+from .models import Post, Comment, BarReview, Bar, BarList
 from .forms import CommentForm, PostForm
 
 
