@@ -57,8 +57,6 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-
-
             <div class="collapse navbar-collapse" id="navbarText">
 
                 <!-- navbar items to te right side -->
@@ -71,7 +69,7 @@
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link {% if 'bars/list' in request.path %} active {% endif %}"
-                            href="{% url 'berlin_bestbeers' %}">Bars List</a>
+                            href="{% url 'barslist' %}">Bars List</a>
                     </li>
 
                     <li class="nav-item">
@@ -84,6 +82,11 @@
                             href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
+
+                    <li class="nav-item">
+                        <a class="nav-link {% if 'bars/list' in request.path %} active {% endif %}"
+                            href="{% url 'barslist' %}">Bars List</a>
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link {% if 'signup' in request.path %} active {% endif %}"
@@ -121,7 +124,6 @@
         </div>
     </div>
 
-
     <main class="flex-shrink-0 main-bg">
         {% block content %}
         <!-- Content of the page comes here -->
@@ -141,8 +143,8 @@
                     <a href="https://github.com/vivignutz/" target="_blank" rel="noopener"
                         aria-label="Visit my GitHub (Opens in a new tab)" class="btn btn-signup"><i
                             class="fa-brands fa-github"></i> Visit my GitHub</a>
-
                     <hr>
+
                     <!-- Social Networks -->
                     <p class="m-0 text-links text-white">Follow us:
                         <a href="http://www.facebook.com" title="Find us on Facebook">
@@ -174,6 +176,9 @@
     </footer>
 
     <!-- Bootstrap Script -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
     </script>

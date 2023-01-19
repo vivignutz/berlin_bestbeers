@@ -20,10 +20,9 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts")
+    content = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
-    #updated_on = models.DateTimeField(auto_now=True)
-    content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name='blogpost_like', blank=True)
@@ -74,21 +73,21 @@ class Comment(models.Model):
         """
         Returns comment with body and name
         """
-        return f'Comment {self.body} by {self.author}'
+        return f'Comment {self.body} by {self.name}'
 
 class Bar(models.Model):
     """
     Database model for bar registration
     """
-    bar_name = models.CharField(max_length=150)
-    address = models.CharField(max_length=250)
+    bar_name = models.CharField(max_length=100)
+    address = models.CharField(max_length=400)
     status = models.IntegerField(choices=STATUS, default=0)
 
     def __str__(self):
         """
         Returns the post and name of the author
         """
-        return f'Post {self.bar_name} by {self.author}'
+        return f'Bar {self.bar_name} added by {self.name}'
 
 
 class BarReview(models.Model):
@@ -102,11 +101,11 @@ class BarReview(models.Model):
     # To ensure that only admins can make bar reviews
     # to avoid double insertions of bar names
     bar_name = models.ForeignKey(Bar, on_delete=models.CASCADE)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         """
         Returns reviewed bar by admin
         """
-        return f'Bar Reviewed {self.bar_name} by {self.admin}'
+        return f'Bar {self.bar_name} reviewed by admin.'
 

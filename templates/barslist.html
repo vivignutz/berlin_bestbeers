@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+                {% for post in post_list %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="image-container">
+                                {% if 'placeholder' in post.featured_image.url %}
+                                <!-- Display placeholder photos based on last bars posts -->
+                                {% if post.get_location_display == 'Alsterån' %}
+                                <img class="card-img-top"
+                                    src="https://res.cloudinary.com/dwe8qxpnf/image/upload/v1658740641/alsteran_cdqutx.jpg"
+                                    alt="Image of Alsterån">
+                                {% elif post.get_location_display == 'Hällesjön' %}
+                                <img class="card-img-top"
+                                    src="https://res.cloudinary.com/dwe8qxpnf/image/upload/v1658740653/hallesjon_pjqigq.jpg"
+                                    alt="Image of Hällesjön">
+                                {% elif post.get_location_display == 'Isgölen' %}
+                                <img class="card-img-top"
+                                    src="https://res.cloudinary.com/dwe8qxpnf/image/upload/v1658740665/isgolen_px9qtt.jpg"
+                                    alt="Image of Isgölen">
+                                {% else %}
+                                <img class="card-img-top"
+                                    src="https://res.cloudinary.com/dwe8qxpnf/image/upload/v1658740684/other_nl9yv8.jpg"
+                                    alt="Image of random fishing location">
+                                {% endif %}
+                                {% else %}
+                                <img class="card-img-top" src=" {{ post.featured_image.url }}"
+                                    alt="Uploaded fishing image">
+                                {% endif %}
+                                <div class="image-flash">
+                                    <p class="author">Author: {{ post.author }}</p>
+                                </div>
+                            </div>
+                            <a href="{% url 'post_detail' post.slug  %}" class="post-link">
+                                <p class="card-text h6 mt-2">
+
+                                </p>
+                                <h2 class="card-title mt-4">{{ post.title | truncatechars:40 }}</h2>
+                                <!-- Display post content, 30 characters and appends an ellipsis if no excerpt provided -->
+                                {% if post.excerpt %}
+                                <p class="card-text">{{ post.excerpt }}</p>
+                                {% else %}
+                                <p class="card-text">{{ post.content | striptags | truncatechars:30 }}</p>
+                                {% endif %}
+                            </a>
+                            <hr>
+                            <p class="card-text text-muted h6">{{ post.created_on }} <i class="far fa-heart"></i>
+                                {{ post.number_of_likes }} &#8739; <i class="far fa-comments"></i>
+                                {{ post.comments.count }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link btn-signup">&laquo; PREV </a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link btn-signup"> NEXT &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -10,16 +10,22 @@ from .forms import CommentForm, PostForm
 
 
 
-class PostList(generic.ListView):
+class BarsList(generic.ListView):
     """
     This list will display all posts in order by
     date of posting. It will be paginated by 6 blog
     posts on each page
     """
-    model = Post
+    model = Barslist
     queryset = Post.objects.filter(status=1).order_by('-created_on')
-    template_name = 'index.html'
+    template_name = 'barslist.html'
     paginate_by = 6
+
+
+    def list(self, request, slug, *args, **kwargs):
+        list = 
+
+
 
 class PostDetail(View):
     """
