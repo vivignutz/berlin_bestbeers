@@ -28,6 +28,7 @@ class PostForm(forms.ModelForm):
         fields = [
             'title',
             'author',
-            'featured_image',
             'content',
+            'excerpt',
+            'featured_image',
         ]
