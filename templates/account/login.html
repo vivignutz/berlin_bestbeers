@@ -2,7 +2,11 @@
 
 {% load i18n %}
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block head_title %}
+
+{% trans "Sign In" %}
+
+{% endblock %}
 
 {% block content %}
 
@@ -13,8 +17,8 @@
 
     <p>
       {% blocktrans %}
-      Welcome to Berlin Besbeers! Do you already have an account? Then please
-      "<a class="link" href="{{ sign_in }}">login</a> instead.
+      Welcome to Berlin Besbeers! Don't you have an account? Then please
+      <a class="link" href="{{ account_signup }}">signup</a> instead.
       {% endblocktrans %}
     </p>
 

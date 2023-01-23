@@ -2,7 +2,11 @@
 
 {% load i18n %}
 
-{% block head_title %}{% trans "Signup" %}{% endblock %}
+{% block head_title %}
+
+% trans "Signup" %}
+
+{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -13,7 +17,7 @@
       <p>
         {% blocktrans %}
         Welcome back to Berlin Bestbeers! Do you already have an account? Then please
-        "<a href="{{ login_url }}">signin</a> instead.
+        <a href="{{ account_login }}">signin</a> instead.
         {% endblocktrans %}
       </p>
     </div>
