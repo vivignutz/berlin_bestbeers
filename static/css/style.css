@@ -64,15 +64,20 @@ body {
 /* Hero */
 .hero {
     background-image: url("https://res.cloudinary.com/dovykh024/image/upload/v1673867369/background_hero_upxrjb.png");
-    background-repeat: no-repeat;
+    background-image: no-repeat;
     background-position: bottom;
-    background-size: 100% 100%;
+    background-size: 100%;
     background-attachment: fixed;
     background-size: cover;
 }
 
+.hero .col .h1 {
+    position: absolute;
+}
+
 .hero-text {
     min-height: 60vh;
+    font-weight: 400;
 }
 
 .hero-text h1 {
@@ -90,6 +95,7 @@ h2 {
     font-family: "Poppins", sans-serif;
     color: #ff1712;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    position: static;
 }
 
 .section {
@@ -235,8 +241,9 @@ h2 {
 
 .btn-signup:hover,
 .btn-signup:active {
-    background-color: #fff;
+    background-color: #ffc107;
     color: #343a40;
+    position: center;
 }
 
 .link {
@@ -287,7 +294,7 @@ footer p {
 
 @media screen and (max-width: 1780px) {
     .hero-text h1 {
-        font-size: 5em;
+        font-size: 8em;
     }
 }
 

@@ -18,7 +18,8 @@ class PostAdmin(SummernoteModelAdmin):
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     """
-    Comment model for admin pannel
+    Comment model for admin pannel.
+    All comments have to be reviewed by admin
     """
     list_display = ('name', 'body', 'post', 'created_on', 'approved')
     list_filter = ('approved', 'created_on')
@@ -26,5 +27,7 @@ class CommentAdmin(admin.ModelAdmin):
     actions = ['approve_comments']
 
     def approve_comments(self, request, queryset):
-        """Approve user comments"""
+        """
+        Approve user comments method
+        """
         queryset.update(approved=True)

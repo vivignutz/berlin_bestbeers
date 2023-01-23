@@ -11,36 +11,36 @@ from .forms import CommentForm, PostForm
 
 class PostList(generic.ListView):
     """
-    This list will display all posts in order by
-    date of posting. It will be paginated by 6 blog
-    posts on each page
+    This list will display the last 3 bars posted
+    in order by date of posting. It will be
+    paginated by 3 posts on the home page
     """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
-    paginate_by = 6
+    paginate_by = 3
 
 
 class BarList(generic.ListView):
     """
-    This list will display all posts in order by
-    date of posting. It will be paginated by 6 blog
+    This list will display all bars posted by
+    user. It will be paginated by 6 blog
     posts on each page
     """
     model = Bar
-    #queryset = Post.objects.filter(status=1).order_by('-created_on')
+    #queryset = Post.objects.filter(status=1).order_by('-calreated_on')
     template_name = 'barlist.html'
     paginate_by = 12
 
 
 class PostDetail(View):
     """
-    View of each posts on a single blog page.
+    View of each posts on a single page.
     Comment and/or like can be included as well.
     """
     def get(self, request, slug, *args, **kwargs):
         """
-        Used GET method to recover post details including
+        GET method was used to recover post details including
         comments and likes and render post detail page
         """
         queryset = Post.objects.filter(status=1)
