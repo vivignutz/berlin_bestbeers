@@ -21,9 +21,8 @@
                 {{ form.content | as_crispy_field }}
                 {{ form.excerpt | as_crispy_field }}
                 {{ form.featured_image | as_crispy_field }}
-                {{ form.author | as_crispy_field }}
-                {% if request.user.is_superuser %}
 
+                {% if request.user.is_superuser %}
                 <select name="status" required>
                     <option value="0" selected>Draft</option>
                     <option value="1">Published</option>
