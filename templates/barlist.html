@@ -7,7 +7,7 @@
         <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
-                {% for post in post_list %}
+                {% for post in bar_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
@@ -17,11 +17,11 @@
                                 {% if post.get_location_display == 'xxxx' %}
                                 <img class="card-img-top"
                                     src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
-                                    alt="Image of location">
+                                    alt="Image of xxxxxx">
                                 {% elif post.get_location_display == 'xxxx' %}
                                 <img class="card-img-top"
                                     src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
-                                    alt="Image of location">
+                                    alt="Image of xxxxxx">
                                 {% elif post.get_location_display == 'xxxx' %}
                                 <img class="card-img-top"
                                     src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
@@ -29,7 +29,7 @@
                                 {% else %}
                                 <img class="card-img-top"
                                     src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
-                                    alt="Image of location">
+                                    alt="Image of xxxxxx">
                                 {% endif %}
                                 {% else %}
                                 <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="Uploaded image">
@@ -38,7 +38,7 @@
                                     <p class="author">Author: {{ post.author }}</p>
                                 </div>
                             </div>
-                            <a href="{% url 'post_detail' post.slug  %}" class="post-link">
+                            <a href="{% url 'bar_list' bar.slug  %}" class="post-link">
                                 <p class="card-text h6 mt-2">
 
                                 </p>
