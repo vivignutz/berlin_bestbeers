@@ -234,13 +234,19 @@ h2 {
     font-family: "Poppins", sans-serif;
 }
 
-.btn-signup {
+.btn-signup,
+.btn-del,
+.btn-sec {
     background-color: #343a40;
     color: #fff;
 }
 
 .btn-signup:hover,
-.btn-signup:active {
+.btn-signup:active,
+.btn-sec:hover,
+.btn-sec:active,
+.btn-del:hover,
+.btn-del:active {
     background-color: #ffc107;
     color: #343a40;
 }
