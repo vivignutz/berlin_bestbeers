@@ -17,14 +17,14 @@ body {
 .navbar-brand {
     display: flex;
     align-items: center;
-    font-size: 2em;
+    font-size: 1.5em;
     padding: 0;
 }
 
 .navbar-brand i {
-    font-size: 1.4em;
+
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: 20px;
     padding: 10px;
 }
 
