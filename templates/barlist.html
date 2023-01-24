@@ -4,15 +4,13 @@
 
 
 
-
-
 <div class="container-fluid">
     <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
                 <h1> {{ bar_list }} </h1>
-                {% for post in bar_list %}
+                {% for post in post_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
@@ -43,7 +41,7 @@
                                     <p class="author">Author: {{ post.author }}</p>
                                 </div>
                             </div>
-                            <a href="{% url 'bar_list' bar.slug  %}" class="post-link">
+                            <a href="{% url 'post_detail' post.slug  %}" class="post-link">
                                 <p class="card-text h6 mt-2">
 
                                 </p>

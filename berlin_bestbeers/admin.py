@@ -32,4 +32,7 @@ class CommentAdmin(admin.ModelAdmin):
         """
         queryset.update(approved=True)
 
-admin.site.register(Bar)
+# This feature of Bar list with addresses
+# like a guide will be implemented in
+# a near future.
+#admin.site.register(Bar)

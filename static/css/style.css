@@ -21,6 +21,10 @@ body {
     padding: 0;
 }
 
+.blogname {
+    font-family: 'Cabin Sketch', sans-serif;
+}
+
 .navbar-brand i {
 
     border-radius: 50%;
