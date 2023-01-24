@@ -251,6 +251,11 @@ h2 {
     color: #343a40;
 }
 
+.btn-git {
+    background-color: transparent;
+    color: aliceblue;
+}
+
 .link {
     color: #ff1712;
     text-decoration: none;
