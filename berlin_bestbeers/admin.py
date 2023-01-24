@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment
+from .models import Post, Comment, Bar
 from django_summernote.admin import SummernoteModelAdmin
 #from crispy import berlin_bestbeers
 
@@ -31,3 +31,5 @@ class CommentAdmin(admin.ModelAdmin):
         Approve user comments method
         """
         queryset.update(approved=True)
+
+admin.site.register(Bar)

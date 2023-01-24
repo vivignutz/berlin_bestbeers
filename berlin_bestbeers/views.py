@@ -11,9 +11,9 @@ from .forms import CommentForm, PostForm
 
 class PostList(generic.ListView):
     """
-    This list will display the last 3 bars posted
-    in order by date of posting. It will be
-    paginated by 3 posts on the home page
+    This list will display the last 6 bars posted
+    in order by date of posting. It will shown
+    at the home page.
     """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
@@ -23,14 +23,27 @@ class PostList(generic.ListView):
 
 class BarList(generic.ListView):
     """
+    This list will displayed a list of all bars
+    posted by the users and approved by the
+    admin in order of date of posting.
+    """
+    model = Post
+    queryset = Post.objects.filter(status=1).order_by('-created_on')
+    template_name = 'barlist.html'
+    paginate_by = 12
+
+
+#class Bars(generic.ListView):
+    """
+    *** This feature will be implemented in the future ***
     This list will display all bars posted by
     user. It will be paginated by 6 blog
     posts on each page
     """
-    model = Bar
-    queryset = Post.objects.filter(status=1).order_by('-created_on')
-    template_name = 'barlist.html'
-    paginate_by = 12
+#    model = Bar
+#    queryset = Post.objects.filter(status=1).order_by('-created_on')
+#    template_name = 'barlist.html'
+#   paginate_by = 12
 
 
 class PostDetail(View):
