@@ -67,12 +67,12 @@
                         <a class="nav-link {% if '/' == request.path %} active {% endif %}" aria-current="page"
                             href="{% url 'home' %}">Home</a>
                     </li>
-                    {% if user.is_authenticated %}
+
                     <li class="nav-item">
-                        <a class="nav-link {% if 'bars/list' in request.path %} active {% endif %}"
+                        <a class="nav-link {% if 'barlist' in request.path %} active {% endif %}"
                             href="{% url 'barlist' %}">Bars List</a>
                     </li>
-
+                    {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link {% if 'post/add' in request.path %} active {% endif %}"
                             href="{% url 'add_post' %}">Add a Post</a>
@@ -83,11 +83,6 @@
                             href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
-
-                    <li class="nav-item">
-                        <a class="nav-link {% if 'bars/list' in request.path %} active {% endif %}"
-                            href="{% url 'barlist' %}">Bars List</a>
-                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link {% if 'signup' in request.path %} active {% endif %}"

@@ -69,24 +69,27 @@ body {
     background-size: 100%;
     background-attachment: fixed;
     background-size: cover;
+    width: 100%;
 }
 
-.hero .col .h1 {
+/*.hero .col .h1 {
     position: absolute;
-}
+}*/
 
 .hero-text {
     min-height: 60vh;
-    font-weight: 400;
+    font-weight: 600;
+    text-align: center;
 }
 
 .hero-text h1 {
     font-size: 5em;
-    font-weight: 600;
+    font-weight: 500;
 
 }
 
 .hero-text h2 {
+    font-family: "Poppins", sans-serif;
     font-size: 3em;
 }
 
@@ -304,7 +307,7 @@ footer p {
 
 @media screen and (max-width: 1780px) {
     .hero-text h1 {
-        font-size: 8em;
+        font-size: 6em;
     }
 }
 
