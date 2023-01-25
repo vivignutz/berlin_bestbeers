@@ -107,6 +107,7 @@
                     Your comment is awaiting approval
                 </div>
                 {% else %}
+
                 {% if user.is_authenticated %}
 
                 <h3>Leave a comment:</h3>
@@ -116,6 +117,7 @@
                     {% csrf_token %}
                     <button type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>
+
                 {% endif %}
                 {% endif %}
             </div>
