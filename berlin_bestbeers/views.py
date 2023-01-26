@@ -56,8 +56,8 @@ class PostDetail(View):
         GET method was used to recover post details including
         comments and likes and render post detail page
         """
-        get_object_or_404(Post, slug=slug)
-        if (Post.status == 0) and (Post.author != request.user):
+        post = get_object_or_404(Post, slug=slug)
+        if (post.status == 0) and (post.author != request.user):
             raise Http404("Post not found.")
         #queryset = Post.objects.filter(status=1)
         #post = get_object_or_404(queryset, slug=slug)
