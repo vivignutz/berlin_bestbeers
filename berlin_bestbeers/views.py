@@ -56,12 +56,12 @@ class PostDetail(View):
         GET method was used to recover post details including
         comments and likes and render post detail page
         """
-        post = get_object_or_404(slug=slug)
-        if (post.status == 0) and (post.author != request.user):
+        get_object_or_404(Post, slug=slug)
+        if (Post.status == 0) and (Post.author != request.user):
             raise Http404("Post not found.")
         #queryset = Post.objects.filter(status=1)
         #post = get_object_or_404(queryset, slug=slug)
-        comments = post.comments.filter(approved=True).order_by('-created_on')
+        comments = Post.comments.filter(approved=True).order_by('-created_on')
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
