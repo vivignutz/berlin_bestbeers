@@ -11,9 +11,8 @@ from .forms import CommentForm, PostForm
 
 class PostList(generic.ListView):
     """
-    This list will display the last 6 bars posted
-    in order by date of posting. It will shown
-    at the home page.
+    This list will display the home page with the
+    6 bars posted in order by date of posting.
     """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
@@ -23,9 +22,9 @@ class PostList(generic.ListView):
 
 class BarList(generic.ListView):
     """
-    This list will displayed a list of all bars
-    posted by the users and approved by the
-    admin in order of date of posting.
+    This list will displayed a list of all
+    bars or posts posted by the users and
+    approved by the admin.
     """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
@@ -37,8 +36,8 @@ class BarList(generic.ListView):
     """
     *** This feature will be implemented in the future ***
     This list will display all bars posted by
-    user. It will be paginated by 6 blog
-    posts on each page
+    the users in form of a list, but only the
+    name of the posts without the image.
     """
 #    model = Bar
 #    queryset = Post.objects.filter(status=1).order_by('-created_on')

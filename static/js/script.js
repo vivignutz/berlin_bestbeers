@@ -6,8 +6,5 @@ function removeAlerts() {
         let messages = document.getElementById('msg');
         let alert = new bootstrap.Alert(messages);
         alert.close();
-    }, 2500);
+    }, 3000);
 }
-
-// Used when testing with Jest
-// module.exports = removeAlerts;
