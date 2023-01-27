@@ -58,7 +58,7 @@ class PostDetail(View):
         post = get_object_or_404(Post, slug=slug)
         if (post.status == 0) and (post.author != request.user):
             raise Http404("Post not found.")
-        queryset = post.comments.filter(status=1)
+#        queryset = post.comments.filter(status=1)
         comments = post.comments.filter(approved=True).order_by('-created_on')
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
@@ -112,6 +112,31 @@ class PostAdd(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+class PostUpdate(LoginRequiredMixin,
+                 SuccessMessageMixin,
+                 UserPassesTestMixin,
+                 generic.UpdateView):
+    """
+    This view allows all users to update their posts
+    published or not. A feedback message will be
+    displayed when the update is ready.
+    """
+    model = Post
+    template_name = 'update_post.html'
+    form_class = PostForm
+    success_message = 'Post updated successfully!'
+
+    def form_valid(self, form):
+        """Validate form after connecting form author to user"""
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        """Test that logged in user is post author"""
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
 
 class PostLike(LoginRequiredMixin, View):
     """
