@@ -113,30 +113,30 @@ class PostAdd(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
         return super().form_valid(form)
 
 class PostUpdate(LoginRequiredMixin,
-                 SuccessMessageMixin,
-                 UserPassesTestMixin,
-                 generic.UpdateView):
+                SuccessMessageMixin,
+                generic.UpdateView):
     """
     This view allows all users to update their posts
     published or not. A feedback message will be
     displayed when the update is ready.
     """
     model = Post
+    fields: ['title', 'content', 'excerpt', 'featured_image']
     template_name = 'update_post.html'
-    form_class = PostForm
     success_message = 'Post updated successfully!'
 
-    def form_valid(self, form):
-        """Validate form after connecting form author to user"""
-        form.instance.author = self.request.user
-        return super().form_valid(form)
+    def post_update(request,  slug=slug):
+        post = get_object_or_404(post, slug=slug) # id do post
+        form = PostsForm(request.POST or None, request.FILES or None, instance=post) # pega as informações do form
 
-    def test_func(self):
-        """Test that logged in user is post author"""
-        post = self.get_object()
-        if self.request.user == post.author:
-            return True
-        return False
+    if form.is_valid(): # se for valido
+        form.save() # salva
+
+        messages.warning(request, 'Post updated successfully!') # mensagem quando cria o post
+        return HttpResponseRedirect(reverse('post_detail', args=[post.id])) # coloquei para retornar post-list
+
+        return render(request, 'post_detail.html', {"form": form}) # nesse template
+
 
 class PostLike(LoginRequiredMixin, View):
     """
