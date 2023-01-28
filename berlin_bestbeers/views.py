@@ -112,7 +112,7 @@ class PostUpdate(LoginRequiredMixin,
     template_name = 'update_post.html'
     success_message = 'Post updated successfully!'
 
-    def post_update(Post,  slug):
+    def update_post(Post,  slug):
         post = get_object_or_404(post, slug=slug) # id do post
         form = PostsForm(request.POST or None, request.FILES or None, instance=post) # pega as informações do form
 
