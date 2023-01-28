@@ -11,9 +11,12 @@
                 <!-- H2 for Post title -->
                 <h1 class="post-title">{{ post.title }}</h1>
                 <!-- Post author first and then the creation's date -->
-                <p class="post-subtitle"><small>By: {{ post.author }} | {{ post.created_on }} - <a
-                            href="{% url 'update_post' post.slug %}">(Edit)</a></small><br /></p>
+                <p class="post-subtitle">
+                    <small>By: {{ post.author }} | {{ post.created_on }} </small>
+                    <br />
+                </p>
             </div>
+
             <div class="d-none d-md-block col-md-6 header-image">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
@@ -27,25 +30,40 @@
     </div>
 </div>
 
+{% if request.user == post.author %}
+<!--<a href="{% url 'update_post' post.slug %}">(Edit)</a>
+<a href="{% url 'delete_post' post.slug %}">(Delete)</a>-->
+<div class="container">
+    <div class="row">
+        <div class="col-xl-4 offset-xl-8">
+            <a href="{% url 'post_update' post.slug %}" class="btn btn-signup m-1">
+                <i class="fa fa-edit"></i> Edit this post</a>
+            <!-- Button trigger Post Delete modal -->
+            <button type="button" class="btn btn-del m-1" data-toggle="modal" data-target="#postModal">
+                <i class="fa fa-trash"></i> Delete Post</button>
+        </div>
+    </div>
+</div>
+{% endif %}
+
 <div class="container">
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
-                <!-- The post content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text ">
                     {{ post.content | safe }}
                 </p>
 
                 <div class="row">
-                    <div class="col-1">
+                    <div class="col col-md-1">
                         <strong>
                             {% if user.is_authenticated %}
                             <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
                                 {% csrf_token %}
                                 {% if liked %}
 
-                                <!-- like and dislike buttons of post detail -->
+                                <!-- like and dislike buttons of each post -->
                                 <button type="submit" name="blogspot_id" value="{{post.slug}}" class="btn-like">
                                     <i class="fas fa-heart"></i>
                                 </button>
@@ -57,7 +75,7 @@
                             </form>
                             {% else %}
 
-                            <!-- for non-authenticated users -->
+                            <!-- Mon-authenticated users can slo like posts -->
                             <span class="text-secondary"><i class="far fa-heart"></i></span>
                             {% endif %}
 
@@ -66,11 +84,13 @@
                         </strong>
                     </div>
 
-                    <div class="col-1">
+                    <div class="col col-md-1">
+                        <!-- To show the numbers of comments on each post -->
                         {% with comments.count as total_comments %}
                         <strong class="text-secondary"><i class="far fa-comments"></i>
-                            <!-- The total_comments variable goes before the closing strong tag -->
-                            {{ total_comments }}</strong>
+                            <!-- The total comments variable goes before the closing strong tag -->
+                            {{ total_comments }}
+                        </strong>
                         {% endwith %}
                     </div>
                 </div>
@@ -80,9 +100,9 @@
 
     <div class="row">
         <div class="col-md card mb-4 mt-3">
-            <h3>Comments:</h3>
+            <h2>Comments:</h2>
             <div class="card-body">
-                <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
+                <!-- The forloop inside the empty control tags to iterate through each comment in comments -->
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">

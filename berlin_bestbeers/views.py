@@ -119,10 +119,37 @@ class PostUpdate(LoginRequiredMixin,
         if form.is_valid(): # se for valido
             form.save() # salva
 
-            messages.warning(request, 'Post updated successfully!') # mensagem quando cria o post
-            return HttpResponseRedirect(reverse('post_detail', args=[post.slug])) # coloquei para retornar post-list
+            messages.warning(request, 'Post updated successfully!')
+            return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
 
-        return render(request, 'post_detail.html', {'form': form}) # nesse template
+        # page returns to this template:
+        return render(request, 'post_detail.html', {'form': form})
+
+class PostDelete(LoginRequiredMixin,
+                SuccessMessageMixin,
+                UserPassesTestMixin,
+                generic.DeleteView):
+    """
+    This view allows users to delete their own blog post
+    on the post_detail page. A feedback message will be
+    displayed.
+    """
+    model = Post
+    template_name = 'delete_post.html'
+    success_url = reverse_lazy('berlin_bestbeers')
+    success_message = 'Post Deleted!'
+
+    def delete(self, request, *args, **kwargs):
+        """Generate success message on delete view"""
+        messages.success(self.request, self.success_message)
+        return super(PostDelete, self).delete(request, *args, **kwargs)
+
+    def test_func(self):
+        """Test that logged in user is post author"""
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
 
 
 class PostLike(LoginRequiredMixin, View):
