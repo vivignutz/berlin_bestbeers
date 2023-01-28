@@ -77,7 +77,8 @@
                                     </div>
                                     {% endif %}
                                     <div class="image-flash">
-                                        <p class="author">Author: {{ post.author }}</p>
+                                        <p class="author">Author: {{ post.author }} - <small><a
+                                                    href="{% url 'update_post' post.slug %}">(Edit)</a></small> </p>
                                     </div>
                                 </div>
                                 <a href="{% url 'post_detail' post.slug %}" class="post-link">

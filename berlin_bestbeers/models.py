@@ -39,7 +39,7 @@ class Post(models.Model):
         """
         Returns a string representation of an object
         """
-        return self.title
+        return self.title + ' | ' + str(self.author)
 
     def number_of_likes(self):
         """

@@ -9,13 +9,15 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
-            <h3>Update:</h3>
-            <p>Update your posted Bar!</p>
+            <h3>Edit Post:</h3>
+            <p>Edit your posted Bar!</p>
         </div>
     </div>
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
             <form method="POST" enctype="multipart/form-data">
+                <!-- multipart as form-data to encode the data
+                    that forms the body of the request -->
                 {% csrf_token %}
                 {{ form | crispy }}
                 <br>
