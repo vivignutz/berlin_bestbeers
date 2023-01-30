@@ -31,12 +31,11 @@
 </div>
 
 {% if request.user == post.author %}
-<!--<a href="{% url 'update_post' post.slug %}">(Edit)</a>
-<a href="{% url 'delete_post' post.slug %}">(Delete)</a>-->
+
 <div class="container">
     <div class="row">
         <div class="col-xl-4 offset-xl-8">
-            <a href="{% url 'post_update' post.slug %}" class="btn btn-signup m-1">
+            <a href="{% url 'update_post' post.slug %}" class="btn btn-signup m-1">
                 <i class="fa fa-edit"></i> Edit this post</a>
             <!-- Button trigger Post Delete modal -->
             <button type="button" class="btn btn-del m-1" data-toggle="modal" data-target="#postModal">
