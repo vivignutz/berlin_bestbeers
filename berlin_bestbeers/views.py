@@ -128,7 +128,7 @@ class PostUpdate(LoginRequiredMixin,
             return self.render_to_response(self.get_context_data(form=form))
 
     def get_success_url(self):
-        return reverse_lazy('berlin_bestbeers:home')
+        return reverse_lazy('home')
 
 
 #    def update_post(Post,  slug):
