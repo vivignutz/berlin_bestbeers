@@ -6,7 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from .models import Post, Comment
-from .forms import CommentForm, PostForm
+from .forms import CommentForm, PostForm, PostModelForm
 
 
 class HomeView(generic.ListView):
@@ -101,29 +101,49 @@ class AddPost(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
 
 class PostUpdate(LoginRequiredMixin,
                 SuccessMessageMixin,
-                generic.UpdateView):
+                generic.UpdateView,
+                PostModelFormView):
     """
     This view allows all users to update their posts
     published or not. A feedback message will be
     displayed when the update is ready.
     """
     model = Post
-    fields: ['title', 'slug', 'content', 'excerpt', 'featured_image']
+    form_class = PostForm
     template_name = 'update_post.html'
     success_message = 'Post updated successfully!'
 
-    def update_post(Post,  slug):
-        post = get_object_or_404(post, slug=slug) # id do post
-        form = PostsForm(request.POST or None, request.FILES or None, instance=post) # pega as informações do form
+    def get_object(self):
+        return get_object_or_404(Post, slug=self.kwargs.get('slug'))
 
-        if form.is_valid(): # se for valido
-            form.save() # salva
+    def form_valid(self, form):
+        super(PostUpdate, self).form_valid(form)
+        self.object = self.get_object()
+        if self.request.user == self.object.author:
+            form = form.save(commit=False)
+            form.save()
+            messages.info(self.request, "Post Updated")
+            return HttpResponseRedirect(self.get_success_url())
+        else:
+            messages.error(self.request, "You can't update this post!")
+            return self.render_to_response(self.get_context_data(form=form))
 
-            messages.warning(request, 'Post updated successfully!')
-            return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
+    def get_success_url(self):
+        return reverse_lazy('berlin_bestbeers:home')
+
+
+#    def update_post(Post,  slug):
+#        post = get_object_or_404(post, slug=slug) # id do post
+#        form = PostsForm(request.POST or None, request.FILES or None, instance=post) # pega as informações do form
+
+#        if form.is_valid(): # se for valido
+#            form.save() # salva
+
+#            messages.warning(request, 'Post updated successfully!')
+#            return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
 
         # page returns to this template:
-        return render(request, 'post_detail.html', {'form': form})
+#        return render(request, 'post_detail.html', {'form': form})
 
 class PostDelete(LoginRequiredMixin,
                 SuccessMessageMixin,

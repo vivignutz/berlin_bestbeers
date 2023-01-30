@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.urls import reverse
 from django.utils.text import slugify
-#from django.template.defaultfilters import slugify
 
 
 # Create a tuple for our status
