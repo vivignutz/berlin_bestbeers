@@ -6,7 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from .models import Post, Comment
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 
 
 class HomeView(generic.ListView):
@@ -101,8 +101,7 @@ class AddPost(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
 
 class PostUpdate(LoginRequiredMixin,
                 SuccessMessageMixin,
-                generic.UpdateView,
-                PostModelFormView):
+                generic.UpdateView):
     """
     This view allows all users to update their posts
     published or not. A feedback message will be
