@@ -65,8 +65,8 @@ class PostDetail(View):
 
     def post(self, request, slug, *args, **kwargs):
         """
-        Post method to comment, save and upload posts.
-        User gets a message feedback after posting or uploading.
+        Post method to comment, save and upload posts. User
+        gets a message feedback after posting or uploading.
         """
         if request.user.is_authenticated:
             queryset = Post.objects.filter(status=1)
@@ -86,8 +86,7 @@ class PostDetail(View):
 class AddPost(LoginRequiredMixin,
             generic.CreateView):
     """
-    User can add new post and get
-    message back
+    User adds a new post and gets a feddback message.
     """
     model = Post
     template_name = 'add_post.html'
@@ -95,7 +94,9 @@ class AddPost(LoginRequiredMixin,
     success_message = 'Post Added!'
 
     def form_valid(self, form):
-        """Validate form after connecting form author to user"""
+        """
+        Validated form after connecting author to user.
+        """
         if self.request.POST.get('status'):
             form.instance.status = int(self.request.POST.get('status'))
         form.instance.author = self.request.user
@@ -136,9 +137,8 @@ class PostUpdate(LoginRequiredMixin,
 class PostDelete(LoginRequiredMixin,
                 generic.DeleteView):
     """
-    This view allows users to delete their own blog
-    posts while logged in. A feedback message will
-    be displayed.
+    This view allows users to delete their own blog posts
+    while logged in. A feedback message will be displayed.
     """
     model = Post
     template_name = 'delete_post.html'
@@ -180,10 +180,10 @@ class PostLike(View):
 
 
 """
-This is a feature to be implemented in the future.
-It'll display all bars posts in form of a list
-without the image.
-
+This is a feature to be implemented in the future. It'll
+display all bars posts in form of a list without the image.
+"""
+"""
 class Bars(generic.ListView):
     model = Bar
     queryset = Post.objects.filter(status=1).order_by('-created_on')
