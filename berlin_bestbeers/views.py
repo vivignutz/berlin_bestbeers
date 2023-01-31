@@ -82,7 +82,9 @@ class PostDetail(View):
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
-class AddPost(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
+
+class AddPost(LoginRequiredMixin,
+            generic.CreateView):
     """
     User can add new post and get
     message back
@@ -99,13 +101,13 @@ class AddPost(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+
 class PostUpdate(LoginRequiredMixin,
-                SuccessMessageMixin,
                 generic.UpdateView):
     """
-    This view allows all users to update their posts
-    published or not. A feedback message will be
-    displayed when the update is ready.
+    This view allows all users to update their own
+    posts, published or not. A feedback message will
+    be displayed when the update is ready.
     """
     model = Post
     form_class = PostForm
@@ -131,47 +133,35 @@ class PostUpdate(LoginRequiredMixin,
         return reverse_lazy('home')
 
 
-#    def update_post(Post,  slug):
-#        post = get_object_or_404(post, slug=slug) # id do post
-#        form = PostsForm(request.POST or None, request.FILES or None, instance=post) # pega as informações do form
-
-#        if form.is_valid(): # se for valido
-#            form.save() # salva
-
-#            messages.warning(request, 'Post updated successfully!')
-#            return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
-
-        # page returns to this template:
-#        return render(request, 'post_detail.html', {'form': form})
-
 class PostDelete(LoginRequiredMixin,
-                SuccessMessageMixin,
-                UserPassesTestMixin,
                 generic.DeleteView):
     """
-    This view allows users to delete their own blog post
-    on the post_detail page. A feedback message will be
-    displayed.
+    This view allows users to delete their own blog
+    posts while logged in. A feedback message will
+    be displayed.
     """
     model = Post
     template_name = 'delete_post.html'
-    success_url = reverse_lazy('berlin_bestbeers')
     success_message = 'Post Deleted!'
+#    context_object_name = 'project'
 
-    def delete(self, request, *args, **kwargs):
-        """Generate success message on delete view"""
-        messages.success(self.request, self.success_message)
-        return super(PostDelete, self).delete(request, *args, **kwargs)
+    def get_object(self):
+        return get_object_or_404(Post, slug=self.kwargs.get('slug'))
 
-    def test_func(self):
-        """Test that logged in user is post author"""
-        post = self.get_object()
-        if self.request.user == post.author:
-            return True
-        return False
+    def delete(self, *args, **kwargs):
+        self.object = self.get_object()
+        if self.request.user == self.object.author:
+            self.object.delete()
+            messages.info(self.request, "Post Deleted!")
+        else:
+            messages.error(self.request, "You can't delete this post!")
+        return HttpResponseRedirect(self.get_success_url())
+
+    def get_success_url(self):
+        return reverse_lazy('home')
 
 
-class PostLike(LoginRequiredMixin, View):
+class PostLike(View):
     """
     View is to like or remove likes on posts.
     """
@@ -189,28 +179,21 @@ class PostLike(LoginRequiredMixin, View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-#class Bars(generic.ListView):
-    """
-    *** This feature will be implemented in the future ***
-    This list will display all bars posted by
-    the users in form of a list, but only the
-    name of the posts without the image.
-    """
-#    model = Bar
-#    queryset = Post.objects.filter(status=1).order_by('-created_on')
-#    template_name = 'barlist.html'
-#   paginate_by = 12
+"""
+This is a feature to be implemented in the future.
+It'll display all bars posts in form of a list
+without the image.
+
+class Bars(generic.ListView):
+    model = Bar
+    queryset = Post.objects.filter(status=1).order_by('-created_on')
+    template_name = 'barlist.html'
+    paginate_by = 12
+
+    def handler404(request, exception):
+        return render(request, '404.html', status=404)
 
 
-def handler404(request, exception):
-    """
-    Custom 404 page
-    """
-    return render(request, '404.html', status=404)
-
-
-def handler500(request):
-    """
-    Custom 500 page
-    """
-    return render(request, '500.html', status=500)
+    def handler500(request):
+        return render(request, '500.html', status=500)
+"""

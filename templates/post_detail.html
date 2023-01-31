@@ -35,11 +35,12 @@
 <div class="container">
     <div class="row">
         <div class="col-xl-4 offset-xl-8">
+            <!-- Button for post update -->
             <a href="{% url 'update_post' post.slug %}" class="btn btn-signup m-1">
-                <i class="fa fa-edit"></i> Edit this post</a>
-            <!-- Button trigger Post Delete modal -->
-            <button type="button" class="btn btn-del m-1" data-toggle="modal" data-target="#postModal">
-                <i class="fa fa-trash"></i> Delete Post</button>
+                <i class="fa fa-edit"></i> Edit post</a>
+            <!-- Button for post delete -->
+            <a href="{% url 'delete_post' post.slug %}" class="btn btn-danger m-1">
+                <i class="fa fa-trash"></i> Delete Post</a>
         </div>
     </div>
 </div>
