@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect, Http404
 from django.contrib import messages
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from .models import Post, Comment
@@ -79,7 +79,11 @@ class PostDetail(View):
                 comment.author = request.user
                 comment.save()
                 messages.success(request, 'Comment added')
-
+            else:
+                comment_form = CommentForm()
+        """
+        Returns to the post detail page
+        """
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
@@ -177,6 +181,65 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+class CommentUpdate(LoginRequiredMixin,
+                    generic.UpdateView):
+    """
+    View to allow users to update their comment
+    on the post detail page
+    Success message as user feedback
+    """
+    model = Comment
+    template_name = 'comment_update.html'
+    form_class = CommentForm
+    success_message = 'Comment updated successfully!'
+
+    def get_success_url(self):
+        """Success url for post associated with comment"""
+        slug = self.kwargs['slug']
+        return reverse_lazy('post_detail', kwargs={'slug': slug})
+
+    def form_valid(self, form):
+        """Validate form after connecting form author to user"""
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        """Test that logged in user is comment author"""
+        comment = self.get_object()
+        if self.request.user == comment.author:
+            return True
+        return False
+
+
+class CommentDelete(LoginRequiredMixin,
+                    generic.DeleteView):
+    """
+    View to allow users to delete their comment
+    on the post detail page
+    Success message as user feedback
+    """
+    model = Comment
+    template_name = 'post_detail.html'
+    success_message = 'Comment deleted successfully!'
+
+    def get_success_url(self):
+        """Success url for post associated with comment"""
+        slug = self.kwargs['slug']
+        return reverse_lazy('post_detail', kwargs={'slug': slug})
+
+    def delete(self, request, *args, **kwargs):
+        """Generate success message on delete viev"""
+        messages.success(self.request, self.success_message)
+        return super(CommentDelete, self).delete(request, *args, **kwargs)
+
+    def test_func(self):
+        """Test that logged in user is comment author"""
+        comment = self.get_object()
+        if self.request.user == comment.author:
+            return True
+        return False
 
 
 """

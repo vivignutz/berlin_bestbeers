@@ -80,7 +80,8 @@ class Comment(models.Model):
         """
         Returns comment with body and name
         """
-        return f'Comment {self.body} by {self.name}'
+        #return f'Comment {self.body} by {self.name}'
+        return 'Comment {} by {}'.format(self.body, self.name)
 
 class Bar(models.Model):
     """
