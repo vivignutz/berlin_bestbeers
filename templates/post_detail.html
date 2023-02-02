@@ -116,8 +116,6 @@
                     <!-- The body of the comment goes before the | -->
                     {{ comment.body | linebreaks }}
                 </div>
-                <p>{{ request.user.username }}</p>
-                <p>{{ comment.name }}</p>
                 {% if request.user.username == comment.name %}
                 <a href="{% url 'update_comment' post.slug comment.pk %}" class="btn btn-signup badge"><i
                         class="fa fa-edit"></i> Update this comment</a>
@@ -149,7 +147,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <form action="{% url 'comment_delete' post.slug comment.pk %}" method="POST"
+                                <form action="{% url 'delete_comment' post.slug comment.pk %}" method="POST"
                                     class="d-inline">
                                     {% csrf_token %}
                                     <button type="submit" class="btn btn-del">Delete</button>
