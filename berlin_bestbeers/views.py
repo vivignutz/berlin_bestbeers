@@ -192,7 +192,7 @@ class CommentUpdate(LoginRequiredMixin,
     model = Comment
     template_name = 'update_comment.html'
     form_class = CommentForm
-    success_message = 'Comment updated successfully!'
+    success_message = 'Your comment was successfully updated!'
 
     def get_success_url(self):
         """Success url for post associated with comment"""

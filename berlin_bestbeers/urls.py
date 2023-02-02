@@ -11,6 +11,6 @@ urlpatterns = [
     path('like/<slug:slug>/', PostLike.as_view(), name='post_like'),
     path('update_post/edit/<slug:slug>/', PostUpdate.as_view(), name='update_post'),
     path('delete/<slug:slug>/remove', PostDelete.as_view(), name='delete_post'),
-    path('<slug:slug>/comment-update/<int:pk>', CommentUpdate.as_view(), name='comment_update'),
-    path('<slug:slug>/comment-delete/<int:pk>', CommentDelete.as_view(), name='comment_delete'),
+    path('<slug:slug>/update_comment/<int:pk>', CommentUpdate.as_view(), name='update_comment'),
+    path('<slug:slug>/delete_comment/<int:pk>', CommentDelete.as_view(), name='delete_comment'),
 ]
