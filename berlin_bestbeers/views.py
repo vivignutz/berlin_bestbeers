@@ -147,7 +147,6 @@ class PostDelete(LoginRequiredMixin,
     model = Post
     template_name = 'delete_post.html'
     success_message = 'Post Deleted!'
-#    context_object_name = 'project'
 
     def get_object(self):
         return get_object_or_404(Post, slug=self.kwargs.get('slug'))
