@@ -116,8 +116,9 @@
                     <!-- The body of the comment goes before the | -->
                     {{ comment.body | linebreaks }}
                 </div>
-
-                {% if request.user == comment.name %}
+                <p>{{ request.user.username }}</p>
+                <p>{{ comment.name }}</p>
+                {% if request.user.username == comment.name %}
                 <a href="{% url 'update_comment' post.slug comment.pk %}" class="btn btn-signup badge"><i
                         class="fa fa-edit"></i> Update this comment</a>
 
