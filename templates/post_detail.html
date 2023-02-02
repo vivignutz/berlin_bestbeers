@@ -117,7 +117,7 @@
                     {{ comment.body | linebreaks }}
                 </div>
 
-                {% if request.user == comment.author %}
+                {% if request.user == comment.name %}
                 <a href="{% url 'update_comment' post.slug comment.pk %}" class="btn btn-signup badge"><i
                         class="fa fa-edit"></i> Update this comment</a>
 
