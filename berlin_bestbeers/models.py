@@ -83,9 +83,11 @@ class Comment(models.Model):
         #return f'Comment {self.body} by {self.name}'
         return 'Comment {} by {}'.format(self.body, self.name)
 
+
 class Bar(models.Model):
     """
     Database model for bar registration
+    to be implemented at the future.
     """
     bar_name = models.CharField(max_length=100)
     address = models.CharField(max_length=400)

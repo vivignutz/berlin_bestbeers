@@ -76,7 +76,7 @@ class PostDetail(View):
             if comment_form.is_valid():
                 comment = comment_form.save(commit=False)
                 comment.post = post
-                comment.author = request.user
+                comment.name = request.user
                 comment.save()
                 messages.success(request, 'Comment added')
             else:
@@ -190,7 +190,7 @@ class CommentUpdate(LoginRequiredMixin,
     Success message as user feedback
     """
     model = Comment
-    template_name = 'comment_update.html'
+    template_name = 'update_comment.html'
     form_class = CommentForm
     success_message = 'Comment updated successfully!'
 
