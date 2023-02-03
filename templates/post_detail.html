@@ -131,14 +131,15 @@
                     {{ comment.body | linebreaks }}
                 </div>
 
-                <!-- Only who commented can update the comment -->
+                <!-- Only who commented can update the comment.
+                    Button to update comment -->
                 {% if request.user.username == comment.name %}
                 <a href="{% url 'update_comment' post.slug comment.pk %}" class="btn btn-signup badge"><i
-                        class="fa fa-edit"></i> Update this comment</a>
+                        class="fa fa-edit"></i> Update comment</a>
 
                 <!-- Button to delete comment -->
                 <button type="button" class="btn btn-del badge" data-toggle="modal"
-                    data-target="#commentModal{{ comment.pk }}"><i class="fa fa-trash"></i> Delete this comment</button>
+                    data-target="#commentModal{{ comment.pk }}"><i class="fa fa-trash"></i> Delete comment</button>
 
                 <!-- Comment delete modal -->
                 <div class="modal fade" id="commentModal{{ comment.pk }}" tabindex="-1"

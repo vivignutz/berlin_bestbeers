@@ -252,14 +252,14 @@ h2 {
 .btn-sec:hover,
 .btn-sec:active,
 .btn-del:hover,
-.btn-del:active {
+.btn-del:active .btn-badge:active {
     background-color: #ffc107;
     color: #343a40;
 }
 
 .btn-git {
-    background-color: transparent;
-    color: aliceblue;
+    background-color: #ffc107;
+    color: #fff;
 }
 
 .link {
