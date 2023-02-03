@@ -21,7 +21,7 @@
     </div>
 </section>
 
-<!-- Info section -->
+<!-- Info section starts here -->
 <section class="info">
     <div class="container">
         <div class="row">
@@ -48,8 +48,8 @@
 </section>
 <hr>
 
+<!-- Blog entries section starts here -->
 <section class="posts">
-    <!-- Blog entries columns -->
     <div class="container">
         <div class="row">
             <div class="col-12 mt-3 left">
@@ -64,18 +64,19 @@
                                     <img class="card-img-top"
                                         src="https://res.cloudinary.com/dovykh024/image/upload/v1673954423/bence-boros-8T5UAV6KkZA-beer_satcvm.jpg"
                                         alt="image of beer tap">
-
                                     {% else %}
+
                                     <img class="card-img-top" src="{{ post.featured_image.url }}"
                                         alt="new bar image uploaded">
                                     {% endif %}
 
-                                    <!-- Showing a message at the newest post -->
+                                    <!-- Badge that shows a NEW message at the newest post -->
                                     {% if post in post_list|slice:'0:1' %}
                                     <div class="image-new-flash">
                                         <p class="author">NEW</p>
                                     </div>
                                     {% endif %}
+
                                     <div class="image-flash">
                                         <p class="author">Author: {{ post.author }}</p>
                                     </div>
@@ -86,23 +87,24 @@
                                 </a>
                                 <hr>
 
-                                <!-- Horizontal rule for number of likes and comments -->
-                                <p class="card-text text-muted h6"> {{ post.created_on }} <i class="far fa-heart"></i>
+                                <!-- This rule shows number of likes and comments -->
+                                <p class="card-text text-muted h6"> {{ post.created_on }}
+                                    <i class="far fa-heart"></i>
                                     {{ post.number_of_likes }} &#8739; <i class="far fa-comments"></i>
                                     {{ post.comments.count }}</p>
                                 </p>
                             </div>
                         </div>
                     </div>
+                    <!-- end of the for-loop for posts display at home -->
                     {% endfor %}
                 </div>
             </div>
         </div>
+
+        <!-- Displays post content -->
         <a href="" class="post-link">
-
             <p class="card-title h4 mt-4">{{ post.title | truncatechars:30 }}</p>
-
-            <!-- Display post content -->
             {% if post.excerpt %}
             <p class="card-text">{{ post.excerpt }}</p>
             {% else %}
@@ -110,7 +112,6 @@
             {% endif %}
             <hr>
         </a>
-
 
         <!-- Pagination of the blog -->
         {% if is_paginated %}

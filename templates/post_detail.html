@@ -8,21 +8,25 @@
     <div class="container">
         <div class="row g-0">
             <div class="col-md-6 header-text">
-                <!-- H2 for Post title -->
+
+                <!-- Post title -->
                 <h1 class="post-title">{{ post.title }}</h1>
-                <!-- Post author first and then the creation's date -->
+
+                <!-- Author's name first and then the creation's date -->
                 <p class="post-subtitle">
                     <small>By: {{ post.author }} | {{ post.created_on }} </small>
                     <br />
                 </p>
             </div>
 
+            <!-- Featured image URL for each post. If user doesn't upload
+                any image, then the featured image will be displayed -->
             <div class="d-none d-md-block col-md-6 header-image">
-                <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
                 <img src="https://res.cloudinary.com/dovykh024/image/upload/v1673867142/christin-hume-08tX2fsuSLg-beercraft_hmsrui.jpg"
                     width="100%">
                 {% else %}
+
                 <img src=" {{ post.featured_image.url }}" width="100%">
                 {% endif %}
             </div>
@@ -30,15 +34,17 @@
     </div>
 </div>
 
+<!-- Authors can edit or delete their own posts -->
 {% if request.user == post.author %}
-
 <div class="container">
     <div class="row">
         <div class="col-xl-4 offset-xl-8">
+
             <!-- Button for post update -->
             <a href="{% url 'update_post' post.slug %}" class="btn btn-signup m-1">
                 <i class="fa fa-edit"></i> Edit post</a>
-            <!-- Button for post delete -->
+
+            <!-- Red button for post delete -->
             <a href="{% url 'delete_post' post.slug %}" class="btn btn-danger m-1">
                 <i class="fa fa-trash"></i> Delete Post</a>
         </div>
@@ -50,6 +56,7 @@
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
+
                 <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text ">
                     {{ post.content | safe }}
@@ -63,7 +70,7 @@
                                 {% csrf_token %}
                                 {% if liked %}
 
-                                <!-- like and dislike buttons of each post -->
+                                <!-- Like and dislike buttons of each post -->
                                 <button type="submit" name="blogspot_id" value="{{post.slug}}" class="btn-like">
                                     <i class="fas fa-heart"></i>
                                 </button>
@@ -75,7 +82,7 @@
                             </form>
                             {% else %}
 
-                            <!-- Mon-authenticated users can slo like posts -->
+                            <!-- Non-registered users can aslo like posts, but not comment -->
                             <span class="text-secondary"><i class="far fa-heart"></i></span>
                             {% endif %}
 
@@ -85,10 +92,11 @@
                     </div>
 
                     <div class="col col-md-1">
-                        <!-- To show the numbers of comments on each post -->
+                        <!-- This rule is to show the numbers of comments on each post -->
                         {% with comments.count as total_comments %}
                         <strong class="text-secondary"><i class="far fa-comments"></i>
-                            <!-- The total comments variable goes before the closing strong tag -->
+
+                            <!-- The total of comments goes before the closing tag -->
                             {{ total_comments }}
                         </strong>
                         {% endwith %}
@@ -98,32 +106,41 @@
         </div>
     </div>
 
+    <!-- Comments card starts here -->
     <div class="row">
         <div class="col-md card mb-4 mt-3">
             <h2>Comments:</h2>
             <div class="card-body">
-                <!-- The forloop inside the empty control tags to iterate through each comment in comments -->
+
+                <!-- Forloop inside of the control tags to iterates
+                    in each comment in "comments" -->
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">
-                        <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
+
+                        <!-- Name of who commented the post -->
                         {{ comment.name }}
                         <span class=" text-muted font-weight-normal">
-                            <!-- The comment's created date goes here -->
+
+                            <!-- Date of the posted comment -->
                             {{ comment.created_on }}
-                        </span> wrote:
+                        </span> commented:
                     </p>
-                    <!-- The body of the comment goes before the | -->
+
+                    <!-- Comment goes before the | linebreak -->
                     {{ comment.body | linebreaks }}
                 </div>
+
+                <!-- Only who commented can update the comment -->
                 {% if request.user.username == comment.name %}
                 <a href="{% url 'update_comment' post.slug comment.pk %}" class="btn btn-signup badge"><i
                         class="fa fa-edit"></i> Update this comment</a>
 
-                <!-- Button trigger Comment Delete modal -->
+                <!-- Button to delete comment -->
                 <button type="button" class="btn btn-del badge" data-toggle="modal"
                     data-target="#commentModal{{ comment.pk }}"><i class="fa fa-trash"></i> Delete this comment</button>
-                <!-- Comment Delete Modal -->
+
+                <!-- Comment delete modal -->
                 <div class="modal fade" id="commentModal{{ comment.pk }}" tabindex="-1"
                     aria-labelledby="commentModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">

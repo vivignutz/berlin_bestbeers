@@ -242,8 +242,9 @@ class CommentDelete(LoginRequiredMixin,
 
 
 """
-This is a feature to be implemented in the future. It'll
-display all bars posts in form of a list without the image.
+This is a feature to be implemented in the future.
+It'll displays all posted bars in form of a list
+without any image which users can download this list.
 """
 """
 class Bars(generic.ListView):
@@ -254,7 +255,6 @@ class Bars(generic.ListView):
 
     def handler404(request, exception):
         return render(request, '404.html', status=404)
-
 
     def handler500(request):
         return render(request, '500.html', status=500)
