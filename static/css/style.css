@@ -63,12 +63,13 @@ body {
 /* Hero */
 
 .hero {
-    background-image: url("https://res.cloudinary.com/dovykh024/image/upload/v1673867369/background_hero_upxrjb.png");
+    background-image: url("https://res.cloudinary.com/dovykh024/image/upload/v1675772920/icgiyh6by1cjjvvvenqf.png");
     background-image: no-repeat;
     background-position: bottom;
     background-size: 100%;
     background-attachment: fixed;
     background-size: cover;
+    background-repeat: no-repeat;
     width: 100%;
 }
 
@@ -309,7 +310,7 @@ footer p {
 
 /* Media Queries */
 
-@media screen and (max-width: 1780px) {
+@media screen and (max-width: 1900px) {
     .hero-text h1 {
         font-size: 6em;
     }
