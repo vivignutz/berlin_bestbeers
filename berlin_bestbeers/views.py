@@ -136,7 +136,7 @@ class PostUpdate(LoginRequiredMixin,
 
     def get_success_url(self):
         slug = self.kwargs['slug']
-        return reverse_lazy('post_detal', kwargs={'slug': slug})
+        return reverse_lazy('post_detail', kwargs={'slug': slug})
 
 
 class PostDelete(LoginRequiredMixin,
