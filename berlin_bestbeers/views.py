@@ -135,7 +135,8 @@ class PostUpdate(LoginRequiredMixin,
             return self.render_to_response(self.get_context_data(form=form))
 
     def get_success_url(self):
-        return reverse_lazy('home')
+        slug = self.kwargs['slug']
+        return reverse_lazy('post_detal', kwargs={'slug': slug})
 
 
 class PostDelete(LoginRequiredMixin,
@@ -239,23 +240,3 @@ class CommentDelete(LoginRequiredMixin,
         if self.request.user == comment.author:
             return True
         return False
-
-
-"""
-This is a feature to be implemented in the future.
-It'll displays all posted bars in form of a list
-without any image which users can download this list.
-"""
-"""
-class Bars(generic.ListView):
-    model = Bar
-    queryset = Post.objects.filter(status=1).order_by('-created_on')
-    template_name = 'barlist.html'
-    paginate_by = 12
-
-    def handler404(request, exception):
-        return render(request, '404.html', status=404)
-
-    def handler500(request):
-        return render(request, '500.html', status=500)
-"""
