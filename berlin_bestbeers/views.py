@@ -37,6 +37,7 @@ class PostDetail(View):
     View of each single post on a single page. Comment
     and/or like can be included by the user as well.
     """
+
     def get(self, request, slug, *args, **kwargs):
         """
         Get method: to recover post details including
@@ -45,7 +46,7 @@ class PostDetail(View):
         post = get_object_or_404(Post, slug=slug)
         if (post.status == 0) and (post.author != request.user):
             raise Http404("Post not found.")
-        #queryset = post.comments.filter(status=1)
+        # queryset = post.comments.filter(status=1)
         comments = post.comments.filter(approved=True).order_by('-created_on')
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
@@ -88,7 +89,7 @@ class PostDetail(View):
 
 
 class AddPost(LoginRequiredMixin,
-            generic.CreateView):
+              generic.CreateView):
     """
     User adds a new post and gets a feddback message.
     """
@@ -108,7 +109,7 @@ class AddPost(LoginRequiredMixin,
 
 
 class PostUpdate(LoginRequiredMixin,
-                generic.UpdateView):
+                 generic.UpdateView):
     """
     This view allows all users to update their own
     posts, published or not. A feedback message will
@@ -140,7 +141,7 @@ class PostUpdate(LoginRequiredMixin,
 
 
 class PostDelete(LoginRequiredMixin,
-                generic.DeleteView):
+                 generic.DeleteView):
     """
     This view allows users to delete their own blog posts
     while logged in. A feedback message will be displayed.
@@ -169,6 +170,7 @@ class PostLike(View):
     """
     View is to like or remove likes on posts.
     """
+
     def post(self, request, slug, *args, **kwargs):
         """
         Post method to toggle post like and
