@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'cloudinary',
     'django_summernote',
-    "django_extensions",
     'crispy_forms',
     'berlin_bestbeers',
 ]

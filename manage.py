@@ -1,4 +1,3 @@
-"""Command-line for administrative tasks"""
 import os
 import sys
 
