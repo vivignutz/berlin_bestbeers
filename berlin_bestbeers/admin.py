@@ -1,7 +1,6 @@
 from django.contrib import admin
 from .models import Post, Comment, Bar
 from django_summernote.admin import SummernoteModelAdmin
-#from crispy import berlin_bestbeers
 
 
 @admin.register(Post)
@@ -14,6 +13,7 @@ class PostAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     list_filter = ('status', 'created_on')
     summernote_fields = ('content')
+
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
@@ -31,8 +31,3 @@ class CommentAdmin(admin.ModelAdmin):
         Approve user comments method
         """
         queryset.update(approved=True)
-
-# This feature of Bar list with addresses
-# like a guide will be implemented in
-# a near future.
-#admin.site.register(Bar)

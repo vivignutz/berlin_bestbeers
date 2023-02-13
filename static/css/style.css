@@ -64,7 +64,7 @@ body {
 
 .hero {
     background-image: url("https://res.cloudinary.com/dovykh024/image/upload/v1675772920/icgiyh6by1cjjvvvenqf.png");
-    background-image: no-repeat;
+    background-repeat: no-repeat;
     background-position: bottom;
     background-size: 100%;
     background-attachment: fixed;
@@ -229,7 +229,7 @@ h2 {
     margin-left: 5%;
     border-bottom: 1px solid rgba(95, 84, 84, 0.7);
     font-family: "Poppins", sans-serif;
-    font-size: 2, 5em;
+    font-size: 2.5em;
     font-weight: 600;
     color: #343a40;
 }
