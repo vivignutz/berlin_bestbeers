@@ -79,7 +79,7 @@ class PostDetail(View):
                 comment.post = post
                 comment.name = request.user
                 comment.save()
-                messages.success(request, 'Comment added')
+                messages.success(request, 'Comment added successfully!')
             else:
                 comment_form = CommentForm()
         """
@@ -96,7 +96,7 @@ class AddPost(LoginRequiredMixin,
     model = Post
     template_name = 'add_post.html'
     form_class = PostForm
-    success_message = 'Post Added!'
+    success_message = 'Post added and waiting for approval!'
 
     def form_valid(self, form):
         """
@@ -105,6 +105,7 @@ class AddPost(LoginRequiredMixin,
         if self.request.POST.get('status'):
             form.instance.status = int(self.request.POST.get('status'))
         form.instance.author = self.request.user
+        messages.info(self.request, "Post added and waiting for approval")
         return super().form_valid(form)
 
 

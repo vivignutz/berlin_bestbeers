@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en" class="h-100">
+<html class="h-100" lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -51,7 +51,7 @@
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}">
                 <img src="https://res.cloudinary.com/dovykh024/image/upload/v1673782311/logo_gknnjg.png"
-                    alt="bestbeers_logo" height="50" class="blogname"> &nbsp; Bestbeers</a>
+                    alt="bestbeers_logo" height="50" class="blogname">&nbsp; Bestbeers</a>
 
             <!-- Toggle button will be activated for small screens -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -74,7 +74,7 @@
                     </li>
 
                     <!-- For registered users the nav displays
-                        different than for non-registered ones -->
+                            different than for non-registered ones -->
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link {% if 'post/add' in request.path %} active {% endif %}"
@@ -100,7 +100,7 @@
                 </ul>
 
                 <!-- The name of the user will be displayed
-                    when logged in -->
+                        when logged in -->
                 {% if user.is_authenticated %}
                 <span class="navbar-text">
                     <i class="fas fa-user"></i> {{ user.username }}
@@ -145,7 +145,7 @@
                     <hr>
 
                     <!-- Social Networks - they are only
-                        linked with homepage of theirselves -->
+                            linked with homepage of theirselves -->
                     <p class="m-0 text-links text-white">Follow us:
                         <a href="http://www.facebook.com" title="Find us on Facebook">
                             <i style="color: #fff" class="fab fa-facebook-square ms-3"></i></a>
@@ -160,7 +160,7 @@
                     <h3 class="text-white">Berlin Bestbeers Map</h3>
                     <hr>
 
-                    <!-- Embeeded map -->
+                    <!-- Embeded map -->
                     <iframe src="https://www.google.com/maps/d/embed?mid=1bTDkwVh2jAzao1wn9MsPic9ksgjsrocJ&ehbc=2E312F"
                         width="640" height="480" alt="Map of Craft Beer Bars and Spots"></iframe>
                 </div>
