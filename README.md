@@ -263,8 +263,6 @@ The website can be accessed from all users. But to get the fully interactivity (
 
 The Login access can be found at the navbar:
 
-﻿![How_to_login](/assets/images/login_nabar.png)
-
 ﻿![Login_page](/assets/images/login_page.png)
 
 If the user clicks on "Register" button by mistake, the also can access the Login link at the Registration page.
