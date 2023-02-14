@@ -5,7 +5,7 @@ The purpose of this webpage is to allow users to participate posting their exper
 
 [View the live project here.](https://berlin-bestbeers.herokuapp.com/)
 
-![Responsive Design in all gadgets](https://github.com/vivignutz/berlin_bestbeers/blob/main/assets/images/responsive.png)
+![Responsive_Design_in_all_gadgets](https://github.com/vivignutz/berlin_bestbeers/blob/main/assets/images/responsive.png)
 
 ## Index – Table of Contents
 * [User Experience (UX)](#user-experience-ux)
@@ -13,11 +13,11 @@ The purpose of this webpage is to allow users to participate posting their exper
   * [Strategy used:](#strategy-used)
  * [Agile Workflow](#agile-workflow)
    * [User stories:](#user-stories)
-      + [EPIC Admin / Account management:](#epic-admin-account-management) 
-      + [EPIC Post:](#epic-post) 
-      + [EPIC Like and Dislike:](#epic-like-and-dislike) 
-      + [EPIC Edit and Delete comment and posts:](#epic-edit-and-delete-comment-and-posts) 
-      +  [EPIC UX and UI:](#epic-ux-and-ui) 
+      * [EPIC Admin / Account management](#epic-admin-account-management) 
+      * [EPIC Post](#epic-post) 
+      * [EPIC Like and Dislike:](#epic-like-and-dislike) 
+      * [EPIC Edit and Delete comment and posts](#epic-edit-and-delete-comment-and-posts) 
+      * [EPIC UX and UI](#epic-ux-and-ui) 
  
 * [Features](#features)
   * [Installed Features](#installed-features)
@@ -59,7 +59,7 @@ The purpose of this webpage is to allow users to participate posting their exper
     * [PEP8 Online:](#pep8-online)
     * [Lighthouse:](#lighthouse)
   * [Tests on user stories](#tests-on-user-stories)
-  * [Further tests](#further-testing)
+  * [Further tests](#further-tests)
   * [Solved bugs](#solved-bugs)
   * [Known bugs](#known-bugs)
 * [Deployment](#deployment)
