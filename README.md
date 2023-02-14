@@ -236,7 +236,7 @@ The Bars List is a list of all posts in reverse order of creation, i.e. from the
 The Bars List page has the same grid Scheme as the Home Page, but contains 12 posts in each page and the pagination in the end of the page. The Hero image and the Info section don't appear in this list to make it more compact and in let it on a list format.
 For small screens (mobile) the view changes to one post after another and the user has to scroll the screen post to post.
 
-|﻿![Bars_list_small_screens](/assets/images/barslist_small.png)  |﻿![Bars_List_large_screens](/assets/images/bars_list.png)  |
+|﻿![Bars_list_small_screens](/assets/images/barslist_small.png)  |﻿![Bars_List_large_screens](/assets/images/bars_list_pagination.png)  |
 |--|--|
 
 This list gives to users several options to enjoy the content, clicking it up and ineract with others.
