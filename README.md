@@ -5,12 +5,7 @@ The purpose of this webpage is to allow users to participate posting their exper
 
 [View the live project here.](https://berlin-bestbeers.herokuapp.com/)
 
-![Responsive Design in all gadgets](https://github.com/vivignutz/berlin_bestbeers/blob/main/assets/images/responsive.png)
-
-
-
-
-
+![Responsive_Design_in_all_gadgets](assets/images/responsive.png)
 
 
 
