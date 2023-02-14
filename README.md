@@ -236,7 +236,7 @@ The Bars List is a list of all posts in reverse order of creation, i.e. from the
 The Bars List page has the same grid Scheme as the Home Page, but contains 12 posts in each page and the pagination in the end of the page. The Hero image and the Info section don't appear in this list to make it more compact and in let it on a list format.
 For small screens (mobile) the view changes to one post after another and the user has to scroll the screen post to post.
 
-|﻿![Bars_list_small_screens](/assets/images/barslist_small.png)  |﻿![Bars_List_large_screens](/assets/images/bars_list_pagination.png)  |
+|﻿![Bars_list_small_screens](/assets/images/barslist_small.png)  |﻿![Bars_List_large_screens](/assets/images/barslist_pagination.png)  |
 |--|--|
 
 This list gives to users several options to enjoy the content, clicking it up and ineract with others.
@@ -251,9 +251,7 @@ To access the registration mode, the user have two ways:
 
 To create an user account, an username, a password and an optional email registration has to be provided.
 
-﻿![How_to_register](/assets/images/Register.png)
- 
-﻿![Register_page](/assets/images/Register_page.png)
+﻿![How_to_register](/assets/images/register_page.png)
 
 From now this user has fully access to the entire website and its features for users. If the user clicks on "Login" button button by mistake, the also can access the Register link at the Login page.
 
@@ -264,6 +262,8 @@ The website can be accessed from all users. But to get the fully interactivity (
 The Login access can be found at the navbar:
 
 ﻿![Login_page](/assets/images/login_page.png)
+ 
+﻿![How_to_register](/assets/images/login_nabar.png)
 
 If the user clicks on "Register" button by mistake, the also can access the Login link at the Registration page.
 When the user enters a correct username with a matching password and clicks on "Login" button, they will be redirected to the Home page.
@@ -283,78 +283,72 @@ This feature is only available if a user chooses to register to the site and can
 
 ﻿![Add_Post](/assets/images/add_post.png)
 
-The adding post feature is the sam to all users and has the filds:
+The adding post feature is the same to all users and has the fields:
 Title, Content, Excerpt (to appears at the Bars List), Image upload button (only one photo each post can be uploaded), and the buttons "Submit" / "Cancel".
 
-In case that the user doesn't upload any photos, a default placeholder photo will be displayed.  https://res.cloudinary.com/dovykh024/image/upload/v1673954423/bence-boros-8T5UAV6KkZA-beer_satcvm.jpg
+In case that the user doesn't upload any photos, a default placeholder photo will be displayed. 
 
 When the user complets all fields, and clicks on "Submit", the post will takes place to the datenbase as a draft and wait for approval or rejection of the admin. 
-The proposal of that approval or rejecting feature is that to avoid the repetition of Bars. So the "Bars List" can turn on a list or °even a "guide" of the best beer bars or brewery in Berlin.
+The proposal of that approval or rejecting feature is that to avoid the repetition of Bars. So the "Bars List" can turn on a list or even a "guide" of the best beer bars or brewery in Berlin.
 Users can also click on "cancel" in order to not to send their posts. 
 
 ﻿![Placeholder_image](/assets/images/placeholder_img.png)
 
-
 #### Post detail
 
-When a post is clicked on by the user, the Post Detail page opens up, and shows a headline with the name of the Bar. Underneath is the Post Author's name and the date of the post. In large viewports the photo uploaded by the Autor will be displayed in the headline beside of the name.
+When a post is clicked on by the user, the Post Detail page opens up, and shows a headline with the name of the Bar/Post. Underneath is the Post Author's name and the date of posting. In large viewports the photo uploaded by the Autor will be displayed in the headline beside of the name.
 
  - Logged users: comment and like/dislike will be offered as interaction. When a logged in user comments a post, he sees a field to write a comment and the button "Comment".
  
-﻿![Post Detail](documentation/features-postdetail.jpg)
-(post detail and post detail mobile)
+﻿![Post_Detail](/assets/images/post_detail.png)
+
+﻿![Post_Detail](/assets/images/post_detail_mobile.png)
 
  - Non-logged users: the Post Detail and comments at this post are been showing, but without the feature to comment and/or like. This user will have the possibility to read all posts, navigate through the entire website, and if he wants, registrate himself to be get the interactions parts of the website. 
- 
-﻿![Comment Login](documentation/features-commentlogin.jpg)
-(foto non_logged_user)
-
-(outra foto: testpost_summernote)
 
  All users can see, when inside of a post, the number of likes and comments. The interaction with them depends on the status (logged or non logged) of the user.
  Font Awesome icons (fa-heart and fa-comment) are used to display better the intention of the feature. The like and it changes the colour when clicked on. 
 
-(foto like_comment)
+﻿![Post_Detail](/assets/images/like_comment.png)
 
 Font Awesome icon (fa-heart) changes colour and the user will be able to like/unlike the post.
 
-﻿![Comment Logout](documentation/features-commentlogout.jpg)
-
-  - User is post author:
+  - If user is post author:
 As a post author, the user will have all access to the CRUD functionality: post bars, comment posts, update his/her own posts, delete his/her own posts, like and dislike other's posts. 
-If the author updates a poosts and decide not to post, he/she can click on "Cancel" button.
+If the author updates a poosts and decide not to post, he/she can click on "Cancel" button. Underneath is how the users can see their posts when they want to delete some of them:
 
-﻿![Delete Post](documentation/features-deletepost.jpg)
-(foto com o as funcionalidades do user registrado)
+﻿![Delete_Post](/assets/images/deleting_posts.jpg)
 
   - User is comment author:
 The comment author can write comments, edit and/or delete his/her own comments. This full CRUD functionality over their comments can provide a better interaction of all registered users in the website. 
 Just like posts, all comments need admin approval, so there is no repetition of bars and also no problems with comments.
 Buttons Update Comment and Delete Comment have the pencil and trash bootstrap buttons "btn-signup badge" and "btn-del" respectively. 
 
-﻿![Delete Comment](documentation/features-deletecomment.jpg)
-(foto comments_mobile)
-(foto comments_laptop)
+﻿![Delete_Post](/assets/images/deleting_post.jpg)
 
 #### Post update
 
-The post's authors can update or delete their own posts using the Post Detail's Page, clicking at the button "Edit Post" or "Delete Post".  If the author decides not to update after clicking on the "Edit Post," button, he/her can click on "Cancel" button. 
-It gives to the user author full control over his/her post.
+Authors can update or delete their own posts using the Post Detail's Page, clicking at the button "Edit Post" or "Delete Post".  If the author decides not to update after clicking on the "Edit Post," button, he/her can click on "Cancel" button. 
+It gives to the user author full control over their posts.
 
-(foto post_update)
-(foto post_update_mobile)
+|﻿![Post_Update](/assets/images/coments_laptop.png)  |﻿![Post_update_mobile](/assets/images/comments_mobile.png) |
 
-Updating a post isn't necessary to be approved by the admin, and the updating post will be updated automatically.
+Updating a post isn't necessary to be approved by the admin, and the post will be automatically updated.
 
 #### Comment update:
 
-Just as the author of the post will have full control of the content of their post, so will the author of the comment. He will be able to update their posts and also delete them cliking on "Update Comment" or "dlete Comment" buttons. 
+The registered user can update their own comments, even in other's posts. It is part of the full control of the content of their own posts and comments. 
 
-﻿![Update Comment](documentation/features-updatecomment.jpg)
-(foto comment update before)
-(comment update after)
+﻿![Delete_Comment](/assets/images/coments_laptop.png)
+ 
+﻿![Delete_Comment](/assets/images/comments_mobile.png)
 
 The comment will be updated immediately after clicking on "Update Comment" button. This feature can avoid grammatical errors on the content. 
+
+
+
+
+
 
 #### Django Admin superuser:
 
