@@ -1,4 +1,4 @@
-# Berlin Bestbeers - A beermap of Berlin
+# Berlin Bestbeers - A beer map of Berlin
 
 As my fourth portfolio project (PP4) with Code Institute, I created a website with a blog application in Django built for people who enjoy craft beer. It is targeted towards people who want to find craft beer bars around Berlin, Germany.
 The purpose of this webpage is to allow users to participate posting their experiences on craft beer bars, upload fotos, comment and like on other posts.
@@ -13,11 +13,11 @@ The purpose of this webpage is to allow users to participate posting their exper
   * [Strategy used:](#strategy-used)
  * [Agile Workflow](#agile-workflow)
    * [User stories:](#user-stories)
-      + [EPIC Admin / Account management:](#epic-admin-account-management) 
-      + [EPIC Post:](#epic-post) 
-      + [EPIC Like and Dislike:](#epic-like-and-dislike) 
-      + [EPIC Edit and Delete comment and posts:](#epic-edit-and-delete-comment-and-posts) 
-      +  [EPIC UX and UI:](#epic-ux-and-ui) 
+      * [EPIC Admin Account management](#epic-admin-account-management)
+      * [EPIC Post](#epic-post) 
+      * [EPIC Like and Dislike](#epic-like-and-dislike) 
+      * [EPIC Edit and Delete comment and posts](#epic-edit-and-delete-comment-and-posts) 
+      * [EPIC UX and UI](#epic-ux-and-ui) 
  
 * [Features](#features)
   * [Installed Features](#installed-features)
@@ -100,7 +100,7 @@ To this project, an agile workflow approach was used in the entire development. 
 
 ### User stories:
 
-  - #### 1. EPIC Admin / Account management
+  - #### 1. EPIC Admin Account management
     - USER STORY #7 - Account registration and/or login:
       - As a **user** I can **register an account and/or do my login** so that **I can update my visited beer bars, comment other posts and like**
     - USER STORY #7 - Manage all posts:
@@ -164,15 +164,17 @@ The navbar was built with bootstrap's built-in class fixed-top, so the navigatio
 
 The logo was designed with [Canva](https://www.canva.com/) and is on the left of the navigation bar, close to the name of the site (Bestbeers). The logo is hyperlinked to the homepage of the site, and the font used was Poppins with font-family Roboto, used to the entire website. The Font Awesome was implemented into the base.hmtl.
 
-The navigation items appear according to the user status. If logged in, the items Home / Bars List / Add a Post / Logout / Username with Font Awesome icon (fas fa-user) appear:
-![Navbar logged in](https://github.com/vivignutz/berlin_bestbeers/media/navbar_loggedin.jpg)
+The navigation items appear according to the user status. If logged in, the user can see the Home / Bars List / Add a Post / Logout / Username. This last includes a Font Awesome icon (fas fa-user):
+
+﻿![Navbar_logged_in](/assets/images/navbar_loggedin.jpg)
 
 Otherwise, the following items will appear: Home / Bars List / Register / Login:
-![Navbar logged in](https://github.com/vivignutz/berlin_bestbeers/media/navbar_loggedout.jpg)
 
-The navbar is fully responsive, so for smaller devices the navigation bar collapses into a "hamburger menu". Here the example for the navbar for iPhone 5 viewport:
+﻿![Navbar_logged_in](assets/images/navbar_loggedout.jpg)
 
-![Navbar logged in](https://github.com/vivignutz/berlin_bestbeers/media/navbar_handy.jpg)
+For small devices the navbar is collapsed into a "hamburger menu", and turns to a fully responsive navigation bar. Here the example for the navbar tested on iPhone 5 viewport:
+
+﻿![Navbar_logged_in](/assets/images/navbar_handy.jpg)
 
 #### Home page:
 
@@ -182,7 +184,7 @@ The hero section is the first section of the home page that follows the navigati
 
 The background image uses background attachment fixed on large screen sizes to give a nice effect when the page is scrolled.
 
-![Hero section](https://github.com/vivignutz/berlin_bestbeers/media/hero_image.png)
+﻿![Hero_section](/assets/images/hero_image.png)
 
 A large text overlay of this background image is the name of the website ("Bestbeers") wrote in red in **h1** and the location of that (Berlin, Germany) in **h2**.  
 Underneath the overlayed text there is a button which redirects the users to the following: 
@@ -190,53 +192,54 @@ Underneath the overlayed text there is a button which redirects the users to the
 - To whom is already logged in, the button shows then mention "**See all posts here**", and this user will be redirect to the "**Bars List**", one of the page of the navigation bar, wchich shows a list of all bars posted.
 
 The hero image shows clearly to all first time users that that is a beer lovers blog.  the user visits the site for the first time, they will clearly see that this is a fly fishing blog.
-|![Hero small](https://github.com/vivignutz/berlin_bestbeers/media/hero_image_handy.png)  |![Hero ipad](https://github.com/vivignutz/berlin_bestbeers/media/hero_image_ipad.png)  |
+
+Hero image mobile devices: mobile phone and iPad:
+|﻿![Hero_small](/assets/images/hero_image_handy.png)  |﻿![Hero_ipad](/assets/images/hero_image_ipad.png)  |
 |--|--|
 
 
 ##### Home page - Info section:
 
-Below the Here section was built an Info section. That was styled at CSS with help of Font Awesome icons, designed to be closer to the beer blog project using colors and different style around the icons. 
-The Info section gives to users a complete idea about the website's purpose, and where this bar guide works. 
+Below the Hero section is the Info section, a container styled with help of Font Awesome icons (3), designed to show the user a greater complicity with those who appreciate beers. Different colours and format were styled around the icons. This section gives to users a complete idea about the website's purpose, and how this bar guide works. 
 
   - Name of the blog - Bestbeers - Berlin's best beer bars! - (fa-solid fa-wine-bottle)
   - We LOVE Beer - Since 2023 - (fa-solid fa-heart)
   - From - Berlin, Germany (fa-solid fa-location-dot)
 
-![Info section](https://github.com/vivignutz/berlin_bestbeers/media/info_section.png)
+﻿![Info_section](/assets/images/info_section.png)
 
 The circle around each icon was styled to get a different style (border-radius:  70%  30%  30%  70% / 60%  40%  60%  40%;)
-
 When open the blog on smaller devices the number of icons reduces to only one - the middle positioned ones.
 
 ##### Home page - Posts section:
 
 Still at the home page, underneath the Info section, the user can see the last 6 most recent posts of other users. This provided a quickly view of all updates done recently. 
 
-This section was built with Bootstrap grid scheme, in which consists of three columns and two rows of posts, totaling 6 posts. The posts include:
-  - A featured image - Image uploaded by the user when creating the post or a placeholder photo of random craft beers for some that have posted no image.
+This section was built with Bootstrap grid scheme, in which consists of three columns and two rows of posts, totaling 6 posts. All posts includes:
+
+  - A featured image - Image uploaded by the user when creating a post. In case the user doesn't upload any image, a placeholder photo of many craft beers will be displayed.
   - Author - post author
-  - Name of the bar / Post title with maximal 30 characters.
-  - Content - Post content.
-  - Date of posting - Post created on.
+  - Name of the bar (or) Post title with maximal 30 characters
+  - Content - post content
+  - Date of posting - Post created on ___
   - Number of likes - Font Awesome icon (far fa-heart) followed by the number of likes
   - Number of comments - Font Awesome icon (far fa-comments) followed by number of comments
 
-![Home page posts](https://github.com/vivignutz/berlin_bestbeers/media/posts_home.png)
+﻿![Home_page_posts](/assets/images/home_page.png)
 
-By clicking on the post, the user is redirected to the post detail page for that bar.
+By clicking on a post, the user is redirected to the post detail page for that post.
 
 #### Blog page: Bars List
 
-The Bars List is a list of all posts in reverse order of creation, i.e. from the most up-to-date to the least up-to-date, totaling 12 posts in each page. This posts are being paginated, and this Bars List can easily be accessed using the navigation bar link. 
+The Bars List is a list of all posts in reverse order of creation, i.e. from the most up-to-date to the last up-to-date, totaling 12 posts in each page. This posts are being paginated, and this Bars List can easily be accessed using the navigation bar link for all users, registered or not.
 
-The Bars List page has the same grid Scheme as the Home Page, but contains 12 posts in each page and the pagination in the ende of the page. 
-For small screens (mobile) the view changes to one post after another and the user has to scroll post to post.
+The Bars List page has the same grid Scheme as the Home Page, but contains 12 posts in each page and the pagination in the end of the page. The Hero image and the Info section don't appear in this list to make it more compact and in let it on a list format.
+For small screens (mobile) the view changes to one post after another and the user has to scroll the screen post to post.
 
-|![Bars list small screens](https://github.com/vivignutz/berlin_bestbeers/media/barslist_small.png)  |![Bars List large screens](https://github.com/vivignutz/berlin_bestbeers/media/barslist_pagination.png)  |
+|﻿![Bars_list_small_screens](/assets/images/barslist_small.png)  |﻿![Bars_List_large_screens](/assets/images/bars_list.png)  |
 |--|--|
 
-This list gives to users several options to chose a post, click it up and ineract with others.
+This list gives to users several options to enjoy the content, clicking it up and ineract with others.
 By clicking on one post, the user will be redirected to the post detail page for that post.
 
 #### Register function:
@@ -248,60 +251,51 @@ To access the registration mode, the user have two ways:
 
 To create an user account, an username, a password and an optional email registration has to be provided.
 
-![Register](documentation/features-register.jpg)
-(fotos Register_page 2 ou 3)
+﻿![How_to_register](/assets/images/Register.png)
+ 
+﻿![Register_page](/assets/images/Register_page.png)
 
-From now this user has fully access to the entire website and its features for users.
-If the user clicks on "Login" button by mistake, the also can access the Register link at the Login page.
+From now this user has fully access to the entire website and its features for users. If the user clicks on "Login" button button by mistake, the also can access the Register link at the Login page.
 
 #### Login page:
 
-The website can be accessed from all users. But to get the full (CRUD) interactivity to posts and other users (to post bars, comment, like and dislike), this user has to be logged in.
+The website can be accessed from all users. But to get the fully interactivity (CRUD) to posts to whom is registered and logged in, and this user can post bars, comment in other's post, like and dislike. 
 
-The Login link can be found at the navbar.
+The Login access can be found at the navbar:
 
-(foto login nabvar)
+﻿![How_to_login](/assets/images/login_nabar.png)
 
-When logged in, the user gets a successfull message telling thier that the login was completed.
-
-(login successful message)
+﻿![Login_page](/assets/images/login_page.png)
 
 If the user clicks on "Register" button by mistake, the also can access the Login link at the Registration page.
-
-![Login](documentation/features-login.jpg)
-foto login page 2
-
-When the user enters a correct username with a matching password and clicks on Login, they are logged in and redirected to the Home page.
+When the user enters a correct username with a matching password and clicks on "Login" button, they will be redirected to the Home page.
 
 #### Logout page:
 
 The Logout page can be accessed using the provided navbar link that is present when a user is logged in. When the user clicks on Logout, they are directly logged out of their account and redirected to the Home page.
 
-![Logout](documentation/features-logout.jpg)
-(foto de logout)
-foto mensagem de logout
+﻿![How_to_Logout](/assets/images/logout.png)
 
-Clicking by "Cancel" button, the user will be redirected to the previous visidet page. 
+Clicking by "Cancel" button, the user will be redirected to the previously visitet page. 
 
 #### Add a Post
 
-Every user who does a registration at the blog can posta a new Bar (or post). This feature can be accessed at the navigation bar, which contains a line 
-This feature is only available if a user chooses to register to the site and can be accessed using the provided navbar link. The user can post a visited bar or simply post as a recommendation with a photo he tooked at the bar. This is possible thanks to the SummernoteWidget.
+Every registered users can post a new content - a new Bar. This feature can be accessed through the navigation bar. 
+This feature is only available if a user chooses to register to the site and can be accessed using the provided navbar link. The user can share their experience at the bar or simply post as a recommendation with a photo of the bar shooted by their. This is possible thanks to the SummernoteWidget.
 
-![Add Post](documentation/features-addpost.jpg)
-(colocar add_post e add_post_mobile fotos)
+﻿![Add_Post](/assets/images/add_post.png)
 
-The view to all useras are the same and contains the folloing fields: 
-
+The adding post feature is the sam to all users and has the filds:
 Title, Content, Excerpt (to appears at the Bars List), Image upload button (only one photo each post can be uploaded), and the buttons "Submit" / "Cancel".
 
-In case that the user doesn't upload any photos, a default placeholder photo will be displayed. 
-the SummernoteWidget was used to offer to users the possibility to write their posts with an full editor and customize their Bars visiting. This editor allows to add text styles, thanks to a toolbar.
+In case that the user doesn't upload any photos, a default placeholder photo will be displayed.  https://res.cloudinary.com/dovykh024/image/upload/v1673954423/bence-boros-8T5UAV6KkZA-beer_satcvm.jpg
 
-When the user complets all fields, and clicks on "Submit", the post will takes place to the datenbank as a draft and wait for approval or rejection of the admin. 
-
-The proposal of that is that the admin will avoid the repetition of Bars, because of the feature "Bars List". Once approved, the post will be added to the Home page and Bars List. 
+When the user complets all fields, and clicks on "Submit", the post will takes place to the datenbase as a draft and wait for approval or rejection of the admin. 
+The proposal of that approval or rejecting feature is that to avoid the repetition of Bars. So the "Bars List" can turn on a list or °even a "guide" of the best beer bars or brewery in Berlin.
 Users can also click on "cancel" in order to not to send their posts. 
+
+﻿![Placeholder_image](/assets/images/placeholder_img.png)
+
 
 #### Post detail
 
@@ -309,12 +303,12 @@ When a post is clicked on by the user, the Post Detail page opens up, and shows 
 
  - Logged users: comment and like/dislike will be offered as interaction. When a logged in user comments a post, he sees a field to write a comment and the button "Comment".
  
-![Post Detail](documentation/features-postdetail.jpg)
+﻿![Post Detail](documentation/features-postdetail.jpg)
 (post detail and post detail mobile)
 
  - Non-logged users: the Post Detail and comments at this post are been showing, but without the feature to comment and/or like. This user will have the possibility to read all posts, navigate through the entire website, and if he wants, registrate himself to be get the interactions parts of the website. 
  
-![Comment Login](documentation/features-commentlogin.jpg)
+﻿![Comment Login](documentation/features-commentlogin.jpg)
 (foto non_logged_user)
 
 (outra foto: testpost_summernote)
@@ -326,13 +320,13 @@ When a post is clicked on by the user, the Post Detail page opens up, and shows 
 
 Font Awesome icon (fa-heart) changes colour and the user will be able to like/unlike the post.
 
-![Comment Logout](documentation/features-commentlogout.jpg)
+﻿![Comment Logout](documentation/features-commentlogout.jpg)
 
   - User is post author:
 As a post author, the user will have all access to the CRUD functionality: post bars, comment posts, update his/her own posts, delete his/her own posts, like and dislike other's posts. 
 If the author updates a poosts and decide not to post, he/she can click on "Cancel" button.
 
-![Delete Post](documentation/features-deletepost.jpg)
+﻿![Delete Post](documentation/features-deletepost.jpg)
 (foto com o as funcionalidades do user registrado)
 
   - User is comment author:
@@ -340,7 +334,7 @@ The comment author can write comments, edit and/or delete his/her own comments. 
 Just like posts, all comments need admin approval, so there is no repetition of bars and also no problems with comments.
 Buttons Update Comment and Delete Comment have the pencil and trash bootstrap buttons "btn-signup badge" and "btn-del" respectively. 
 
-![Delete Comment](documentation/features-deletecomment.jpg)
+﻿![Delete Comment](documentation/features-deletecomment.jpg)
 (foto comments_mobile)
 (foto comments_laptop)
 
@@ -358,7 +352,7 @@ Updating a post isn't necessary to be approved by the admin, and the updating po
 
 Just as the author of the post will have full control of the content of their post, so will the author of the comment. He will be able to update their posts and also delete them cliking on "Update Comment" or "dlete Comment" buttons. 
 
-![Update Comment](documentation/features-updatecomment.jpg)
+﻿![Update Comment](documentation/features-updatecomment.jpg)
 (foto comment update before)
 (comment update after)
 
@@ -372,7 +366,7 @@ https://berlin-bestbeers.herokuapp.com/admin
 
 The admin can access all content and registered users of the website. The superuser will be albe to approve (from draft to approved) and delete a specific user, post or comment. In this case the bad content can be removed.  
 
-![Admin](documentation/features-admin.jpg)
+﻿![Admin](documentation/features-admin.jpg)
 (admin login)
 admin view
 
@@ -762,35 +756,4 @@ The application was deployed to Heroku. The steps to deploy are as follows:
 
 ### Acknowledgements
 
-  - My mentor at Code Institute Brian Macharia for code review, help and feedback. Very much appreciated!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  - To my partner Conny for all patience and love. To my mentor at Code Institute, Brian Macharia, for code review, help and feedback. To Freddie Dermesonoglou to help me to understando how Django works and to all tutors who were ther in my desparate moments. I won't never forget!
