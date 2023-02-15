@@ -355,11 +355,11 @@ One-time notification will be displayed according to the actions of the users. T
 
 System/Flash messages are displayed as feedback for users when actions are completed and stays 2 seconds until be automatically removed. 
 
-﻿![Sign_in_message](/assets/images/5signin.png)
+﻿![Sign_in_message](/assets/images/5signin.jpg)
  
 ﻿![Sign_out_message](/assets/images/2logout.jpg)
 
-![Post_approval_message](/assets/images/1post_appr.jpg)
+![Post_approval_message](/assets/images/1post_appr.png)
 
 #### Footer:
 
