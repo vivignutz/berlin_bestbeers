@@ -57,7 +57,7 @@ The purpose of this webpage is to allow users to participate posting their exper
     * [W3C CSS Validator:](#w3c-css-validator)
     * [JSHint:](#jshint)
     * [PEP8 Online:](#pep8-online)
-    * [Lighthouse:](#lighthouse)
+    * [Lighthouse test:](#lighthouse-test)
   * [Tests on user stories](#tests-on-user-stories)
   * [Further tests](#further-testing)
   * [Solved bugs](#solved-bugs)
@@ -87,7 +87,7 @@ Below is the construction of the project labels:
   - Could-Have: 4/27
   - Probably-Won’t-Have: 2/27
 
-For more information, please click here to have a [Kanban Board view](https://github.com/users/vivignutz/projects/14/views/1) for this project.
+﻿![Kanban_View](/assets/images/kanban_view.png)
 
 ## Agile workflow
 
@@ -281,7 +281,7 @@ Clicking by "Cancel" button, the user will be redirected to the previously visit
 Every registered users can post a new content - a new Bar. This feature can be accessed through the navigation bar. 
 This feature is only available if a user chooses to register to the site and can be accessed using the provided navbar link. The user can share their experience at the bar or simply post as a recommendation with a photo of the bar shooted by their. This is possible thanks to the SummernoteWidget.
 
-﻿![Add_Post](/assets/images/add_post.png)
+﻿![Add_Post](/assets/images/add_post1.png)
 
 The adding post feature is the same to all users and has the fields:
 Title, Content, Excerpt (to appears at the Bars List), Image upload button (only one photo each post can be uploaded), and the buttons "Submit" / "Cancel".
@@ -300,7 +300,7 @@ When a post is clicked on by the user, the Post Detail page opens up, and shows 
 
  - Logged users: comment and like/dislike will be offered as interaction. When a logged in user comments a post, he sees a field to write a comment and the button "Comment".
  
-﻿![Post_Detail](/assets/images/post_detail.png)
+﻿![Post_Detail](/assets/images/post_detail1.png)
 
 ﻿![Post_Detail](/assets/images/post_detail_mobile.png)
 
@@ -317,7 +317,7 @@ Font Awesome icon (fa-heart) changes colour and the user will be able to like/un
 As a post author, the user will have all access to the CRUD functionality: post bars, comment posts, update his/her own posts, delete his/her own posts, like and dislike other's posts. 
 If the author updates a poosts and decide not to post, he/she can click on "Cancel" button. Underneath is how the users can see their posts when they want to delete some of them:
 
-﻿![Delete_Post](/assets/images/deleting_posts.jpg)
+﻿![Delete_Comment](/assets/images/delete_comment.png)
 
   - User is comment author:
 The comment author can write comments, edit and/or delete his/her own comments. This full CRUD functionality over their comments can provide a better interaction of all registered users in the website. 
@@ -345,11 +345,14 @@ The registered user can update their own comments, even in other's posts. It is 
 
 The comment will be updated immediately after clicking on "Update Comment" button. This feature can avoid grammatical errors on the content. 
 
+<<<<<<< HEAD
 
 
 
 
 
+=======
+>>>>>>> e8604b322bacad1a61563980260936432871e814
 #### Django Admin superuser:
 
 The Admin background page of Django makes it possible to admin the entire website by creation of a "superuser" account.
@@ -358,9 +361,7 @@ https://berlin-bestbeers.herokuapp.com/admin
 
 The admin can access all content and registered users of the website. The superuser will be albe to approve (from draft to approved) and delete a specific user, post or comment. In this case the bad content can be removed.  
 
-﻿![Admin](documentation/features-admin.jpg)
-(admin login)
-admin view
+﻿![Admin_view](/assets/images/admin_view.png)
 
 #### System Feedback messages:
 
@@ -368,8 +369,9 @@ One-time notification will be displayed according to the actions of the users. T
 
 System/Flash messages are displayed as feedback for users when actions are completed and stays 2 seconds until be automatically removed. 
 
-![System Message](documentation/features-message.jpg)
-(todas as messagens aqui)
+﻿![Sign_in_message](/assets/images/5signin.png)
+ ﻿![Sign_ou_message](/assets/images/2logout.png)
+  ﻿![Post_approval_message](/assets/images/1post_appr.png)
 
 #### Footer:
 
@@ -378,28 +380,25 @@ The webiste Footer appears in all pages and is featured at the bottom. 2 section
  - On the left side an "About" section was built, and contains the message about the educational purpose at this website, my GitHub repository connection in form of a Button with the Font Awesome icon. 
 Below the Social Media links, including Font Awesome icons of Facebook, Twitter, Instagram and Youtube. The social media are actually being connecte do the home page of each social media, and it was built like this to shows the possibility of connection. 
 
-![Footer](documentation/features-footer.jpg)
+﻿![Footer](/assets/images/footer_full.png)
 
  - The right side includes a embedded Berlin Beer Guide Google Map, with all craft beer bars, breweries and spots where craft beer can bought. This map belongs to the website [Berlin Love](https://withberlinlove.com/berlin-craft-beer/), and was kindly lend to use for educational purposes in this website. 
 The purpose of this map is that users chose a bar or brewery of that, go visit and post their experiences at the Berlin Bestbeers. 
 Themmap disappears in smaller devices.
 
-(foto mapa e smaller)
+﻿![Beer_Map_Footer](/assets/images/beer_map.png)
 
 #### Other features:
 
-  - Logo - created with Canvas.
+  - Logo - the logo is a beer mug, created with Canvas.
   
-![Logo](foto do logo)
+﻿![Logo](/assets/images/logo.png)
 
-  - Favicon - Created with Canvas.
+  - Favicon - the favicon was created with Canvas.
 
-![Favicon](documentation/features-favicon.jpg)
+﻿![Favicon](/assets/images/favicon.png)
 
   - Links and buttons will change the colour when hovered over.
-
-![Hover](documentation/features-hover.jpg)
-foto dos botoes com amarelo
 
 #### Meta Data:
 Berlin Best Beers Blog
@@ -417,29 +416,29 @@ It will allow to the users to share their posted bars or visit in their social m
 
 ### Wireframes
 
-At the begining of this project, the Balsamiq was used to plan the wireframes, its funcionalities for the users, and to get an idea about how it might look in large widths and mobile devices.
+At the begining of this project, the Balsamiq Wireframes was used to plan the wireframes of the website, its funcionalities for the users, and to get an idea about how it might look in large widths and mobile devices.
 
 Below are the wireframes created, and its features:
 
-Home:
+ - Home:
 
-![Wireframes Home](documentation/wireframes-home.jpg)
+﻿![Wireframe_Home](/assets/images/home.png)
 
-Blog page:
+ - Blog page:
 
-![Wireframes Blog](documentation/wireframes-blog.jpg)
+﻿![Wireframe_Bars_List](/assets/images/bars_list.png)
 
 Post detail:
 
-![Wireframes Detail](documentation/wireframes-postdetail.jpg)
+﻿![Wireframes_Post_Detail](documentation/post_detail.png)
 
 Add post:
 
-![Wireframes Add](documentation/wireframes-addpost.jpg)
+﻿![Wireframes_Add_Post](documentation/add_post.png)
 
-Mobile devices:
+Mobile:
 
-![Wireframes Mobile](documentation/wireframes-mobile.jpg)
+﻿![Wireframes_Mobile](documentation/mobile.png)
 
 ### Database Design
 
@@ -479,19 +478,20 @@ The **Comment** class is used to represenst a block of text that a user creates 
 ### Site Map:
 Lucidchart was used to explain the main structure of the entire website and how to navigate in it:
 
-![ERD Comments](documentation/erd-comments.jpg)
+﻿![Site_Map](/assets/images/bestbeers_Flowchart.png)
 
 ### Colours used:
 The palette colour used for Berlin Bestbeers was chosen thinking about the standard yellow colour of the beers. The dark parts like the navigation bar and the footer belongs to the Bootstrap and brought a good contrast with the yellow used one.
 
-![Design Palette](documentation/design-palette.jpg)
+﻿![Colour Palette](/assets/images/colour_palette.png)
 
-The HEX colours:
-  - #FAE96F - Yellow Shandy, Hero image colour
-  - #E84610 - Red, Titel outlines and Delete Post button
-  - #FFC107 - Vivid orange, Icons and Favicon
-  - #343A40 - Dark, Text colour, Navbar and Footer
+The HEX colours used:
+  - #353542 - Dark, Text colour, Navbar and Footer
   - #F9FAFC - Light grayish - Background
+  - #f6c101 - Suppernova, Hero image and Favicon parts
+  - #fae96f - Yellow Crayola, Hero image parts
+  - #E84610 - Red, Titel outlines and Delete Post button
+
   
 ### Typography
 
@@ -499,16 +499,12 @@ I have used font-family "Poppins" and "Roboto", family Lato, sans-serif 200, 300
 
 The same font are used to catch the users attention at the name of the Site and name of all posts, which I used the red colour with a dark boarder. 
 
-![Design Cabinsketch](documentation/design-cabinsketch.jpg)
+﻿![Font_used](/assets/images/poppins.png)
 
 ### Images
 
-Some images that simulated updated posts from registered users were picked from the bars' own websites, each of which are real bars in Berlin. As this website was build for educational purposes only, it will not be released in order to not violate the rights of the real authors of the images.
-Unfortunately the free image sites do not have all real images of the bars posted.
-
-Here are the bars list where the images were took:
-- Bar1
-- Bar2
+Some images used for updated posts were picked up from  original existed bars and breweries in Berlin. As this website was build for educational purposes only, it will not be released in order to not violate the rights of the real authors of these images.
+Unfortunately the free image sites do not have all images that I want use.
 
 ## Technologies
 
@@ -523,7 +519,6 @@ Here are the bars list where the images were took:
 
   - [Bootstrap:](https://getbootstrap.com/) Bootstrap CSS Framework used for styling and to build responsive web pages.
   - [Cloudinary:](https://cloudinary.com/) Used to store all blog images and uploaded images.
-  - [Coverage:](https://coverage.readthedocs.io/en/latest/index.html) Used for measuring code coverage of Python test files.
   - [Django:](https://www.djangoproject.com/) Main Python framework used in the development.
   - [Django Allauth:](https://django-allauth.readthedocs.io/en/latest/index.html) Used for authentication and account registration.
   - [Django Crispy Forms:](https://django-crispy-forms.readthedocs.io/en/latest/) Used to simplify the rendering of Django forms.
@@ -534,7 +529,7 @@ Here are the bars list where the images were took:
 
 ### Software and Web Applications Used:
 
-  - [Am I Responsive:](http://ami.responsivedesign.is) Checking the responsive.
+  - [Am I Responsive:](http://ami.responsivedesign.is) To chek the responsive.
   - [Balsamiq:](https://balsamiq.com/) Used to create the wireframes.
   - [Canva:](https://www.canva.com/) To create the favicon and the hero image.
   - [Chrome DevTools:](https://developer.chrome.com/docs/devtools/) Used to test the response on different screen sizes, debugging and to generate a Lighthouse report to analyze page load.
@@ -542,7 +537,7 @@ Here are the bars list where the images were took:
   - [Git:](https://git-scm.com/) Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
   - [GitHub:](https://github.com/) GitHub is used to store the projects code after being pushed from Git and to create the Kanban board used for this project.
   - [Google Fonts:](https://fonts.google.com/) To import font family ’Cabin Sketch’ which is used throughout the site. Added fallback font sans-serif.
-  - [Berlin Love:](https://withberlinlove.com/berlin-craft-beer/) A Map embeeded though the Google Maps Embed API at this project used in footer section. The page Berlin Love Website belongs to a close friend of mine who allowed me to insert at this project done for learning purposes.
+  - [Map of Google Maps:](https://withberlinlove.com/berlin-craft-beer/) A Map embeeded though the Google Maps Embed API at this project used in footer section. The page Berlin Love Website belongs to a close friend of mine who allowed me to insert at this project done for learning purposes.
   - [Heroku:](https://www.heroku.com/) For deployment and hosting of the application.
   - [HTML Validator:](https://validator.w3.org/) Check your code for HTML validation.
   - [JSHint:](https://jshint.com/) Check code for JavaScript validation.
@@ -556,13 +551,13 @@ there is a fallback background colour set so the page still functions.
 
 ### Browser tests
 
-This project was tested using Lenovo YogaSlim Laptop (14", 2021), with Windows 11 installed using the following browsers:
+This project was tested using Lenovo YogaSlim Laptop (14", 2021), with Windows 11 installed, using the following browsers:
 
   - Google Chrome Version 109.0.5414.120 (64-Bit)
   - Brave Version 1.48.158 Chromium: 110.0.5481.77 (64-Bit)
   - Edge Version 110.0.1587.41 (64-Bit)
  
-I have tested this application, and works in an iPad Mini iOS device using Safari Version 16.0 browser.
+I have tested the live application, and works in an iPad Mini iOS device using Safari Version 16.0 browser.
 
 I also have tested this application with a Google Pixel 6 Device using a Chrome Browser Version 110.0.5481.63.
 
@@ -570,75 +565,75 @@ I also have tested this application with a Google Pixel 6 Device using a Chrome 
 
 Chrome developer tool have been used to check the responsiveness.
 
-  - The application was tested, and works well in many different screen sizes like: iPad Mini (768 x 1024 px), iPhone 5 (320 px wide) and very large screens like 5K iMac Pro (5120 x 2880 px).
+  - The website was tested in many different gadgets with different screen sizes: 
+  	- iPad Mini (768 x 1024 px)
+  	- iPhone 5 (320 px wide)
+  	- very large screens like 5K iMac Pro (5120 x 2880 px)
 
 ### Validators:
 
 #### W3C Markup Validator:
 
-To validate the HTML used in all pages, the W3C Markup Validator were used to find syntax errors in the code. I used the right click-button at the live project > code source > copied and pasted to the Validator.
+W3C Markup Validator was used to find sintax errors. The source code of the live project was copied and pasted to check the entire code and no syntax erros were found. 
 
-
+﻿![W3_Validator](/assets/images/w3_test.png)
 
 #### W3C CSS Validator:
 
-To test and avalidate the CSS style of the project, the 
-W3C CSS Validator Services were used. No erros were found, but 3 warnings, which were not so relevant now. 
+To validate the CSS style of the project, the W3C CSS Validator Services were used and no errors were highlighted.
 
-![CSS Val](documentation/testing/w3ccssvalidator.jpg)
-foto do css e do warning
+﻿![CSS_Validator](/assets/images/css_test.png)
 
 #### JSHint:
 
-JSHint was used to validate the JavaScript with no errors highlighted.
+JSHint was used to validate the JavaScript - no errors showed.
 
-![Jshint](documentation/testing/jshint.jpg)
+﻿![Jshint](/assets/images/jshint.png)
 
-#### PEP8 Online:
+#### PEP8 CI Python Linther:
 
-PEP8 Online linter (Python validator) The code passed without any errors on all files tested:
+PEP8 CI Python Linther (Python validator) used for these thests. The code passed without any errors on all files tested:
 
   - admin.py
 
-![PEP8 Admin](documentation/testing/pep8onlinecheck-admin.jpg)
+﻿![Admin_py_test](/assets/images/admin_py_test.png)
 
   - forms.py
 
-![PEP8 Forms](documentation/testing/pep8onlinecheck-forms.jpg)
+﻿![Forms_url_py_test](/assets/images/forms_urls_py.png)
 
   - models.py
 
-![PEP8 Models](documentation/testing/pep8onlinecheck-models.jpg)
+﻿![Models_py_test](/assets/images/models_py.png)
 
   - urls.py
 
-![PEP8 Urls](documentation/testing/pep8onlinecheck-urls.jpg)
+﻿![URLs_py-test](/assets/images/urls_py.png)
 
   - views.py
-Pep8 CI checker:
-colocar o pep8ci
-![PEP8 Views](documentation/testing/pep8onlinecheck-views.jpg)
 
-#### Lighthouse:
+﻿![Views_py_test](/assets/images/views_py.png)
+
+#### Lighthouse Test:
 
 The Lighthouse testing of Chrome develeper tools confirmed that although the all images were used in original sizes, the website, its colours and fonts provided an easy-read and accessible website. The performance of 72 can be easily imroved with the resize of all images. 
 
-Lighthouse
+﻿![Ligthouse_test](/assets/images/lighthouse.png)
 
 ### Tests on user stories
 
 To be sure that the suer stories work well, it were also tested one by one. All tests werde done manually, including the system feedback messages. All expectations were met.
 
  - ##### 1. EPIC Admin / Account management
-	 - Account registration
-	 - Login to an account
-	 - Feedback messages
-	 - Manage all posts
-	 - Create drafts:
-    - Approve Commnts:
+	- Account registration
+	- Login to an account
+	- Feedback messages
+	- Manage all posts
+	- Create drafts:
+        - Approve Commnts:
 
   - ##### 2. EPIC Post
-	- View a bar list
+    - View a bar list
     - Click on a post
     - Create a new post
     - View all posts
@@ -664,23 +659,25 @@ To be sure that the suer stories work well, it were also tested one by one. All 
  
 ### Further tests
 
-  - I have tested that the hover effect on all buttons and links works as expected.
-  - I have tested that all animations work correctly.
-
+  - Hover effect - Test done in all buttons and it works as expected.
+  - Map funcionality - I have tested the Beer Map embeded at the footer and it works as expected.
+  
 ### Solved bugs
 
-  - Django test error - When testing my python files I had to comment out the PostgreSQL database and use the default SQLite3 database in settings.py. Thanks to Code Institute’s Slack Channel, this was solved.
-  - Heroku database maintenance - I had to update the DATABASE_URL in my env.py file after receiving an email from Heroku about database maintenance. Thanks to Code Institute’s Slack Channel, this was solved.
-  - Am I responsive? - I had to install the Google Chrome extension, Ignore X-Frame headers to generate mockup images using Am I responsive. Thanks to Code Institute’s Slack Channel, this was solved.
-  - Uncaught ReferenceError: module not defined - This error message is displayed in the console after JavaScript testing using Jest. To fix this module.exports = removeAlerts; in script.js was commented out and can be enabled again when testing with Jest. Thanks to Code Institute’s Tutor Channel for their advice.
+  - Comments without names - In first instance, when a comment was posted, the name of the post's auhor didn't appear. This bug was solved thanks to the tutor's help, that instructed me this functionality.
+  - Editing Comments returns to the home and not to the edited post one - This bug was fixed changing the return link at views.py. 
+  - Lighthouse test Performance with a "?" - I have got a "?" signal at my Performance when testing with Lighthouse. I changed the test to the incognito window and have got better Performance. That's because I have some extensions installed at Googl Chrome. Thanks to Code Institute’s Slack Channel, this was solved.
+  - Several small bugs while codding, which were all solved thanks to Slack Channel advices and tutor's help of Code Institute.
 
 ### Known bugs
 
-  - Currently no known bugs.
+  - Currently the detected bug at Google chrome Developer Tools Console ist the Google Maps API, because theBerlin Beer Guide Google Map belongs to the website [Berlin Love](https://withberlinlove.com/berlin-craft-beer/), and the map was kindly lend to use for educational purposes in this website. 
 
+﻿![API_Bug_Map](/assets/images/google_api_bug.png)
+  
 ## Deployment
 
-The application was deployed to Heroku. The steps to deploy are as follows:
+The application was deployed to Heroku and the databese stored at ElephantSQL. The steps to deploy are as follows:
 
   - Login to [Heroku](https://dashboard.heroku.com/apps) dashboard to get an overview of installed apps.
   - Click on New => Create new app.
@@ -712,6 +709,7 @@ The application was deployed to Heroku. The steps to deploy are as follows:
   - In the settings.py file:
     - Add Cloudinary Libraries to installed apps (note: order is important) ’cloudinary_storage',  ’django.contrib.staticfiles', ’cloudinary',
     - Add the following code below STATIC_URL = ’/static/' to use Cloudinary to store media and static files:
+      - STATIC_url = '/static/'
       - STATICFILES_STORAGE = ’cloudinary_storage.storage.StaticHashedCloudinaryStorage'
       - STATICFILES_DIRS = [os.path.join(BASE_DIR, ’static')]
       - STATIC_ROOT = os.path.join(BASE_DIR, ’staticfiles')
@@ -727,25 +725,25 @@ The application was deployed to Heroku. The steps to deploy are as follows:
   - In the terminal: Add, Commit and Push.
   - In Heroku navigate to the Deploy tab => click on Deploy Branch.
   - When build process is finished click on Open App to visit the live site.
+  - After deployed, the database was migrated to ElephandSQL, following the steps provided by Code Institute.
 
 ## Credits
 
-  - [Am I Responsive:](http://ami.responsivedesign.is) Checking the responsive.
-  - [Balsamiq:](https://balsamiq.com/) Used to create the wireframes.
-  - [Bootstrap documentation:](https://getbootstrap.com/docs/4.6/getting-started/introduction/) Bootstrap documentation used for styling and to build responsive web pages.
-  - [Code Institute:](https://codeinstitute.net/) Walkthrough modules in Full Stack Frameworks.
-  - [Code Institute Slack Community:](https://app.slack.com/) Slack community for troubleshooting and FAQ.
+  - [All bars mentioned:] A huge thank you to all bars and breweries posted and mentioned by the fake users created for tests.	
+  - [Am I Responsive:](http://ami.responsivedesign.is) To check responsiveness of the website.
+  - [Balsamiq:](https://balsamiq.com/) To create all wireframes.
+  - [Bootstrap:](https://getbootstrap.com/docs/4.6/getting-started/introduction/) To style and to build the webpage.
+  - [Canva:](https://canva.com/) Used to create the favicon and the hero image.
+  - [Code Institute Slack Community:](https://app.slack.com/) The community was very helpful in 100% of the time.
   - [Code Institute Tutor Support:](https://app.slack.com/) For help and support.
-  - [Codemy:](https://www.youtube.com/watch?v=B40bteAMM_M&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi) Inspiration for creating A simple blog with Python and Django.
+  - [OHMyCode:](https://ohmycode.com.br/) As inspiration for using Django in some tutorials.
   - [Django documentation:](https://docs.djangoproject.com/en/4.1/) Everything you need to know about Django.
-  - [Gauger:](https://gauger.io/fonticon/) To create the favicon, create beautiful favicon with ease.
-  - [GitHub Checkout:](https://www.youtube.com/watch?v=BplF7vHXewA) How to break issues into actionable tasks.
-  - [Jest Docs:](https://jestjs.io/docs/getting-started) For JavaScript testing.
+  - [Developer Mozilla:](https://developer.mozilla.org/) To research about HTML and CSS for this project. 
   - [Lucidchart:](https://www.lucidchart.com/pages/) Used to create the site map.
-  - [Materialize Colors:](https://materializecss.com/color.html) Used to create the main colour palette.
+  - [Colorkit:](https://colorkit.co/) Used to create the main colour palette.
   - [Stack Overflow:](https://stackoverflow.com) For troubleshooting and FAQ.
   - [W3Schools:](https://www.w3schools.com) Online Web Tutorials.
 
 ### Acknowledgements
 
-  - To my partner Conny for all patience and love. To my mentor at Code Institute, Brian Macharia, for code review, help and feedback. To Freddie Dermesonoglou to help me to understando how Django works and to all tutors who were ther in my desparate moments. I won't never forget!
+  - To my partner Conny for her patience and love, when I was under stress. To my mentor at Code Institute, Brian Macharia, to teach me some things in cases wchich I really did not understood. To Freddie Dermesonoglou to help me to understand how Django's Model works and to all tutors at cI who were there in my desparate moments. I won't never forget!
