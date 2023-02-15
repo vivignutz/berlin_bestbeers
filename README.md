@@ -300,7 +300,7 @@ When a post is clicked on by the user, the Post Detail page opens up, and shows 
 
  - Logged users: comment and like/dislike will be offered as interaction. When a logged in user comments a post, he sees a field to write a comment and the button "Comment".
  
-﻿![Post_Detail](/assets/images/post_detail.png)
+﻿![Post_Detail](/assets/images/post_detail1.png)
 
 ﻿![Post_Detail](/assets/images/post_detail_mobile.png)
 
@@ -317,7 +317,7 @@ Font Awesome icon (fa-heart) changes colour and the user will be able to like/un
 As a post author, the user will have all access to the CRUD functionality: post bars, comment posts, update his/her own posts, delete his/her own posts, like and dislike other's posts. 
 If the author updates a poosts and decide not to post, he/she can click on "Cancel" button. Underneath is how the users can see their posts when they want to delete some of them:
 
-﻿![Delete_Post](/assets/images/deleting_posts.jpg)
+﻿![Delete_Comment](/assets/images/delete_comment.png)
 
   - User is comment author:
 The comment author can write comments, edit and/or delete his/her own comments. This full CRUD functionality over their comments can provide a better interaction of all registered users in the website. 
