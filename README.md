@@ -324,20 +324,14 @@ The comment author can write comments, edit and/or delete his/her own comments. 
 Just like posts, all comments need admin approval, so there is no repetition of bars and also no problems with comments.
 Buttons Update Comment and Delete Comment have the pencil and trash bootstrap buttons "btn-signup badge" and "btn-del" respectively. 
 
-﻿![Delete_Post](/assets/images/deleting_post.jpg)
+﻿![Delete_Post](/assets/images/deleting_posts.jpg)
 
-#### Post update
+#### Post update and Comment update
 
-Authors can update or delete their own posts using the Post Detail's Page, clicking at the button "Edit Post" or "Delete Post".  If the author decides not to update after clicking on the "Edit Post," button, he/her can click on "Cancel" button. 
+Authors can update ther own posts and comments using the Post Detail's Page, clicking at the button "Edit Post" or "Delete Post".  If the author decides not to update after clicking on the "Edit Post," button, he/her can click on "Cancel" button. 
 It gives to the user author full control over their posts.
 
-|﻿![Post_Update](/assets/images/coments_laptop.png)  |﻿![Post_update_mobile](/assets/images/comments_mobile.png) |
-
 Updating a post isn't necessary to be approved by the admin, and the post will be automatically updated.
-
-#### Comment update:
-
-The registered user can update their own comments, even in other's posts. It is part of the full control of the content of their own posts and comments. 
 
 ﻿![Delete_Comment](/assets/images/coments_laptop.png)
  
@@ -345,14 +339,6 @@ The registered user can update their own comments, even in other's posts. It is 
 
 The comment will be updated immediately after clicking on "Update Comment" button. This feature can avoid grammatical errors on the content. 
 
-<<<<<<< HEAD
-
-
-
-
-
-=======
->>>>>>> e8604b322bacad1a61563980260936432871e814
 #### Django Admin superuser:
 
 The Admin background page of Django makes it possible to admin the entire website by creation of a "superuser" account.
@@ -370,8 +356,10 @@ One-time notification will be displayed according to the actions of the users. T
 System/Flash messages are displayed as feedback for users when actions are completed and stays 2 seconds until be automatically removed. 
 
 ﻿![Sign_in_message](/assets/images/5signin.png)
- ﻿![Sign_ou_message](/assets/images/2logout.png)
-  ﻿![Post_approval_message](/assets/images/1post_appr.png)
+ 
+﻿![Sign_out_message](/assets/images/2logout.jpg)
+
+![Post_approval_message](/assets/images/1post_appr.jpg)
 
 #### Footer:
 
@@ -430,15 +418,15 @@ Below are the wireframes created, and its features:
 
 Post detail:
 
-﻿![Wireframes_Post_Detail](documentation/post_detail.png)
+﻿![Wireframes_Post_Detail](/assets/images/post_detail.png)
 
 Add post:
 
-﻿![Wireframes_Add_Post](documentation/add_post.png)
+﻿![Wireframes_Add_Post](/assets/images/add_post.png)
 
 Mobile:
 
-﻿![Wireframes_Mobile](documentation/mobile.png)
+﻿![Wireframes_Mobile](/assets/images/mobile.png)
 
 ### Database Design
 
