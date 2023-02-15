@@ -5,9 +5,6 @@ The purpose of this webpage is to allow users to participate posting their exper
 
 [View the live project here.](https://berlin-bestbeers.herokuapp.com/)
 
-<<<<<<< HEAD
-![Responsive_Design_in_all_gadgets](assets/images/responsive.png)
-=======
 ﻿![Responsive_Design_in_all_gadgets](/assets/images/responsive.png)
 
 ## Index – Table of Contents
@@ -352,7 +349,6 @@ The comment will be updated immediately after clicking on "Update Comment" butto
 
 
 
->>>>>>> dc3839e2497e62ca3f15c5628a8a12109c5f2421
 
 #### Django Admin superuser:
 
