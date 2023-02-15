@@ -345,12 +345,6 @@ The registered user can update their own comments, even in other's posts. It is 
 
 The comment will be updated immediately after clicking on "Update Comment" button. This feature can avoid grammatical errors on the content. 
 
-
-
-
-
->>>>>>> dc3839e2497e62ca3f15c5628a8a12109c5f2421
-
 #### Django Admin superuser:
 
 The Admin background page of Django makes it possible to admin the entire website by creation of a "superuser" account.
@@ -359,9 +353,7 @@ https://berlin-bestbeers.herokuapp.com/admin
 
 The admin can access all content and registered users of the website. The superuser will be albe to approve (from draft to approved) and delete a specific user, post or comment. In this case the bad content can be removed.  
 
-﻿![Admin](documentation/features-admin.jpg)
-(admin login)
-admin view
+﻿![Admin_view](/assets/images/admin_view.png)
 
 #### System Feedback messages:
 
@@ -369,8 +361,9 @@ One-time notification will be displayed according to the actions of the users. T
 
 System/Flash messages are displayed as feedback for users when actions are completed and stays 2 seconds until be automatically removed. 
 
-![System Message](documentation/features-message.jpg)
-(todas as messagens aqui)
+﻿![Sign_in_message](/assets/images/5signin.png)
+ ﻿![Sign_ou_message](/assets/images/2logout.png)
+  ﻿![Post_approval_message](/assets/images/1post_appr.png)
 
 #### Footer:
 
@@ -379,28 +372,25 @@ The webiste Footer appears in all pages and is featured at the bottom. 2 section
  - On the left side an "About" section was built, and contains the message about the educational purpose at this website, my GitHub repository connection in form of a Button with the Font Awesome icon. 
 Below the Social Media links, including Font Awesome icons of Facebook, Twitter, Instagram and Youtube. The social media are actually being connecte do the home page of each social media, and it was built like this to shows the possibility of connection. 
 
-![Footer](documentation/features-footer.jpg)
+﻿![Footer](/assets/images/footer_full.png)
 
  - The right side includes a embedded Berlin Beer Guide Google Map, with all craft beer bars, breweries and spots where craft beer can bought. This map belongs to the website [Berlin Love](https://withberlinlove.com/berlin-craft-beer/), and was kindly lend to use for educational purposes in this website. 
 The purpose of this map is that users chose a bar or brewery of that, go visit and post their experiences at the Berlin Bestbeers. 
 Themmap disappears in smaller devices.
 
-(foto mapa e smaller)
+﻿![Beer_Map_Footer](/assets/images/beer_map.png)
 
 #### Other features:
 
-  - Logo - created with Canvas.
+  - Logo - the logo is a beer mug, created with Canvas.
   
-![Logo](foto do logo)
+﻿![Logo](/assets/images/logo.png)
 
-  - Favicon - Created with Canvas.
+  - Favicon - the favicon was created with Canvas.
 
-![Favicon](documentation/features-favicon.jpg)
+﻿![Favicon](/assets/images/favicon.png)
 
   - Links and buttons will change the colour when hovered over.
-
-![Hover](documentation/features-hover.jpg)
-foto dos botoes com amarelo
 
 #### Meta Data:
 Berlin Best Beers Blog
