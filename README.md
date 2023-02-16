@@ -734,4 +734,4 @@ The application was deployed to Heroku and the databese stored at ElephantSQL. T
 
 ### Acknowledgements
 
-  - To my partner Conny for her patience and love, when I was under stress. To my mentor at Code Institute, Brian Macharia, to teach me some things in cases wchich I really did not understood. To Freddie Dermesonoglou to help me to understand how Django's Model works and to all tutors at cI who were there in my desparate moments. I won't never forget!
+  - To my partner Conny for her patience and love, when I was under stress. To my mentor at Code Institute, Brian Macharia, to teach me some things in cases wchich I really did not understand. To Freddie Dermesonoglou to help me to understand how Django's Model works and to all tutors at cI who were there in my desparate moments. I won't never forget!
