@@ -1,6 +1,7 @@
 # Berlin Bestbeers - A beer map of Berlin
 
-As my fourth portfolio project (PP4) with Code Institute, I created a website with a blog application in Django built for people who enjoy craft beer. It is targeted towards people who want to find craft beer bars around Berlin, Germany.
+As my fourth portfolio project (PP4) with Code Institute, I created a website with a blog application in Django, which was built for people who enjoy craft beer. 
+It is targeted towards people who want to find craft beer bars around Berlin, Germany.
 The purpose of this webpage is to allow users to participate posting their experiences on craft beer bars, upload fotos, comment and like on other posts.
 
 [View the live project here.](https://berlin-bestbeers.herokuapp.com/)
@@ -76,8 +77,10 @@ The user should have full control over his own posts and comments.
 
 ### Strategy used:
 
-Agile methodology was used to organize and plan this project, with assistance from the Kanban board on GitHub Project. 
+The Agile methodology was used to organize and plan this project, with assistance from the Kanban board on GitHub Project. 
+
 As a starting point for the organization of this project, 5 EPICS were created, and within them, 27 tasks were mixed between USER and/or ADMIN Stories. 
+
 Each task or story was designed to meet the blog user's needs, and labels were inserted to help to prioritize each task. 22 User Stories were concluded, working on this project and the remaining 5 were left to be implemented in the future.
 
 Below is the construction of the project labels:
@@ -100,7 +103,7 @@ To this project, an agile workflow approach was used in the entire development. 
 
 ### User stories:
 
-  - #### 1. EPIC Admin Account management
+  - #### EPIC Admin Account management
     - USER STORY #7 - Account registration and/or login:
       - As a **user** I can **register an account and/or do my login** so that **I can update my visited beer bars, comment other posts and like**
     - USER STORY #7 - Manage all posts:
@@ -110,7 +113,7 @@ To this project, an agile workflow approach was used in the entire development. 
     - USER STORY #33 - Approve Commnts:
       - As a **admin** I can **approve or deny comments** so that **I can manage which comments can appear on my blog**
 
-  - #### 2. EPIC Post
+  - #### EPIC Post
     - USER STORY #36 - View a bar list:
     - As a **user** I can **click on "Bars List" at the navigation bar** so that **I can see a list of all bars (posts) and decide in which one I go to comment afterward**
     - USER STORY #10 - Click on a post:
@@ -122,7 +125,7 @@ To this project, an agile workflow approach was used in the entire development. 
     - USER STORY #12 - Edit my posts
       - As a **user** I can **edit my own post** so that **I can update my point of view about a bar**
     
-  - #### 3. EPIC: Like and Dislike 
+  - #### EPIC: Like and Dislike 
     - USER STORY # 19 - View likes:
       - As a **user** I can **see the number of likes in each post** so that **I can have an idea about the best posts to read**
     - USER STORY #17 - See number of likes:
@@ -132,7 +135,7 @@ To this project, an agile workflow approach was used in the entire development. 
     - USER STORY #21 - Dislike a post:
       - As a **site user** I can **see the weather conditions without entering the detail page for each post** so that **I can better select interesting posts**
 
-  - #### 4. EPIC: Edit and Delete Comment and posts
+  - #### EPIC: Edit and Delete Comment and posts
     - USER STORY #22 - View comments:
       - As a **user** I can **see all comments** so that **I can read the comments and think If I come to visit this bar**
     - USER STORY #23 - Post a comment on others posts:
@@ -144,7 +147,7 @@ To this project, an agile workflow approach was used in the entire development. 
      - USER STORY #24 - Delete my comments:
        - As a  **user**  I can  **delete my comments**  so that  **I can interact with the content**
 
-  - #### 5. EPIC UX and UI
+  - #### EPIC UX and UI
     - USER STORY #26 - Responsiveness:
       - As a **user** I can **open the site in all gadgets I have (laptop, mobile and iPad)** so that **I can access the site anytime**
     - USER STORY #27 - Design:
@@ -160,7 +163,7 @@ To this project, an agile workflow approach was used in the entire development. 
 
 #### Navigation bar:
 
-The navbar was built with bootstrap's built-in class fixed-top, so the navigation bar is fixed on the top. When the page is scrolled by the user, the navigation bar stays fixed ont the top of the browser, and always visible to the user.
+The navigantion bar was built with bootstrap's built-in class fixed-top, so that is fixed on the top. When the page is scrolled by the user, the navigation bar stays fixed ont the top of the browser, and always visible to the user.
 
 The logo was designed with [Canva](https://www.canva.com/) and is on the left of the navigation bar, close to the name of the site (Bestbeers). The logo is hyperlinked to the homepage of the site, and the font used was Poppins with font-family Roboto, used to the entire website. The Font Awesome was implemented into the base.hmtl.
 
@@ -191,7 +194,7 @@ Underneath the overlayed text there is a button which redirects the users to the
 - To non-logged in users, the button "**Register Now**" redirects the users to register theirselves.
 - To whom is already logged in, the button shows then mention "**See all posts here**", and this user will be redirect to the "**Bars List**", one of the page of the navigation bar, wchich shows a list of all bars posted.
 
-The hero image shows clearly to all first time users that that is a beer lovers blog.  the user visits the site for the first time, they will clearly see that this is a fly fishing blog.
+The hero image shows clearly to all first time users that that is a beer lovers blog.
 
 Hero image mobile devices: mobile phone and iPad:
 |﻿![Hero_small](/assets/images/hero_image_handy.png)  |﻿![Hero_ipad](/assets/images/hero_image_ipad.png)  |
@@ -246,14 +249,14 @@ By clicking on one post, the user will be redirected to the post detail page for
 
 All users can register theirselves to start to interact with the website and/or other users. 
 To access the registration mode, the user have two ways:
-  - Through the navbar link ("Register")
-  - Through the button provided at the Hero Image: "Register Now!"
+  - Through the navbar link (**"Register"**)
+  - Through the button provided at the Hero Image: ****"Register Now!"**
 
 To create an user account, an username, a password and an optional email registration has to be provided.
 
 ﻿![How_to_register](/assets/images/register_page.png)
 
-From now this user has fully access to the entire website and its features for users. If the user clicks on "Login" button button by mistake, the also can access the Register link at the Login page.
+From now this user has fully access to the entire website and its features for users. If the user clicks on **"Login"** button button by mistake, the also can access the Register link at the Login page.
 
 #### Login page:
 
@@ -265,8 +268,8 @@ The Login access can be found at the navbar:
  
 ﻿![How_to_register](/assets/images/login_nabar.png)
 
-If the user clicks on "Register" button by mistake, the also can access the Login link at the Registration page.
-When the user enters a correct username with a matching password and clicks on "Login" button, they will be redirected to the Home page.
+If the user clicks on ****"Register"** button by mistake, the also can access the Login link at the Registration page.
+When the user enters a correct username with a matching password and clicks on **"Login"** button, they will be redirected to the Home page.
 
 #### Logout page:
 
@@ -274,7 +277,7 @@ The Logout page can be accessed using the provided navbar link that is present w
 
 ﻿![How_to_Logout](/assets/images/logout.png)
 
-Clicking by "Cancel" button, the user will be redirected to the previously visitet page. 
+Clicking by ****"Cancel"** button, the user will be redirected to the previously visitet page. 
 
 #### Add a Post
 
@@ -284,12 +287,12 @@ This feature is only available if a user chooses to register to the site and can
 ﻿![Add_Post](/assets/images/add_post1.png)
 
 The adding post feature is the same to all users and has the fields:
-Title, Content, Excerpt (to appears at the Bars List), Image upload button (only one photo each post can be uploaded), and the buttons "Submit" / "Cancel".
+Title, Content, Excerpt (to appears at the Bars List), Image upload button (only one photo each post can be uploaded), and the buttons **"Submit"** / **"Cancel"**.
 
 In case that the user doesn't upload any photos, a default placeholder photo will be displayed. 
 
-When the user complets all fields, and clicks on "Submit", the post will takes place to the datenbase as a draft and wait for approval or rejection of the admin. 
-The proposal of that approval or rejecting feature is that to avoid the repetition of Bars. So the "Bars List" can turn on a list or even a "guide" of the best beer bars or brewery in Berlin.
+When the user complets all fields, and clicks on **"Submit"**, the post will takes place to the datenbase as a draft and wait for approval or rejection of the admin. 
+The proposal of that approval or rejecting feature is that to avoid the repetition of Bars. So the **"Bars List"** can turn on a list or even a "guide" of the best beer bars or brewery in Berlin.
 Users can also click on "cancel" in order to not to send their posts. 
 
 ﻿![Placeholder_image](/assets/images/placeholder_img.png)
@@ -298,7 +301,7 @@ Users can also click on "cancel" in order to not to send their posts.
 
 When a post is clicked on by the user, the Post Detail page opens up, and shows a headline with the name of the Bar/Post. Underneath is the Post Author's name and the date of posting. In large viewports the photo uploaded by the Autor will be displayed in the headline beside of the name.
 
- - Logged users: comment and like/dislike will be offered as interaction. When a logged in user comments a post, he sees a field to write a comment and the button "Comment".
+ - Logged users: comment and like/dislike will be offered as interaction. When a logged in user comments a post, he sees a field to write a comment and the button **"Comment"**.
  
 ﻿![Post_Detail](/assets/images/post_detail1.png)
 
@@ -315,7 +318,7 @@ Font Awesome icon (fa-heart) changes colour and the user will be able to like/un
 
   - If user is post author:
 As a post author, the user will have all access to the CRUD functionality: post bars, comment posts, update his/her own posts, delete his/her own posts, like and dislike other's posts. 
-If the author updates a poosts and decide not to post, he/she can click on "Cancel" button. Underneath is how the users can see their posts when they want to delete some of them:
+If the author updates a poosts and decide not to post, he/she can click on ****"Cancel"** button. Underneath is how the users can see their posts when they want to delete some of them:
 
 ﻿![Delete_Comment](/assets/images/delete_comment.png)
 
@@ -328,7 +331,7 @@ Buttons Update Comment and Delete Comment have the pencil and trash bootstrap bu
 
 #### Post update and Comment update
 
-Authors can update ther own posts and comments using the Post Detail's Page, clicking at the button "Edit Post" or "Delete Post".  If the author decides not to update after clicking on the "Edit Post," button, he/her can click on "Cancel" button. 
+Authors can update ther own posts and comments using the Post Detail's Page, clicking at the button **"Edit Post"** or **"Delete Post"**.  If the author decides not to update after clicking on the **"Edit Post**," button, he/her can click on **"Cancel"** button. 
 It gives to the user author full control over their posts.
 
 Updating a post isn't necessary to be approved by the admin, and the post will be automatically updated.
@@ -337,7 +340,7 @@ Updating a post isn't necessary to be approved by the admin, and the post will b
  
 ﻿![Delete_Comment](/assets/images/comments_mobile.png)
 
-The comment will be updated immediately after clicking on "Update Comment" button. This feature can avoid grammatical errors on the content. 
+The comment will be updated immediately after clicking on **"Update Comment"** button. This feature can avoid grammatical errors on the content. 
 
 #### Django Admin superuser:
 
@@ -359,13 +362,13 @@ System/Flash messages are displayed as feedback for users when actions are compl
  
 ﻿![Sign_out_message](/assets/images/2logout.jpg)
 
-![Post_approval_message](/assets/images/1post_appr.png)
+﻿![Post_approval_message](/assets/images/1post_appr.png)
 
 #### Footer:
 
 The webiste Footer appears in all pages and is featured at the bottom. 2 sections are used to build the Fotter:
 
- - On the left side an "About" section was built, and contains the message about the educational purpose at this website, my GitHub repository connection in form of a Button with the Font Awesome icon. 
+ - On the left side an **"About"** section was built, and contains the message about the educational purpose at this website, my GitHub repository connection in form of a Button with the Font Awesome icon. 
 Below the Social Media links, including Font Awesome icons of Facebook, Twitter, Instagram and Youtube. The social media are actually being connecte do the home page of each social media, and it was built like this to shows the possibility of connection. 
 
 ﻿![Footer](/assets/images/footer_full.png)
@@ -408,23 +411,23 @@ At the begining of this project, the Balsamiq Wireframes was used to plan the wi
 
 Below are the wireframes created, and its features:
 
- - Home:
+ - **Home:**
 
 ﻿![Wireframe_Home](/assets/images/home.png)
 
- - Blog page:
+ - **Blog page:**
 
 ﻿![Wireframe_Bars_List](/assets/images/bars_list.png)
 
-Post detail:
+ - **Post detail:**
 
 ﻿![Wireframes_Post_Detail](/assets/images/post_detail.png)
 
-Add post:
+ - **Add post:**
 
 ﻿![Wireframes_Add_Post](/assets/images/add_post.png)
 
-Mobile:
+ - **Mobile:**
 
 ﻿![Wireframes_Mobile](/assets/images/mobile.png)
 
@@ -483,7 +486,7 @@ The HEX colours used:
   
 ### Typography
 
-I have used font-family "Poppins" and "Roboto", family Lato, sans-serif 200, 300, 400 and 600. Since this fonts are easy to read and shows a give a very young appearance to the website, they are chosen.
+I have used font-family **Poppins** and **Roboto**, family Lato, sans-serif 200, 300, 400 and 600. Since this fonts are easy to read and shows a give a very young appearance to the website, they are chosen.
 
 The same font are used to catch the users attention at the name of the Site and name of all posts, which I used the red colour with a dark boarder. 
 
@@ -517,14 +520,14 @@ Unfortunately the free image sites do not have all images that I want use.
 
 ### Software and Web Applications Used:
 
-  - [Am I Responsive:](http://ami.responsivedesign.is) To chek the responsive.
+  - [Am I Responsive:](http://ami.responsivedesign.is) To chek the responsiveness of the website.
   - [Balsamiq:](https://balsamiq.com/) Used to create the wireframes.
   - [Canva:](https://www.canva.com/) To create the favicon and the hero image.
   - [Chrome DevTools:](https://developer.chrome.com/docs/devtools/) Used to test the response on different screen sizes, debugging and to generate a Lighthouse report to analyze page load.
   - [Font Awesome:](https://fontawesome.com/) Used to add icons for aesthetic and UX purposes.
   - [Git:](https://git-scm.com/) Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
   - [GitHub:](https://github.com/) GitHub is used to store the projects code after being pushed from Git and to create the Kanban board used for this project.
-  - [Google Fonts:](https://fonts.google.com/) To import font family ’Cabin Sketch’ which is used throughout the site. Added fallback font sans-serif.
+  - [Google Fonts:](https://fonts.google.com/) To import font family 'Poppins' and 'Roboto' used in the entire website.
   - [Map of Google Maps:](https://withberlinlove.com/berlin-craft-beer/) A Map embeeded though the Google Maps Embed API at this project used in footer section. The page Berlin Love Website belongs to a close friend of mine who allowed me to insert at this project done for learning purposes.
   - [Heroku:](https://www.heroku.com/) For deployment and hosting of the application.
   - [HTML Validator:](https://validator.w3.org/) Check your code for HTML validation.
@@ -533,7 +536,7 @@ Unfortunately the free image sites do not have all images that I want use.
   - [Scheme Colors:](https://www.schemecolor.com/) Used to create the main colour palette.
 there is a fallback background colour set so the page still functions.
   - [W3 CSS Validator:](https://jigsaw.w3.org/css-validator/) Check your code for CSS validation.
-  - [Grammarly:](https://www.grammarly.com/) Free Grammar Check.
+  - [Grammarly:](https://www.grammarly.com/) To avoid spellings.
 
 ## Tests
 
@@ -663,6 +666,10 @@ To be sure that the suer stories work well, it were also tested one by one. All 
 
 ﻿![API_Bug_Map](/assets/images/google_api_bug.png)
   
+  - Long lines at settings.py file, which is not considered as an bug, but understood as a gub one for Django's side.
+  
+ ﻿![Long_lines_marked_as_bug](/assets/images/long_lines.png)
+
 ## Deployment
 
 The application was deployed to Heroku and the databese stored at ElephantSQL. The steps to deploy are as follows:
@@ -734,4 +741,4 @@ The application was deployed to Heroku and the databese stored at ElephantSQL. T
 
 ### Acknowledgements
 
-  - To my partner Conny for her patience and love, when I was under stress. To my mentor at Code Institute, Brian Macharia, to teach me some things in cases wchich I really did not understood. To Freddie Dermesonoglou to help me to understand how Django's Model works and to all tutors at cI who were there in my desparate moments. I won't never forget!
+  - To my partner Conny for her patience and love, when I was under stress. To my mentor at Code Institute, Brian Macharia, to teach me some things in cases wchich I really did not understand. To Freddie Dermesonoglou to help me to understand how Django's Model works and to all tutors at cI who were there in my desparate moments. I won't never forget!
