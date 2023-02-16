@@ -31,7 +31,7 @@ class Post(models.Model):
 
     class Meta:
         """
-        Set the order of posts by date descending
+        Posts oder's by date descending
         """
         ordering = ["-created_on"]
 
@@ -82,7 +82,6 @@ class Comment(models.Model):
         """
         Returns comment with body and name
         """
-        # return f'Comment {self.body} by {self.name}'
         return 'Comment {} by {}'.format(self.body, self.name)
 
 
@@ -106,12 +105,13 @@ class BarReview(models.Model):
     """
     Database model for bar review
     """
-    # title = models.CharField(max_length=150)
     content = models.TextField(max_length=600)
     created_on = models.DateTimeField()
 
-    # To ensure that only admins can make bar reviews
-    # to avoid double insertions of bar names
+    """
+    To ensure that only admins can make bar reviews
+    and avoud double insertions of bar names
+    """
     bar_name = models.ForeignKey(Bar, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
