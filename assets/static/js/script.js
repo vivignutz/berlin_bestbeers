@@ -8,3 +8,11 @@ function removeAlerts() {
         alert.close();
     }, 3000);
 }
+
+
+$('.star-rating .fa-star').on('click', function () {
+    var rating = $(this).data('rating');
+    $('#rating').val(rating);
+    $(this).siblings().removeClass('checked');
+    $(this).addClass('checked');
+});

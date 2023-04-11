@@ -1,11 +1,11 @@
-{% for bar in bars %}
+{% for bar in object_list %}
 
 <div class="bar-preview">
     <a href="{{ bar.get_absolute_url }}">
-        {% if bar.featured_image %}
-        <img src="{{ bar.featured_image.url }}" alt="{{ bar.bar_name }}" class="img-fluid float-left mr-3">
+        {% if bar.bar_image %}
+        <img src="{{ bar.bar_image.url }}" alt="{{ bar.bar_name }}" class="img-fluid float-left mr-3">
         {% endif %}
-        <h2 class="bar-title">{{ bar.bar_name }}</h2>
+        <h2 class="bar-name">{{ bar.bar_name }}</h2>
     </a>
     <p class="bar-rating">
         {% for i in "12345" %}
@@ -19,3 +19,5 @@
     <p class="bar-address">{{ bar.address }}</p>
 </div>
 {% endfor %}
+
+{% paginate %}

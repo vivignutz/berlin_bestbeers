@@ -6,8 +6,8 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-from .models import Post, Comment, Bar, BarReview
-from .forms import CommentForm, PostForm
+from .models import Post, Comment, Bar, Rating
+from .forms import CommentForm, PostForm, RatingForm
 
 
 class HomeView(generic.ListView):
@@ -20,6 +20,11 @@ class HomeView(generic.ListView):
     paginate_by = 6
 
 
+def bar(request, bar_id):
+    bar = get_object_or_404(Item, pk=bar_id)
+    return render(request, 'bar.html', {'bar': bar})
+
+
 class BarList(generic.ListView):
     """
     Displays all bars posted
@@ -28,6 +33,13 @@ class BarList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'barlist.html'
     paginate_by = 12
+
+
+class BarListView(generic.ListView):
+    model = Bar
+    template_name = '/bars_list.html'
+    ordering = ['-created_on']
+    paginate_by = 15
 
 
 class PostDetail(View):
@@ -210,36 +222,14 @@ class CommentDelete(LoginRequiredMixin,
         return False
 
 
-class BarListView(ListView):
-    model = Bar
-    template_name = '/bar_list.html'
-    ordering = ['bar_name']
-    paginate_by = 10
-
-
-class ReviewCreateView(LoginRequiredMixin, CreateView):
-    model = BarReview
-    template_name = '/review_create.html'
-    fields = ('content', 'bar_name')
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-
-    def form_invalid(self, form):
-        messages.warning(self.request, 'Error when creating evaluation')
-        return super().form_invalid(form)
-
-    def get_success_url(self):
-        return reverse_lazy('bars_list')
-
-
-def post_list(request):
-    """
-    Renders a list of all blog posts
-    """
-    posts = Post.objects.all()
-    return render(request, 'blog/post_list.html', {'posts': posts})
+def bar(request, item_id):
+    bar = get_object_or_404(Item, pk=item_id)
+    if request.method == 'POST':
+        rating = request.POST.get('rating')
+        bar.rating = rating
+        bar.save()
+        return HttpResponseRedirect(request.path_info)
+    return render(request, 'bar.html', {'bar': bar})
 
 
 def handler404(request, exception):

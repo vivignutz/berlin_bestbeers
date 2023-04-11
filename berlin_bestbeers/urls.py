@@ -1,6 +1,6 @@
 from . import views
 from django.urls import path, include
-from .views import HomeView, BarList, AddPost, PostLike, PostDetail, PostUpdate, PostDelete, CommentUpdate, CommentDelete
+from .views import HomeView, BarList, BarListView, AddPost, PostLike, PostDetail, PostUpdate, PostDelete, CommentUpdate, CommentDelete
 
 
 urlpatterns = [
@@ -8,7 +8,7 @@ urlpatterns = [
     path('barlist/', BarList.as_view(), name='barlist'),
     path('add_post/', AddPost.as_view(), name='add_post'),
     path('bars/', BarListView.as_view(), name='bars_list'),
-    path('review/<int:pk>/', ReviewCreateView.as_view(), name='review_create'),
+    #    path('review/<int:pk>/', ReviewView.as_view(), name='review'),
     path('post_detail/<slug:slug>/', PostDetail.as_view(), name='post_detail'),
     path('like/<slug:slug>/', PostLike.as_view(), name='post_like'),
     path('update_post/edit/<slug:slug>/',

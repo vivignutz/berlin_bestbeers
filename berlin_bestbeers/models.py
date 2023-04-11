@@ -28,8 +28,6 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(
         User, related_name='blogpost_like', blank=True)
-    bar = models.ForeignKey(
-        Bar, on_delete=models.CASCADE, related_name="posts")
 
     class Meta:
         """
@@ -95,6 +93,9 @@ class Bar(models.Model):
     address = models.CharField(max_length=400)
     status = models.IntegerField(choices=STATUS, default=0)
     image = CloudinaryField('image', default='placeholder')
+    phone_number = models.CharField(max_length=20)
+    website = models.URLField(blank=True)
+    instagram_link = models.URLField(blank=True)
 
     def __str__(self):
         """
@@ -103,23 +104,9 @@ class Bar(models.Model):
         return self.bar_name
 
 
-class BarReview(models.Model):
+class Rating(models.Model):
     """
     Database model for review
     """
-    content = models.TextField(max_length=600)
-    created_on = models.DateTimeField(auto_now_add=True)
-
-    """
-    To ensure that only admins can make bar reviews
-    and avoud double insertions of bar names
-    """
-    bar_name = models.ForeignKey(
-        Bar, on_delete=models.CASCADE, related_name="reviews")
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    def __str__(self):
-        """
-        Returns reviewed bar by admin
-        """
-        return f'Bar {self.bar_name} reviewed by admin.'
+    content = models.CharField(max_length=100)
+    rating = models.IntegerField(default=0)
