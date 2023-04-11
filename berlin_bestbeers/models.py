@@ -28,6 +28,8 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(
         User, related_name='blogpost_like', blank=True)
+    bar = models.ForeignKey(
+        Bar, on_delete=models.CASCADE, related_name="posts")
 
     class Meta:
         """
@@ -88,35 +90,35 @@ class Comment(models.Model):
 class Bar(models.Model):
     """
     Database model for bar registration
-    to be implemented at the future.
     """
     bar_name = models.CharField(max_length=100)
     address = models.CharField(max_length=400)
     status = models.IntegerField(choices=STATUS, default=0)
+    image = CloudinaryField('image', default='placeholder')
 
     def __str__(self):
         """
-        Returns the post and name of the author
+        Returns the name of the bar
         """
-        return f'Bar {self.bar_name} added by {self.name}'
+        return self.bar_name
 
 
-class BarReview(models.Model):
+# class BarReview(models.Model):
     """
     Database model for bar review
     """
-    content = models.TextField(max_length=600)
-    created_on = models.DateTimeField()
+#    content = models.TextField(max_length=600)
+#    created_on = models.DateTimeField()
 
     """
     To ensure that only admins can make bar reviews
     and avoud double insertions of bar names
     """
-    bar_name = models.ForeignKey(Bar, on_delete=models.CASCADE)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+#    bar_name = models.ForeignKey(Bar, on_delete=models.CASCADE)
+#    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    def __str__(self):
-        """
+#    def __str__(self):
+    """
         Returns reviewed bar by admin
         """
-        return f'Bar {self.bar_name} reviewed by admin.'
+#        return f'Bar {self.bar_name} reviewed by admin.'

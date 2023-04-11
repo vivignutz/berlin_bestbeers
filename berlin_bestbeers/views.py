@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-from .models import Post, Comment
+from .models import Post, Comment, Bar
 from .forms import CommentForm, PostForm
 
 
@@ -208,6 +208,14 @@ class CommentDelete(LoginRequiredMixin,
         if self.request.user == comment.author:
             return True
         return False
+
+
+def post_list(request):
+    """
+    Renders a list of all blog posts
+    """
+    posts = Post.objects.all()
+    return render(request, 'blog/post_list.html', {'posts': posts})
 
 
 def handler404(request, exception):
