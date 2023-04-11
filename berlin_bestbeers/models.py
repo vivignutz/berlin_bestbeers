@@ -93,23 +93,27 @@ class Comment(models.Model):
         return 'Comment {} by {}'.format(self.body, self.name)
 
 
-class BarReview(models.Model):
+# class Review(models.Model):
     """
     Database model for review
     """
-    content = models.TextField(max_length=600)
-    created_on = models.DateTimeField(auto_now_add=True)
+#    title = models.ForeignKey(
+#        Post, on_delete=models.CASCADE, related_name="review")
+#    author = models.ForeignKey(User, on_delete=models.CASCADE)
+#    rating = models.IntegerField(choices=STAR_CHOICES)
+#    created_on = models.DateTimeField(auto_now_add=True)
 
-    """
-    To ensure that only admins can make bar reviews
-    and avoud double insertions of bar names
-    """
-    title = models.ForeignKey(
-        Post, on_delete=models.CASCADE, related_name="reviews")
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+#    class Meta:
+#        ordering = ['-created_on']
+
+#    def __str__(self):
+#        return f'{self.author} - {self.post.title}'
+
+
+class Review(models.Model):
+    tittle = models.CharField(max_length=255)
+    description = models.TextField()
+    rating = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
-        """
-        Returns reviewed bar by admin
-        """
-        return f'Post {self.title} reviewed by admin.'
+        return self.tittle

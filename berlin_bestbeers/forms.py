@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, Comment
+from .models import Post, Comment, Review
 
 
 class CommentForm(forms.ModelForm):
@@ -31,3 +31,18 @@ class PostForm(forms.ModelForm):
             'excerpt',
             'featured_image',
         ]
+
+
+STAR_CHOICES = (
+    (1, '1 estrela'),
+    (2, '2 estrelas'),
+    (3, '3 estrelas'),
+    (4, '4 estrelas'),
+    (5, '5 estrelas'),
+)
+
+
+class ReviewForm(forms.Form):
+    rating = forms.ChoiceField(
+        choices=STAR_CHOICES, widget=forms.RadioSelect())
+    text = forms.CharField(widget=forms.Textarea(attrs={'rows': 5}))

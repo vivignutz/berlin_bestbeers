@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect
 from django.shortcuts import render, get_object_or_404, reverse
-from django.views import generic, View
+from django.views import generic, View, Review
+from django.views.generic import ListView
 from django.http import HttpResponseRedirect, Http404
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-from .models import Post, Comment, BarReview
-from .forms import CommentForm, PostForm
+from .models import Post, Comment
+from .forms import CommentForm, PostForm, ReviewForm
 
 
 class HomeView(generic.ListView):
@@ -210,28 +211,46 @@ class CommentDelete(LoginRequiredMixin,
         return False
 
 
-class BarListView(ListView):
-    model = Bar
-    template_name = '/bar_list.html'
-    ordering = ['title']
-    paginate_by = 10
+def review(request, id, slug):
+    post = get_object_or_404(Product, id=id, slug=slug)
+    review = product.review_set.all()
+    if review.exists():
+        rating = review.aggregate(models.Avg('rating'))['rating__avg']
+        rating = round(rating)
+    else:
+        rating = None
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            rating = int(form.cleaned_data['rating'])
+            text = form.cleaned_data['tittle']
+            if not reviews.exists():
+                post.rating = rating
+            else:
+                post.rating = (post.rating + rating) / 2
+            post.save()
+            review = post.review_set.create(rating=rating, text=tittle)
+            return redirect('post_detail', id=id, slug=slug)
+    else:
+        form = ReviewForm()
+    return render(request, 'post_detail.html', {'post': post, 'review': review, 'rating': rating, 'form': form})
 
 
-class ReviewCreateView(LoginRequiredMixin, CreateView):
-    model = BarReview
-    template_name = '/review_create.html'
-    fields = ('content', 'title')
+# class Review(LoginRequiredMixin, generic.Review):
+#    model = Reviews
+#    template_name = '/review.html'
+#    fields = ('content', 'title')
 
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
+#    def form_valid(self, form):
+#        form.instance.author = self.request.user
+#        return super().form_valid(form)
 
-    def form_invalid(self, form):
-        messages.warning(self.request, 'Error when creating evaluation')
-        return super().form_invalid(form)
+#    def form_invalid(self, form):
+#        messages.warning(self.request, 'Error when creating evaluation')
+#        return super().form_invalid(form)
 
-    def get_success_url(self):
-        return reverse_lazy('bars_list')
+#    def get_success_url(self):
+#        return reverse_lazy('barlist')
 
 
 def post_list(request):
