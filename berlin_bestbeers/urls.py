@@ -7,6 +7,8 @@ urlpatterns = [
     path('', views.HomeView.as_view(), name='home'),
     path('barlist/', BarList.as_view(), name='barlist'),
     path('add_post/', AddPost.as_view(), name='add_post'),
+    path('bars/', BarListView.as_view(), name='bars_list'),
+    path('review/<int:pk>/', ReviewCreateView.as_view(), name='review_create'),
     path('post_detail/<slug:slug>/', PostDetail.as_view(), name='post_detail'),
     path('like/<slug:slug>/', PostLike.as_view(), name='post_like'),
     path('update_post/edit/<slug:slug>/',

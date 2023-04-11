@@ -287,6 +287,33 @@ h2 {
     border: none;
 }
 
+/* List of all bars */
+.bar-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Each br o f the list */
+.bar-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Review section */
+.review-section {
+    margin-top: 20px;
+}
+
+/* Each review */
+.review-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+
 /* Footer */
 
 .footer {

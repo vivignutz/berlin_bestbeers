@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect, Http404
@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-from .models import Post, Comment, Bar
+from .models import Post, Comment, Bar, BarReview
 from .forms import CommentForm, PostForm
 
 
@@ -208,6 +208,30 @@ class CommentDelete(LoginRequiredMixin,
         if self.request.user == comment.author:
             return True
         return False
+
+
+class BarListView(ListView):
+    model = Bar
+    template_name = '/bar_list.html'
+    ordering = ['bar_name']
+    paginate_by = 10
+
+
+class ReviewCreateView(LoginRequiredMixin, CreateView):
+    model = BarReview
+    template_name = '/review_create.html'
+    fields = ('content', 'bar_name')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.warning(self.request, 'Error when creating evaluation')
+        return super().form_invalid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('bars_list')
 
 
 def post_list(request):

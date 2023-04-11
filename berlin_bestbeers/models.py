@@ -103,22 +103,23 @@ class Bar(models.Model):
         return self.bar_name
 
 
-# class BarReview(models.Model):
+class BarReview(models.Model):
     """
-    Database model for bar review
+    Database model for review
     """
-#    content = models.TextField(max_length=600)
-#    created_on = models.DateTimeField()
+    content = models.TextField(max_length=600)
+    created_on = models.DateTimeField(auto_now_add=True)
 
     """
     To ensure that only admins can make bar reviews
     and avoud double insertions of bar names
     """
-#    bar_name = models.ForeignKey(Bar, on_delete=models.CASCADE)
-#    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    bar_name = models.ForeignKey(
+        Bar, on_delete=models.CASCADE, related_name="reviews")
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
-#    def __str__(self):
-    """
+    def __str__(self):
+        """
         Returns reviewed bar by admin
         """
-#        return f'Bar {self.bar_name} reviewed by admin.'
+        return f'Bar {self.bar_name} reviewed by admin.'
