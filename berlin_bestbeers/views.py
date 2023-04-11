@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-from .models import Post, Comment, Bar, BarReview
+from .models import Post, Comment, BarReview
 from .forms import CommentForm, PostForm
 
 
@@ -213,14 +213,14 @@ class CommentDelete(LoginRequiredMixin,
 class BarListView(ListView):
     model = Bar
     template_name = '/bar_list.html'
-    ordering = ['bar_name']
+    ordering = ['title']
     paginate_by = 10
 
 
 class ReviewCreateView(LoginRequiredMixin, CreateView):
     model = BarReview
     template_name = '/review_create.html'
-    fields = ('content', 'bar_name')
+    fields = ('content', 'title')
 
     def form_valid(self, form):
         form.instance.author = self.request.user

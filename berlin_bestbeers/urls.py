@@ -1,7 +1,7 @@
 from . import views
 from django.urls import path, include
 from .views import HomeView, BarList, AddPost, PostLike, PostDetail, PostUpdate, PostDelete, CommentUpdate, CommentDelete
-
+from django.views.generic import ListView
 
 urlpatterns = [
     path('', views.HomeView.as_view(), name='home'),

@@ -21,6 +21,10 @@ class Post(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts")
     updated_on = models.DateTimeField(auto_now_add=True)
+    address = models.CharField(max_length=255)
+    phone = models.CharField(max_length=25)
+    email_contact = models.EmailField(max_length=100)
+    opening_hours = models.DateTimeField(auto_now=True)
     content = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
@@ -28,8 +32,6 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(
         User, related_name='blogpost_like', blank=True)
-    bar = models.ForeignKey(
-        Bar, on_delete=models.CASCADE, related_name="posts")
 
     class Meta:
         """
@@ -41,7 +43,11 @@ class Post(models.Model):
         """
         Returns a string representation of an object
         """
-        return self.title + ' | ' + str(self.author)
+        return (self.title + ' | ' + str(self.author) +
+                '\nAddress: ' + self.address +
+                '\nPhone: ' + self.phone +
+                '\nEmail: ' + self.email_contact +
+                '\nOpening hours: ' + self.opening_hours)
 
     def number_of_likes(self):
         """
@@ -87,22 +93,6 @@ class Comment(models.Model):
         return 'Comment {} by {}'.format(self.body, self.name)
 
 
-class Bar(models.Model):
-    """
-    Database model for bar registration
-    """
-    bar_name = models.CharField(max_length=100)
-    address = models.CharField(max_length=400)
-    status = models.IntegerField(choices=STATUS, default=0)
-    image = CloudinaryField('image', default='placeholder')
-
-    def __str__(self):
-        """
-        Returns the name of the bar
-        """
-        return self.bar_name
-
-
 class BarReview(models.Model):
     """
     Database model for review
@@ -114,12 +104,12 @@ class BarReview(models.Model):
     To ensure that only admins can make bar reviews
     and avoud double insertions of bar names
     """
-    bar_name = models.ForeignKey(
-        Bar, on_delete=models.CASCADE, related_name="reviews")
+    title = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name="reviews")
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         """
         Returns reviewed bar by admin
         """
-        return f'Bar {self.bar_name} reviewed by admin.'
+        return f'Post {self.title} reviewed by admin.'

@@ -73,6 +73,11 @@
                             href="{% url 'barlist' %}">Bars List</a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link {% if 'review' in request.path %} active {% endif %}"
+                            href="{% url 'barlist' %}">Reviews</a>
+                    </li>
+
                     <!-- For registered users the nav displays
                             different than for non-registered ones -->
                     {% if user.is_authenticated %}
