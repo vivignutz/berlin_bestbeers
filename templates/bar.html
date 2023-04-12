@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{ bar.name }}</h1>
-<div class="star-rating">
-    <span class="fa fa-star{% if bar.rating >= 1 %} checked{% endif %}" data-rating="1"></span>
-    <span class="fa fa-star{% if bar.rating >= 2 %} checked{% endif %}" data-rating="2"></span>
-    <span class="fa fa-star{% if bar.rating >= 3 %} checked{% endif %}" data-rating="3"></span>
-    <span class="fa fa-star{% if bar.rating >= 4 %} checked{% endif %}" data-rating="4"></span>
-    <span class="fa fa-star{% if bar.rating >= 5 %} checked{% endif %}" data-rating="5"></span>
+<h1>{{ item.name }}</h1>
+<div class="star-rating" data-item-id="{{ item.id }}">
+    <span class="fa fa-star" data-rating="1"></span>
+    <span class="fa fa-star" data-rating="2"></span>
+    <span class="fa fa-star" data-rating="3"></span>
+    <span class="fa fa-star" data-rating="4"></span>
+    <span class="fa fa-star" data-rating="5"></span>
 </div>
+<form method="POST" action="{% url 'rate_item' item.id %}" class="rating-form">
+    {% csrf_token %}
+    <input type="hidden" name="rating" id="rating-value">
+    <button type="submit">Rate it!</button>
+</form>
 {% endblock %}

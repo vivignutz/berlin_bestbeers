@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-from .models import Post, Comment, Bar, Rating
+from .models import Post, Comment, Bar, Rating, Blog, BarsList
 from .forms import CommentForm, PostForm, RatingForm
 
 
@@ -25,19 +25,19 @@ def bar(request, bar_id):
     return render(request, 'bar.html', {'bar': bar})
 
 
-class BarList(generic.ListView):
+class Blog(generic.ListView):
     """
     Displays all bars posted
     """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
-    template_name = 'barlist.html'
+    template_name = 'blog.html'
     paginate_by = 12
 
 
-class BarListView(generic.ListView):
+class Barslist(generic.ListView):
     model = Bar
-    template_name = '/bars_list.html'
+    template_name = 'bars_list.html'
     ordering = ['-created_on']
     paginate_by = 15
 
@@ -230,6 +230,32 @@ def bar(request, item_id):
         bar.save()
         return HttpResponseRedirect(request.path_info)
     return render(request, 'bar.html', {'bar': bar})
+
+
+def rating(request, bar_id):
+    bar = get_object_or_404(Bar, id=bar_id)
+    if request.method == 'POST':
+        form = RatingForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            rating.bar = bar
+            rating.user = request.user
+            rating.save()
+            response = {'success': True}
+            return JsonResponse(response)
+        else:
+            response = {'success': False, 'errors': form.errors}
+            return JsonResponse(response)
+    else:
+        form = RatingForm()
+    return render(request, 'rating.html', {'form': form, 'bar': bar})
+
+
+def rate_item(request, item_id):
+    item = get_object_or_404(Item, pk=item_id)
+    rating_value = int(request.POST.get('rating'))
+    rating = Rating.objects.create(item=item, value=rating_value)
+    return JsonResponse({'average_rating': item.average_rating})
 
 
 def handler404(request, exception):
