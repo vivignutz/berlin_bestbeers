@@ -33,16 +33,11 @@ class PostForm(forms.ModelForm):
         ]
 
 
-STAR_CHOICES = (
-    (1, '1 star'),
-    (2, '2 stars'),
-    (3, '3 stars'),
-    (4, '4 stars'),
-    (5, '5 stars'),
-)
-
-
-class RatingForm(forms.Form):
-    rating = forms.ChoiceField(
-        choices=STAR_CHOICES, widget=forms.RadioSelect())
-    text = forms.CharField(widget=forms.Textarea(attrs={'rows': 5}))
+class RatingForm(forms.ModelForm):
+    class Meta:
+        model = Rating
+        fields = ['rating',]
+        widgets = {
+            # 'rating': forms.Select(choices=Rating.STAR_CHOICES)
+            'rating': forms.HiddenInput()
+        }

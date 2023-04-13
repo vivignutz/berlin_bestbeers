@@ -1,14 +1,14 @@
 from . import views
 from django.urls import path, include
-from .views import HomeView, Blog, AddPost, BarsList, Rating, PostLike, PostLike, PostDetail, PostUpdate, PostDelete, CommentUpdate, CommentDelete
+from django.views.generic import ListView
+from .views import HomeView, BlogView, BarView, BarsList, AddPost, PostLike, PostLike, PostDetail, PostUpdate, PostDelete, CommentUpdate, CommentDelete
 
 
 urlpatterns = [
     path('', views.HomeView.as_view(), name='home'),
-    path('blog/', Blog.as_view(), name='blog'),
+    path('blog/', BlogView.as_view(), name='blog'),
     path('add_post/', AddPost.as_view(), name='add_post'),
-    path('bars_list/', BarsList, name='bars_list'),
-    #    path('review/<int:pk>/', ReviewView.as_view(), name='review'),
+    path('bars_list/', BarsList.as_view(), name='bars_list'),
     path('post_detail/<slug:slug>/', PostDetail.as_view(), name='post_detail'),
     path('like/<slug:slug>/', PostLike.as_view(), name='post_like'),
     path('update_post/edit/<slug:slug>/',
@@ -18,5 +18,7 @@ urlpatterns = [
          CommentUpdate.as_view(), name='update_comment'),
     path('<slug:slug>/delete_comment/<int:pk>',
          CommentDelete.as_view(), name='delete_comment'),
-    path('bar/<int:bar_id>/rating/', views.rating, name='rating'),
+    path('bar/<int:item_id>/', BarView.as_view(), name='bar'),
+    # path('bar/<int:bar_id>/rating/', RatingView.as_view(), name='rating'),
+    # path('bar/int:bar_id/rating/', RatingView.as_view(), name='rating'),
 ]

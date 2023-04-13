@@ -1,18 +1,18 @@
-from django.shortcuts import render, redirect
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect, Http404
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.urls import reverse_lazy
-from .models import Post, Comment, Bar, Rating, Blog, BarsList
+from .models import Post, Comment, Bar, BarsList, Blog
 from .forms import CommentForm, PostForm, RatingForm
 
 
 class HomeView(generic.ListView):
     """
-    Displays home page
+    Displays the home page
     """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
@@ -21,11 +21,11 @@ class HomeView(generic.ListView):
 
 
 def bar(request, bar_id):
-    bar = get_object_or_404(Item, pk=bar_id)
+    bar = get_object_or_404(Bar, pk=bar_id)
     return render(request, 'bar.html', {'bar': bar})
 
 
-class Blog(generic.ListView):
+class BlogView(generic.ListView):
     """
     Displays all bars posted
     """
@@ -35,8 +35,9 @@ class Blog(generic.ListView):
     paginate_by = 12
 
 
-class Barslist(generic.ListView):
-    model = Bar
+class BarsList(generic.ListView):
+    model = Post
+    queryset = Post.objects.filter(status=1)
     template_name = 'bars_list.html'
     ordering = ['-created_on']
     paginate_by = 15
@@ -106,7 +107,7 @@ class AddPost(LoginRequiredMixin,
 class PostUpdate(LoginRequiredMixin,
                  generic.UpdateView):
     """
-    To update posts
+    To update posts and get a feedback message
     """
     model = Post
     form_class = PostForm
@@ -201,7 +202,7 @@ class CommentUpdate(LoginRequiredMixin,
 class CommentDelete(LoginRequiredMixin,
                     generic.DeleteView):
     """
-    To dele won comments on other's posts
+    To delete own comments on other's posts
     """
     model = Comment
     template_name = 'post_detail.html'
@@ -222,19 +223,42 @@ class CommentDelete(LoginRequiredMixin,
         return False
 
 
-def bar(request, item_id):
-    bar = get_object_or_404(Item, pk=item_id)
-    if request.method == 'POST':
-        rating = request.POST.get('rating')
-        bar.rating = rating
-        bar.save()
-        return HttpResponseRedirect(request.path_info)
-    return render(request, 'bar.html', {'bar': bar})
+class BarView(View):
+    """
+    To see a unique bar of the bars list
+    """
+
+    def __init__(self):
+        pass
+
+    def get(self, request, item_id):
+        bar = get_object_or_404(Item, pk=item_id)
+        return render(request, 'bar.html', {'bar': bar})
+
+#    def post(self, request, item_id):
+#        bar = get_object_or_404(Item, pk=item_id)
+#        rating = request.POST.get('rating')
+#        bar.rating = rating
+#        bar.save()
+#        return HttpResponseRedirect(request.path_info)
 
 
-def rating(request, bar_id):
-    bar = get_object_or_404(Bar, id=bar_id)
-    if request.method == 'POST':
+"""
+class RatingView (View):
+    """
+# To rate a bar in rating star-system
+"""
+
+    def __init__(self):
+        pass
+
+    def get(self, request, bar_id):
+        bar = get_object_or_404(Bar, id=bar_id)
+        form = RatingForm()
+        return render(request, 'rating.html', {'form': form, 'bar': bar})
+
+    def post(self, request, bar_id):
+        bar = get_object_or_404(Bar, id=bar_id)
         form = RatingForm(request.POST)
         if form.is_valid():
             rating = form.save(commit=False)
@@ -246,16 +270,7 @@ def rating(request, bar_id):
         else:
             response = {'success': False, 'errors': form.errors}
             return JsonResponse(response)
-    else:
-        form = RatingForm()
-    return render(request, 'rating.html', {'form': form, 'bar': bar})
-
-
-def rate_item(request, item_id):
-    item = get_object_or_404(Item, pk=item_id)
-    rating_value = int(request.POST.get('rating'))
-    rating = Rating.objects.create(item=item, value=rating_value)
-    return JsonResponse({'average_rating': item.average_rating})
+"""
 
 
 def handler404(request, exception):

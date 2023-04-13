@@ -1,9 +1,15 @@
-{% for bar in object_list %}
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- {% for bar in bars_list %}
 
 <div class="bar-preview">
-    <a href="{{ bar.get_absolute_url }}">
+    <a href="{{ post.get_absolute_url }}">
         {% if bar.bar_image %}
-        <img src="{{ bar.bar_image.url }}" alt="{{ bar.bar_name }}" class="img-fluid float-left mr-3">
+        <img src="{{ post.bar_image.url }}" alt="{{ post.bar_name }}" class="img-fluid float-left mr-3">
         {% endif %}
         <h2 class="bar-name">{{ bar.bar_name }}</h2>
     </a>
@@ -18,6 +24,51 @@
     </p>
     <p class="bar-address">{{ bar.address }}</p>
 </div>
+
+{% endfor %} -->
+
+{% for post in post_list %}
+<div class="col-md-4">
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="image-container">
+                {% if "placeholder" in post.featured_image.url %}
+
+                <img class="card-img-top"
+                    src="https://res.cloudinary.com/dovykh024/image/upload/v1673954423/bence-boros-8T5UAV6KkZA-beer_satcvm.jpg"
+                    alt="image of beer tap">
+                {% else %}
+
+                <img class="card-img-top" src="{{ post.featured_image.url }}" alt="new bar image uploaded">
+                {% endif %}
+
+                <!-- Badge that shows a NEW message at the newest post -->
+                {% if post in post_list|slice:'0:1' %}
+                <div class="image-new-flash">
+                    <p class="author">NEW</p>
+                </div>
+                {% endif %}
+
+                <div class="image-flash">
+                    <p class="author">Author: {{ post.author }}</p>
+                </div>
+            </div>
+            <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                <h2 class="card-title">{{ post.title }}</h2>
+                <p class="card-text">{{ post.excerpt }}</p>
+            </a>
+            <hr>
+
+            <!-- This rule shows number of likes and comments -->
+            <p class="card-text text-muted h6"> {{ post.created_on }}
+                <i class="far fa-heart"></i>
+                {{ post.number_of_likes }} &#8739; <i class="far fa-comments"></i>
+                {{ post.comments.count }}
+            </p>
+        </div>
+    </div>
+</div>
+<!-- end of the for-loop for posts display at home -->
 {% endfor %}
 
-{% paginate %}
+{% endblock %}
