@@ -4,7 +4,6 @@
 
 {% block content %}
 
-
 <div class="container-fluid">
     <div class="row">
         <!-- Blog Entries Column -->
@@ -18,24 +17,7 @@
                             <div class="image-container">
                                 {% if 'placeholder' in post.featured_image.url %}
                                 <!-- Display placeholder photos based on last bars posts -->
-                                <!--
-                                {% if post.get_location_display == 'xxxx' %}
-                                <img class="card-img-top"
-                                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
-                                    alt="Image of xxxxxx">
-                                {% elif post.get_location_display == 'xxxx' %}
-                                <img class="card-img-top"
-                                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
-                                    alt="Image of xxxxxx">
-                                {% elif post.get_location_display == 'xxxx' %}
-                                <img class="card-img-top"
-                                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
-                                    alt="Image of xxxxx">
-                                {% else %}
-                                <img class="card-img-top"
-                                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
-                                    alt="Image of xxxxxx">
-                                {% endif %} -->
+
                                 {% else %}
                                 <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="Uploaded image">
                                 {% endif %}

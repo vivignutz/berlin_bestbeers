@@ -183,5 +183,7 @@ class Rating(models.Model):
     )
     content = models.CharField(max_length=100)
     rating = models.IntegerField(default=0)
-    rating_stars = models.IntegerField(choices=STAR_CHOICES, default=0, validators=[
-        MinValueValidator(1), MaxValueValidator(5)])
+    rating_stars = models.IntegerField(choices=STAR_CHOICES,
+                                       default=0,
+                                       validators=[
+                                           MinValueValidator(1), MaxValueValidator(5)])

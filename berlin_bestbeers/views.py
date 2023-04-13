@@ -6,7 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.urls import reverse_lazy
-from .models import Post, Comment, Bar, BarsList, Blog
+from .models import Post, Comment, BarsList, Blog
 from .forms import CommentForm, PostForm, RatingForm
 
 
@@ -20,27 +20,30 @@ class HomeView(generic.ListView):
     paginate_by = 6
 
 
-def bar(request, bar_id):
-    bar = get_object_or_404(Bar, pk=bar_id)
-    return render(request, 'bar.html', {'bar': bar})
+# def bar(request, bar_id):
+#    bar = get_object_or_404(Bar, pk=bar_id)
+#    return render(request, 'bar.html', {'bar': bar})
 
 
 class BlogView(generic.ListView):
     """
-    Displays all bars posted
+    Displays all posts in a page
     """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'blog.html'
-    paginate_by = 12
+    paginate_by = 9
 
 
 class BarsList(generic.ListView):
+    """
+    Displays a list of all bars posted
+    """
     model = Post
     queryset = Post.objects.filter(status=1)
     template_name = 'bars_list.html'
     ordering = ['-created_on']
-    paginate_by = 15
+    paginate_by = 10
 
 
 class PostDetail(View):
@@ -221,26 +224,6 @@ class CommentDelete(LoginRequiredMixin,
         if self.request.user == comment.author:
             return True
         return False
-
-
-class BarView(View):
-    """
-    To see a unique bar of the bars list
-    """
-
-    def __init__(self):
-        pass
-
-    def get(self, request, item_id):
-        bar = get_object_or_404(Item, pk=item_id)
-        return render(request, 'bar.html', {'bar': bar})
-
-#    def post(self, request, item_id):
-#        bar = get_object_or_404(Item, pk=item_id)
-#        rating = request.POST.get('rating')
-#        bar.rating = rating
-#        bar.save()
-#        return HttpResponseRedirect(request.path_info)
 
 
 """
