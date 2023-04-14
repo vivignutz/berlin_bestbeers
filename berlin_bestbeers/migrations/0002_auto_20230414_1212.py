@@ -10,25 +10,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.DeleteModel(
-            name='Bar',
-        ),
-        migrations.DeleteModel(
-            name='Rating',
-        ),
-        migrations.AddField(
-            model_name='post',
-            name='facebook_url',
-            field=models.URLField(blank=True),
-        ),
-        migrations.AddField(
-            model_name='post',
-            name='instagram_url',
-            field=models.URLField(default='https://www.instagram.com/user'),
-        ),
-        migrations.AddField(
-            model_name='post',
-            name='twitter_url',
-            field=models.URLField(blank=True),
-        ),
+
     ]

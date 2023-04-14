@@ -15,7 +15,7 @@ STATUS = (
 
 class Post(models.Model):
     """
-    Database model for Posts
+    Database model for Posts/Bars
     """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -91,19 +91,18 @@ class Comment(models.Model):
 
 
 class BarsList(models.Model):
-    bar_name = models.CharField(max_length=100)
-#    address=models.CharField(max_length=400)
+    post = models.CharField(max_length=100)
     status = models.IntegerField(choices=STATUS, default=0)
     image = CloudinaryField('image', default='placeholder')
-#    phone_number=models.CharField(max_length=20)
-#    website=models.URLField(blank=True)
     instagram_link = models.URLField(blank=True)
+    fadebook_link = models.URLField(blank=True)
+    twitter_link = models.URLField(blank=True)
 
     def __str__(self):
         """
-        Returns the name of the bar
+        Returns the name of the post/bar
         """
-        return self.bar_name
+        return self.post
 
 
 class Blog(models.Model):
