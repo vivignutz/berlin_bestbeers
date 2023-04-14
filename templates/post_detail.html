@@ -101,6 +101,26 @@
                         </strong>
                         {% endwith %}
                     </div>
+
+                    <div class="social-network">
+                        {% if post.instagram_url %}
+                        <a href="{{ post.instagram_url }}">
+                            <i class="fab fa-instagram" style="color: #343a40;"></i>
+                        </a>
+                        {% endif %}
+
+                        {% if post.facebook_url %}
+                        <a href="{{ post.facebook_url }}">
+                            <i class="fab fa-facebook" style="color: #343a40;"></i>
+                        </a>
+                        {% endif %}
+
+                        {% if post.twitter_url %}
+                        <a href="{{ post.twitter_url }}">
+                            <i class="fab fa-twitter" style="color: #343a40;"></i>
+                        </a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>

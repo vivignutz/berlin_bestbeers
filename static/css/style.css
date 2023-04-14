@@ -294,11 +294,15 @@ h2 {
     padding: 0;
 }
 
-/* Each br o f the list */
+/* Each bar of the list */
 .bar-item {
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 10px;
+}
+
+.social-network a:not(:last-child) {
+    margin-right: 10px;
 }
 
 /* Review section */

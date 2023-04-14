@@ -58,17 +58,23 @@
     </div>
 
     <!-- Social networks of each bar -->
-    <div class="social-icons">
+    <div class="social-network">
+        {% if post.instagram_url %}
+        <a href="{{ post.instagram_url }}">
+            <i class="fab fa-instagram" style="color: #343a40;"></i>
+        </a>
+        {% endif %}
+
         {% if post.facebook_url %}
-        <a href="{{ post.facebook_url }}"><i class="fab fa-facebook"></i></a>
+        <a href="{{ post.facebook_url }}">
+            <i class="fab fa-facebook" style="color: #343a40;"></i>
+        </a>
         {% endif %}
 
         {% if post.twitter_url %}
-        <a href="{{ post.twitter_url }}"><i class="fab fa-twitter"></i></a>
-        {% endif %}
-
-        {% if post.instagram_url %}
-        <a href="{{ post.instagram_url }}"><i class="fab fa-instagram"></i></a>
+        <a href="{{ post.twitter_url }}">
+            <i class="fab fa-twitter" style="color: #343a40;"></i>
+        </a>
         {% endif %}
     </div>
     <!-- end of the for-loop for posts display at home -->
