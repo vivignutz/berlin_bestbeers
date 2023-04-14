@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, Comment, Rating
+from .models import Post, Comment
 
 
 class CommentForm(forms.ModelForm):
@@ -34,13 +34,3 @@ class PostForm(forms.ModelForm):
             'facebook_url',
             'twitter_url',
         ]
-
-
-class RatingForm(forms.ModelForm):
-    class Meta:
-        model = Rating
-        fields = ['rating',]
-        widgets = {
-            # 'rating': forms.Select(choices=Rating.STAR_CHOICES)
-            'rating': forms.HiddenInput()
-        }

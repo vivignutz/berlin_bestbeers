@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.urls import reverse
 from django.utils.text import slugify
-from django.core.validators import MinValueValidator, MaxValueValidator
 from datetime import datetime
 
 
@@ -91,29 +90,6 @@ class Comment(models.Model):
         return 'Comment {} by {}'.format(self.body, self.name)
 
 
-"""
-class Bar(models.Model):
-    """
-# Database model for bar registration
-"""
-    bar_name = models.CharField(max_length=100)
-    address = models.CharField(max_length=400)
-    status = models.IntegerField(choices=STATUS, default=0)
-    image = CloudinaryField('image', default='placeholder')
-    phone_number = models.CharField(max_length=20)
-    website = models.URLField(blank=True)
-    instagram_link = models.URLField(blank=True)
-    created_on = models.DateTimeField(
-        auto_now_add=True, default=datetime.datetime.now)
-
-    def __str__(self):
-        """
-# Returns the name of the bar
-"""
-        return self.bar_name
-"""
-
-
 class BarsList(models.Model):
     bar_name = models.CharField(max_length=100)
 #    address=models.CharField(max_length=400)
@@ -176,22 +152,3 @@ class Blog(models.Model):
             self.slug = slugify(self.title)
             print(self.slug)
         return super().save(*args, **kwargs)
-
-
-class Rating(models.Model):
-    """
-    Database model for rating star
-    """
-    STAR_CHOICES = (
-        (1, '1 star'),
-        (2, '2 stars'),
-        (3, '3 stars'),
-        (4, '4 stars'),
-        (5, '5 stars'),
-    )
-    content = models.CharField(max_length=100)
-    rating = models.IntegerField(default=0)
-    rating_stars = models.IntegerField(choices=STAR_CHOICES,
-                                       default=0,
-                                       validators=[
-                                           MinValueValidator(1), MaxValueValidator(5)])

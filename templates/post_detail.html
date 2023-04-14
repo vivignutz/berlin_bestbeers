@@ -19,8 +19,8 @@
                 </p>
             </div>
 
-            <!-- Featured image URL for each post. If user doesn't upload
-                any image, then the featured image will be displayed -->
+            <!-- Featured image URL for each post. Planceholder will be
+                used in case of no img by the user -->
             <div class="d-none d-md-block col-md-6 header-image">
                 {% if "placeholder" in post.featured_image.url %}
                 <img src="https://res.cloudinary.com/dovykh024/image/upload/v1673867142/christin-hume-08tX2fsuSLg-beercraft_hmsrui.jpg"
@@ -33,6 +33,7 @@
         </div>
     </div>
 </div>
+
 
 <!-- Authors can edit or delete their own posts -->
 {% if request.user == post.author %}
@@ -197,7 +198,6 @@
                 </div>
                 {% endif %}
                 <hr>
-
                 <!-- For loop ends here -->
                 {% endfor %}
             </div>

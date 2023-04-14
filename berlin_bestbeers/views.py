@@ -4,10 +4,9 @@ from django.http import HttpResponseRedirect, Http404
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from django.core.validators import MinValueValidator, MaxValueValidator
 from django.urls import reverse_lazy
 from .models import Post, Comment, BarsList, Blog
-from .forms import CommentForm, PostForm, RatingForm
+from .forms import CommentForm, PostForm
 
 
 class HomeView(generic.ListView):
@@ -63,7 +62,7 @@ class PostDetail(View):
                 'comments': comments,
                 'commented': False,
                 'liked': liked,
-                'comment_form': CommentForm()
+                'comment_form': CommentForm(),
             },
         )
 
@@ -72,7 +71,6 @@ class PostDetail(View):
             queryset = Post.objects.filter(status=1)
             post = get_object_or_404(queryset, slug=slug)
             comment_form = CommentForm(data=request.POST)
-
             if comment_form.is_valid():
                 comment = comment_form.save(commit=False)
                 comment.post = post
@@ -219,36 +217,6 @@ class CommentDelete(LoginRequiredMixin,
         if self.request.user == comment.author:
             return True
         return False
-
-
-"""
-class RatingView (View):
-    """
-# To rate a bar in rating star-system
-"""
-
-    def __init__(self):
-        pass
-
-    def get(self, request, bar_id):
-        bar = get_object_or_404(Bar, id=bar_id)
-        form = RatingForm()
-        return render(request, 'rating.html', {'form': form, 'bar': bar})
-
-    def post(self, request, bar_id):
-        bar = get_object_or_404(Bar, id=bar_id)
-        form = RatingForm(request.POST)
-        if form.is_valid():
-            rating = form.save(commit=False)
-            rating.bar = bar
-            rating.user = request.user
-            rating.save()
-            response = {'success': True}
-            return JsonResponse(response)
-        else:
-            response = {'success': False, 'errors': form.errors}
-            return JsonResponse(response)
-"""
 
 
 def handler404(request, exception):

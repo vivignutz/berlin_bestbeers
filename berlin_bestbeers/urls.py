@@ -18,5 +18,4 @@ urlpatterns = [
          CommentUpdate.as_view(), name='update_comment'),
     path('<slug:slug>/delete_comment/<int:pk>',
          CommentDelete.as_view(), name='delete_comment'),
-    # path('post/<int:post_id>/rating/', RatingView.as_view(), name='rating'),
 ]
