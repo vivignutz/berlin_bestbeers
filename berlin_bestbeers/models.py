@@ -4,6 +4,7 @@ from cloudinary.models import CloudinaryField
 from django.urls import reverse
 from django.utils.text import slugify
 from django.core.validators import MinValueValidator, MaxValueValidator
+from datetime import datetime
 
 
 # Create a tuple for our status
@@ -29,6 +30,10 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(
         User, related_name='post_likes', blank=True)
+    instagram_url = models.URLField(
+        max_length=200, default='https://www.instagram.com/user', blank=False)
+    facebook_url = models.URLField(max_length=200, blank=True)
+    twitter_url = models.URLField(max_length=200, blank=True)
 
     class Meta:
         """
@@ -86,10 +91,11 @@ class Comment(models.Model):
         return 'Comment {} by {}'.format(self.body, self.name)
 
 
+"""
 class Bar(models.Model):
     """
-    Database model for bar registration
-    """
+# Database model for bar registration
+"""
     bar_name = models.CharField(max_length=100)
     address = models.CharField(max_length=400)
     status = models.IntegerField(choices=STATUS, default=0)
@@ -97,13 +103,15 @@ class Bar(models.Model):
     phone_number = models.CharField(max_length=20)
     website = models.URLField(blank=True)
     instagram_link = models.URLField(blank=True)
-    created_on = models.DateTimeField(auto_now_add=True)
+    created_on = models.DateTimeField(
+        auto_now_add=True, default=datetime.datetime.now)
 
     def __str__(self):
         """
-        Returns the name of the bar
-        """
+# Returns the name of the bar
+"""
         return self.bar_name
+"""
 
 
 class BarsList(models.Model):

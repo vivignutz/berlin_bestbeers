@@ -20,11 +20,6 @@ class HomeView(generic.ListView):
     paginate_by = 6
 
 
-# def bar(request, bar_id):
-#    bar = get_object_or_404(Bar, pk=bar_id)
-#    return render(request, 'bar.html', {'bar': bar})
-
-
 class BlogView(generic.ListView):
     """
     Displays all posts in a page

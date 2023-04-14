@@ -6,13 +6,6 @@
 
 <!-- {% for bar in bars_list %}
 
-<div class="bar-preview">
-    <a href="{{ post.get_absolute_url }}">
-        {% if bar.bar_image %}
-        <img src="{{ post.bar_image.url }}" alt="{{ post.bar_name }}" class="img-fluid float-left mr-3">
-        {% endif %}
-        <h2 class="bar-name">{{ bar.bar_name }}</h2>
-    </a>
     <p class="bar-rating">
         {% for i in "12345" %}
         {% if forloop.counter <= bar.average_rating %}
@@ -52,7 +45,6 @@
             <a href="{% url 'post_detail' post.slug %}" class="post-link">
                 <h2 class="card-title">{{ post.title }}</h2>
                 <p class="author" style="color: #343a40; font-weight: bold;">Author: {{ post.author }}</p>
-                <p class="card-text" style="color: #343a40;">{{ post.excerpt }}</p>
             </a>
             <hr>
         </div>
@@ -63,7 +55,21 @@
             {{ post.number_of_likes }} &#8739; <i class="far fa-comments"></i>
             {{ post.comments.count }}
         </p>
+    </div>
 
+    <!-- Social networks of each bar -->
+    <div class="social-icons">
+        {% if post.facebook_url %}
+        <a href="{{ post.facebook_url }}"><i class="fab fa-facebook"></i></a>
+        {% endif %}
+
+        {% if post.twitter_url %}
+        <a href="{{ post.twitter_url }}"><i class="fab fa-twitter"></i></a>
+        {% endif %}
+
+        {% if post.instagram_url %}
+        <a href="{{ post.instagram_url }}"><i class="fab fa-instagram"></i></a>
+        {% endif %}
     </div>
     <!-- end of the for-loop for posts display at home -->
     {% endif %}

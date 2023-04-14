@@ -30,6 +30,9 @@ class PostForm(forms.ModelForm):
             'content',
             'excerpt',
             'featured_image',
+            'instagram_url',
+            'facebook_url',
+            'twitter_url',
         ]
 
 
