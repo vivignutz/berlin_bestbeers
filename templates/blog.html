@@ -27,8 +27,8 @@
                             </div>
                             <a href="{% url 'post_detail' post.slug  %}" class="post-link">
                                 <p class="card-text h6 mt-2">
-
                                 </p>
+
                                 <h2 class="card-title mt-4">{{ post.title | truncatechars:40 }}</h2>
                                 <!-- Display post content, 30 characters and appends an ellipsis if no excerpt provided -->
                                 {% if post.excerpt %}
@@ -44,10 +44,10 @@
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
+                <!--{% if forloop.counter|divisibleby:3 %}
             </div>
             <div class="row">
-                {% endif %}
+                {% endif %}-->
                 {% endfor %}
             </div>
         </div>

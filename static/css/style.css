@@ -6,7 +6,6 @@ body {
     padding-top: 65px;
 }
 
-
 /* Navigation */
 
 .navbar {
@@ -138,6 +137,10 @@ h2 {
 .card {
     border: none;
     background-color: transparent;
+}
+
+.card-image-left {
+    margin-top: 10px;
 }
 
 .image-container {
@@ -298,12 +301,16 @@ h2 {
 .bar-item {
     border: 1px solid #ccc;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-.social-network a:not(:last-child) {
-    margin-right: 10px;
+.social-network a {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 15px;
+    padding-right: 10px;
 }
+
 
 /* Review section */
 .review-section {
