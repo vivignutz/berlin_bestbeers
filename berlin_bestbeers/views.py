@@ -5,7 +5,8 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-from .models import Post, Comment, BarsList, Blog, MostLiked
+from .models import Post, Comment, BarsList, Blog
+# MostLikedPosts
 from .forms import CommentForm, PostForm
 
 
@@ -219,10 +220,12 @@ class CommentDelete(LoginRequiredMixin,
         return False
 
 
+"""
 def most_liked_posts(request):
-    most_liked_posts_list = MostLiked.objects.order_by('-likes')
+    most_liked_posts_list = MostLikedPosts.objects.all()
     context = {'posts': most_liked_posts_list}
     return render(request, 'most_liked.html', context)
+"""
 
 
 def handler404(request, exception):

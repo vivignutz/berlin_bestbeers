@@ -77,10 +77,7 @@
                             href="{% url 'bars_list' %}">Bars List</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link {% if 'most_liked_posts' in request.path %} active {% endif %}"
-                            href="{% url 'most_liked_posts' %}">Top Bars</a>
-                    </li>
+
 
                     {% if user.is_authenticated %}
                     <li class="nav-item">
