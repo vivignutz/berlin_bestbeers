@@ -6,6 +6,7 @@ body {
     padding-top: 65px;
 }
 
+
 /* Navigation */
 
 .navbar {
@@ -290,12 +291,6 @@ h2 {
     border: none;
 }
 
-/* List of all bars */
-.bar-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
 
 /* Each bar of the list */
 .bar-item {
@@ -305,10 +300,10 @@ h2 {
 }
 
 .social-network a {
-    display: inline-block;
+    display: flex;
     vertical-align: middle;
     margin-left: 15px;
-    padding-right: 10px;
+    padding-right: 10p;
 }
 
 

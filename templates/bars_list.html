@@ -5,8 +5,6 @@
 {% block content %}
 <div class="container-fluid" style="max-width: 1200px;">
     {% for post in post_list %}
-
-    {% for post in post_list %}
     <div class="row">
         <div class="col-md-4">
             {% if "placeholder" in post.featured_image.url %}
@@ -14,7 +12,6 @@
                 src="https://res.cloudinary.com/dovykh024/image/upload/v1673954423/bence-boros-8T5UAV6KkZA-beer_satcvm.jpg"
                 alt="image of beer tap">
             {% else %}
-
             <img class="card-img-left" src="{{ post.featured_image.url }}" alt="Uploaded image" style="width: 50%;">
             {% endif %}
         </div>
@@ -28,11 +25,10 @@
                 {{ post.number_of_likes }} &#8739; <i class="far fa-comments"></i>
                 {{ post.comments.count }}
             </p>
-            <div class="social-networks-container">
-                <p class="font-weight: bold,">Find the bar:</p>
-
+            <div class="social-networks-container" style="display: flex; margin-top: 5px;">
+                <p style="font-weight: bold; margin-right: 10px;">Find the bar on:</p>
                 {% if post.instagram_url %}
-                <a href=" {{ post.instagram_url }}">
+                <a href="{{ post.instagram_url }}" style="margin-right: 10px;">
                     <i class="fab fa-instagram" style="color: #343a40;"></i>
                 </a>
                 {% endif %}
@@ -51,29 +47,7 @@
             </div>
         </div>
     </div>
-    {% endfor %}
-
-    <!--
-    <div class="social-network">
-        {% if post.instagram_url %}
-        <a href="{{ post.instagram_url }}">
-            <i class="fab fa-instagram" style="color: #343a40;"></i>
-        </a>
-        {% endif %}
-
-        {% if post.facebook_url %}
-        <a href="{{ post.facebook_url }}">
-            <i class="fab fa-facebook" style="color: #343a40;"></i>
-        </a>
-        {% endif %}
-
-        {% if post.twitter_url %}
-        <a href="{{ post.twitter_url }}">
-            <i class="fab fa-twitter" style="color: #343a40;"></i>
-        </a>
-        {% endif %}
-    </div>
--->
+    {% endif %}
 
     {% endfor %}
 </div>
