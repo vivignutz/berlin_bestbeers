@@ -151,3 +151,42 @@ class Blog(models.Model):
             self.slug = slugify(self.title)
             print(self.slug)
         return super().save(*args, **kwargs)
+
+
+class MostLiked(models.Model):
+    post = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=200, unique=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+    likes = models.ManyToManyField(
+        'auth.User', related_name='most_liked_posts', blank=True)
+
+    class Meta:
+        """
+        Posts oder's by date descending
+        """
+    ordering = ["-likes"]
+
+    def __str__(self):
+        """
+        Returns a string representation of an object
+        """
+        return self.title()
+
+    def number_of_likes(self):
+        """
+        Returns number of blog post likes
+        """
+        return self.likes.count()
+
+    def get_absolute_url(self):
+        """
+        Returns successful post to related slug url
+        """
+        return reverse('post_detail', kwargs={'slug': self.slug})
+
+    def __str__(self):
+        """
+        Returns the name of the post/bar
+        """
+        return self.post

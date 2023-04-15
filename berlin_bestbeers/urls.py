@@ -1,7 +1,7 @@
 from . import views
 from django.urls import path, include
 from django.views.generic import ListView
-from .views import HomeView, BlogView, BarsList, AddPost, PostLike, PostLike, PostDetail, PostUpdate, PostDelete, CommentUpdate, CommentDelete
+from .views import HomeView, BlogView, BarsList, AddPost, PostLike, PostLike, PostDetail, PostUpdate, PostDelete, CommentUpdate, CommentDelete, most_liked_posts
 
 
 urlpatterns = [
@@ -18,4 +18,6 @@ urlpatterns = [
          CommentUpdate.as_view(), name='update_comment'),
     path('<slug:slug>/delete_comment/<int:pk>',
          CommentDelete.as_view(), name='delete_comment'),
+    path('most_liked_posts/', views.most_liked_posts,
+         name='most_liked_posts'),
 ]

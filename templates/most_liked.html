@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>List of the most liked bars</h1>
+            <p>Enjoy this exclusive list of our community's favorite bars!
+                You can also download this list in PDF format by clicking here.</p>
+            <table class="table table-striped">
+                <thead>
+                    <tr class="bg-warning text-dark">
+                        <th>Bar</th>
+                        <th>Top Bars</th>
+                        <th>Social Media</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for post in posts %}
+                    <tr class="bg-light">
+                        <td class="font-weight-bold">{{ post.title }}</td>
+                        <td class="font-weight-bold">{{ post.likes }}</td>
+                        <td>
+                            {% if post.instagram_url %}
+                            <a href="{{ post.instagram_url }}"><i class="fab fa-instagram"
+                                    style="color: #343a40;"></i></a>
+                            {% endif %}
+                            {% if post.facebook_url %}
+                            <a href="{{ post.facebook_url }}"><i class="fab fa-facebook"
+                                    style="color: #343a40;"></i></a>
+                            {% endif %}
+                            {% if post.twitter_url %}
+                            <a href="{{ post.twitter_url }}"><i class="fab fa-twitter" style="color: #343a40;"></i></a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
