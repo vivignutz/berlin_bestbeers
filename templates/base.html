@@ -54,9 +54,8 @@
                     alt="bestbeers_logo" height="50" class="blogname">&nbsp; Bestbeers</a>
 
             <!-- Toggle button will be activated for small screens -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -78,14 +77,6 @@
                             href="{% url 'bars_list' %}">Bars List</a>
                     </li>
 
-
-
-
-
-                    <!--
-                        For registered users the nav displays
-                        different than for non-registered ones
-                    -->
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link {% if 'post/add' in request.path %} active {% endif %}"
