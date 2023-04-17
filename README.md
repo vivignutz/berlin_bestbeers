@@ -6,7 +6,7 @@ The purpose of this webpage is to allow users to participate posting their exper
 
 [View the live project here.](https://berlin-bestbeers.herokuapp.com/)
 
-﻿![Responsive_Design_in_all_gadgets](/assets/images/responsive.png)
+﻿![Responsive_Design_in_all_gadgets](/static/images/responsive.png)
 
 ## Index – Table of Contents
 * [User Experience (UX)](#user-experience-ux)
@@ -90,7 +90,7 @@ Below is the construction of the project labels:
   - Could-Have: 4/27
   - Probably-Won’t-Have: 2/27
 
-﻿![Kanban_View](/assets/images/kanban_view.png)
+﻿![Kanban_View](/static/images/kanban_view.png)
 
 ## Agile workflow
 
@@ -169,15 +169,15 @@ The logo was designed with [Canva](https://www.canva.com/) and is on the left of
 
 The navigation items appear according to the user status. If logged in, the user can see the Home / Bars List / Add a Post / Logout / Username. This last includes a Font Awesome icon (fas fa-user):
 
-﻿![Navbar_logged_in](/assets/images/navbar_loggedin.jpg)
+﻿![Navbar_logged_in](/static/images/navbar_loggedin.jpg)
 
 Otherwise, the following items will appear: Home / Bars List / Register / Login:
 
-﻿![Navbar_logged_in](assets/images/navbar_loggedout.jpg)
+﻿![Navbar_logged_in](static/images/navbar_loggedout.jpg)
 
 For small devices the navbar is collapsed into a "hamburger menu", and turns to a fully responsive navigation bar. Here the example for the navbar tested on iPhone 5 viewport:
 
-﻿![Navbar_logged_in](/assets/images/navbar_handy.jpg)
+﻿![Navbar_logged_in](/static/images/navbar_handy.jpg)
 
 #### Home page:
 
@@ -187,9 +187,9 @@ The hero section is the first section of the home page that follows the navigati
 
 The background image uses background attachment fixed on large screen sizes to give a nice effect when the page is scrolled.
 
-﻿![Hero_section](/assets/images/hero_image.png)
+﻿![Hero_section](/static/images/hero_image.png)
 
-A large text overlay of this background image is the name of the website ("Bestbeers") wrote in red in **h1** and the location of that (Berlin, Germany) in **h2**.  
+A large text overlay of this background image is the name of the website ("Bestbeers") wrote in red in **h1** and the location of that (Berlin, Germany) in **h2**.
 Underneath the overlayed text there is a button which redirects the users to the following: 
 - To non-logged in users, the button "**Register Now**" redirects the users to register theirselves.
 - To whom is already logged in, the button shows then mention "**See all posts here**", and this user will be redirect to the "**Bars List**", one of the page of the navigation bar, wchich shows a list of all bars posted.

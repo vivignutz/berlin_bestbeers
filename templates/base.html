@@ -54,7 +54,7 @@
                     alt="bestbeers_logo" height="50" class="blogname">&nbsp; Bestbeers</a>
 
             <!-- Toggle button will be activated for small screens -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="navbarText"
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -76,8 +76,6 @@
                         <a class="nav-link {% if 'bars_list' in request.path %} active {% endif %}"
                             href="{% url 'bars_list' %}">Bars List</a>
                     </li>
-
-
 
                     {% if user.is_authenticated %}
                     <li class="nav-item">
