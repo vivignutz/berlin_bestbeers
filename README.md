@@ -1,12 +1,12 @@
 # Berlin Bestbeers - A beer map of Berlin
 
-As my fourth portfolio project (PP4) with Code Institute, I created a website with a blog application in Django, which was built for people who enjoy craft beer. 
+As my fourth portfolio project (PP4) with Code Institute, I created a website with a blog application in Django, which was built for people who enjoy craft beer.
 It is targeted towards people who want to find craft beer bars around Berlin, Germany.
 The purpose of this webpage is to allow users to participate posting their experiences on craft beer bars, upload fotos, comment and like on other posts.
 
 [View the live project here.](https://berlin-bestbeers.herokuapp.com/)
 
-﻿![Responsive_Design_in_all_gadgets](/static/images/responsive.png)
+﻿![Responsive_Design_in_all_gadgets](/static/images/responsive.jpg)
 
 ## Index – Table of Contents
 * [User Experience (UX)](#user-experience-ux)
@@ -19,12 +19,13 @@ The purpose of this webpage is to allow users to participate posting their exper
       * [EPIC Like and Dislike](#epic-like-and-dislike) 
       * [EPIC Edit and Delete comment and posts](#epic-edit-and-delete-comment-and-posts) 
       * [EPIC UX and UI](#epic-ux-and-ui) 
- 
+
 * [Features](#features)
   * [Installed Features](#installed-features)
     * [Navigation bar:](#navigation-bar)
-    * [Home page:](#home-page)
-    * [Blog page: Bars List](#blog-page-bars-list)
+    * [Home page:](#home)
+    * [Blog page](#blog)
+    * [Bars List](#bars_list)
     * [Register function:](#register-function)
     * [Login page:](#login-page)
     * [Logout page:](#logout-page)
@@ -45,7 +46,7 @@ The purpose of this webpage is to allow users to participate posting their exper
 	  * [Colours used](#colours-used)
 	  * [Typography](#typography)
 	  * [Images](#images)
-	  
+
 * [Technologies](#technologies)
   * [Languages Used:](#languages-used)
   * [Frameworks and Libraries Used:](#frameworks-and-libraries-used)
@@ -64,6 +65,7 @@ The purpose of this webpage is to allow users to participate posting their exper
   * [Solved bugs](#solved-bugs)
   * [Known bugs](#known-bugs)
 * [Deployment](#deployment)
+* [Resubmission](#resubmission)
 * [Credits](#credits)
   * [Code](#code)
   * [Acknowledgements](#acknowledgements)
@@ -86,11 +88,15 @@ Each task or story was designed to meet the blog user's needs, and labels were i
 Below is the construction of the project labels:
 
   - Must-Have: 17/27
-  - Should-Have: 4/27
-  - Could-Have: 4/27
+  - Should-Have: 4/27 + 1 (to resubmit)
+  - Could-Have: 4/27 # 1 (to resubmit)
   - Probably-Won’t-Have: 2/27
 
 ﻿![Kanban_View](/static/images/kanban_view.png)
+
+The new issues created to resubmit:
+
+﻿![New_Issues](/static/images/new_issues.png)
 
 ## Agile workflow
 
@@ -167,17 +173,15 @@ The navigantion bar was built with bootstrap's built-in class fixed-top, so that
 
 The logo was designed with [Canva](https://www.canva.com/) and is on the left of the navigation bar, close to the name of the site (Bestbeers). The logo is hyperlinked to the homepage of the site, and the font used was Poppins with font-family Roboto, used to the entire website. The Font Awesome was implemented into the base.hmtl.
 
-The navigation items appear according to the user status. If logged in, the user can see the Home / Bars List / Add a Post / Logout / Username. This last includes a Font Awesome icon (fas fa-user):
+The navigation items appear according to the user status. If logged in, the user can see the Home / Blog / Bars List / Add a Post / Logout / Username. This last includes a Font Awesome icon (fas fa-user):
 
-﻿![Navbar_logged_in](/static/images/navbar_loggedin.jpg)
+﻿![Navbar](/static/images/new_navbar.png)
 
-Otherwise, the following items will appear: Home / Bars List / Register / Login:
+Otherwise, the following items will appear: Home / Blog / Bars List / Register / Login:
 
-﻿![Navbar_logged_in](static/images/navbar_loggedout.jpg)
+For small devices the navbar is collapsed into a "hamburger menu", and turns to a fully responsive navigation bar. Here the example for the navbar tested on iPhone 8 Plus viewport:
 
-For small devices the navbar is collapsed into a "hamburger menu", and turns to a fully responsive navigation bar. Here the example for the navbar tested on iPhone 5 viewport:
-
-﻿![Navbar_logged_in](/static/images/navbar_handy.jpg)
+﻿![Navbar_Mobile](/static/images/new_navbar_mobile.png)
 
 #### Home page:
 
@@ -197,7 +201,7 @@ Underneath the overlayed text there is a button which redirects the users to the
 The hero image shows clearly to all first time users that that is a beer lovers blog.
 
 Hero image mobile devices: mobile phone and iPad:
-|﻿![Hero_small](/assets/images/hero_image_handy.png)  |﻿![Hero_ipad](/assets/images/hero_image_ipad.png)  |
+|﻿![Hero_small](/static/images/hero_image_handy.png)  |﻿![Hero_ipad](/static/images/hero_image_ipad.png)  |
 |--|--|
 
 
@@ -209,7 +213,7 @@ Below the Hero section is the Info section, a container styled with help of Font
   - We LOVE Beer - Since 2023 - (fa-solid fa-heart)
   - From - Berlin, Germany (fa-solid fa-location-dot)
 
-﻿![Info_section](/assets/images/info_section.png)
+﻿![Info_section](/static/images/info_section.png)
 
 The circle around each icon was styled to get a different style (border-radius:  70%  30%  30%  70% / 60%  40%  60%  40%;)
 When open the blog on smaller devices the number of icons reduces to only one - the middle positioned ones.
@@ -228,22 +232,30 @@ This section was built with Bootstrap grid scheme, in which consists of three co
   - Number of likes - Font Awesome icon (far fa-heart) followed by the number of likes
   - Number of comments - Font Awesome icon (far fa-comments) followed by number of comments
 
-﻿![Home_page_posts](/assets/images/home_page.png)
+﻿![Home_page_posts](/static/images/home_page.png)
 
 By clicking on a post, the user is redirected to the post detail page for that post.
 
-#### Blog page: Bars List
+#### Blog
 
-The Bars List is a list of all posts in reverse order of creation, i.e. from the most up-to-date to the last up-to-date, totaling 12 posts in each page. This posts are being paginated, and this Bars List can easily be accessed using the navigation bar link for all users, registered or not.
+The Blog is similar to the home page, also in reverse order of creation, i.e. from the most up-to-date to the last up-to-date, totaling 12 posts in each page. This posts are being paginated, and this Bars List can easily be accessed using the navigation bar link for all users, registered or not.
 
-The Bars List page has the same grid Scheme as the Home Page, but contains 12 posts in each page and the pagination in the end of the page. The Hero image and the Info section don't appear in this list to make it more compact and in let it on a list format.
+The Blog page has the same grid Scheme as the Home Page, but contains 12 posts in each page and the pagination in the end of the page. The Hero image and the Info section don't appear in this list to make it more compact and in let it on a list format.
 For small screens (mobile) the view changes to one post after another and the user has to scroll the screen post to post.
 
-|﻿![Bars_list_small_screens](/assets/images/barslist_small.png)  |﻿![Bars_List_large_screens](/assets/images/barslist_pagination.png)  |
+|﻿![Blog_small_screens](/static/images/barslist_small.png)  |﻿![Blog_large_screens](/static/images/barslist_pagination.png)  |
 |--|--|
 
-This list gives to users several options to enjoy the content, clicking it up and ineract with others.
-By clicking on one post, the user will be redirected to the post detail page for that post.
+#### Bars List
+
+The Bars List is a list of all bars posted, but without some informations like excerpt and content. Basically contains the name of the bar, the author, number of comments and likes and the social media icons as a form of contact to the user. This posts are also being paginated, and this Bars List can easily be accessed using the navigation bar link for all users, registered or not.
+
+This list gives to users the option to have more easily access to a list of all bars posted, and contact them through the social media. By clicking on a bar, the user will be redirected to the post detail page for that post.
+
+﻿![Bars_List](/static/images/bars_list.png)
+
+﻿![Bars_List_Mobile](/static/images/bars_list_m.png)
+
 
 #### Register function:
 
@@ -254,7 +266,7 @@ To access the registration mode, the user have two ways:
 
 To create an user account, an username, a password and an optional email registration has to be provided.
 
-﻿![How_to_register](/assets/images/register_page.png)
+﻿![Bars_List](/static/images/register_page.png)
 
 From now this user has fully access to the entire website and its features for users. If the user clicks on **"Login"** button button by mistake, the also can access the Register link at the Login page.
 
@@ -264,9 +276,9 @@ The website can be accessed from all users. But to get the fully interactivity (
 
 The Login access can be found at the navbar:
 
-﻿![Login_page](/assets/images/login_page.png)
+﻿![Login_page](/static/images/login_page.png)
  
-﻿![How_to_register](/assets/images/login_nabar.png)
+﻿![How_to_register](/static/images/login_nabar.png)
 
 If the user clicks on ****"Register"** button by mistake, the also can access the Login link at the Registration page.
 When the user enters a correct username with a matching password and clicks on **"Login"** button, they will be redirected to the Home page.
@@ -275,7 +287,7 @@ When the user enters a correct username with a matching password and clicks on *
 
 The Logout page can be accessed using the provided navbar link that is present when a user is logged in. When the user clicks on Logout, they are directly logged out of their account and redirected to the Home page.
 
-﻿![How_to_Logout](/assets/images/logout.png)
+﻿![How_to_Logout](/static/images/logout.png)
 
 Clicking by ****"Cancel"** button, the user will be redirected to the previously visitet page. 
 
@@ -284,7 +296,7 @@ Clicking by ****"Cancel"** button, the user will be redirected to the previously
 Every registered users can post a new content - a new Bar. This feature can be accessed through the navigation bar. 
 This feature is only available if a user chooses to register to the site and can be accessed using the provided navbar link. The user can share their experience at the bar or simply post as a recommendation with a photo of the bar shooted by their. This is possible thanks to the SummernoteWidget.
 
-﻿![Add_Post](/assets/images/add_post1.png)
+﻿![Add_Post](/static/images/social_media.png)
 
 The adding post feature is the same to all users and has the fields:
 Title, Content, Excerpt (to appears at the Bars List), Image upload button (only one photo each post can be uploaded), and the buttons **"Submit"** / **"Cancel"**.
@@ -295,7 +307,7 @@ When the user complets all fields, and clicks on **"Submit"**, the post will tak
 The proposal of that approval or rejecting feature is that to avoid the repetition of Bars. So the **"Bars List"** can turn on a list or even a "guide" of the best beer bars or brewery in Berlin.
 Users can also click on "cancel" in order to not to send their posts. 
 
-﻿![Placeholder_image](/assets/images/placeholder_img.png)
+﻿![Placeholder_image](/static/images/placeholder_img.png)
 
 #### Post detail
 
@@ -303,16 +315,16 @@ When a post is clicked on by the user, the Post Detail page opens up, and shows 
 
  - Logged users: comment and like/dislike will be offered as interaction. When a logged in user comments a post, he sees a field to write a comment and the button **"Comment"**.
  
-﻿![Post_Detail](/assets/images/post_detail1.png)
+﻿![Post_Detail](/static/images/post_detail1.png)
 
-﻿![Post_Detail](/assets/images/post_detail_mobile.png)
+﻿![Post_Detail](/static/images/post_detail_mobile.png)
 
  - Non-logged users: the Post Detail and comments at this post are been showing, but without the feature to comment and/or like. This user will have the possibility to read all posts, navigate through the entire website, and if he wants, registrate himself to be get the interactions parts of the website. 
 
  All users can see, when inside of a post, the number of likes and comments. The interaction with them depends on the status (logged or non logged) of the user.
  Font Awesome icons (fa-heart and fa-comment) are used to display better the intention of the feature. The like and it changes the colour when clicked on. 
 
-﻿![Post_Detail](/assets/images/like_comment.png)
+﻿![Post_Detail](/static/images/like_comment.png)
 
 Font Awesome icon (fa-heart) changes colour and the user will be able to like/unlike the post.
 
@@ -320,14 +332,14 @@ Font Awesome icon (fa-heart) changes colour and the user will be able to like/un
 As a post author, the user will have all access to the CRUD functionality: post bars, comment posts, update his/her own posts, delete his/her own posts, like and dislike other's posts. 
 If the author updates a poosts and decide not to post, he/she can click on ****"Cancel"** button. Underneath is how the users can see their posts when they want to delete some of them:
 
-﻿![Delete_Comment](/assets/images/delete_comment.png)
+﻿![Delete_Comment](/static/images/delete_comment.png)
 
   - User is comment author:
 The comment author can write comments, edit and/or delete his/her own comments. This full CRUD functionality over their comments can provide a better interaction of all registered users in the website. 
 Just like posts, all comments need admin approval, so there is no repetition of bars and also no problems with comments.
 Buttons Update Comment and Delete Comment have the pencil and trash bootstrap buttons "btn-signup badge" and "btn-del" respectively. 
 
-﻿![Delete_Post](/assets/images/deleting_posts.jpg)
+﻿![Delete_Post](/static/images/deleting_posts.jpg)
 
 #### Post update and Comment update
 
@@ -336,9 +348,9 @@ It gives to the user author full control over their posts.
 
 Updating a post isn't necessary to be approved by the admin, and the post will be automatically updated.
 
-﻿![Delete_Comment](/assets/images/coments_laptop.png)
+﻿![Delete_Comment](/static/images/coments_laptop.png)
  
-﻿![Delete_Comment](/assets/images/comments_mobile.png)
+﻿![Delete_Comment](/static/images/comments_mobile.png)
 
 The comment will be updated immediately after clicking on **"Update Comment"** button. This feature can avoid grammatical errors on the content. 
 
@@ -350,7 +362,7 @@ https://berlin-bestbeers.herokuapp.com/admin
 
 The admin can access all content and registered users of the website. The superuser will be albe to approve (from draft to approved) and delete a specific user, post or comment. In this case the bad content can be removed.  
 
-﻿![Admin_view](/assets/images/admin_view.png)
+﻿![Admin_view](/static/images/admin_view.png)
 
 #### System Feedback messages:
 
@@ -358,11 +370,11 @@ One-time notification will be displayed according to the actions of the users. T
 
 System/Flash messages are displayed as feedback for users when actions are completed and stays 2 seconds until be automatically removed. 
 
-﻿![Sign_in_message](/assets/images/5signin.jpg)
+﻿![Sign_in_message](/static/images/5signin.jpg)
  
-﻿![Sign_out_message](/assets/images/2logout.jpg)
+﻿![Sign_out_message](/static/images/2logout.jpg)
 
-﻿![Post_approval_message](/assets/images/1post_appr.png)
+﻿![Post_approval_message](/static/images/1post_appr.png)
 
 #### Footer:
 
@@ -371,23 +383,23 @@ The webiste Footer appears in all pages and is featured at the bottom. 2 section
  - On the left side an **"About"** section was built, and contains the message about the educational purpose at this website, my GitHub repository connection in form of a Button with the Font Awesome icon. 
 Below the Social Media links, including Font Awesome icons of Facebook, Twitter, Instagram and Youtube. The social media are actually being connecte do the home page of each social media, and it was built like this to shows the possibility of connection. 
 
-﻿![Footer](/assets/images/footer_full.png)
+﻿![Footer](/static/images/footer_full.png)
 
  - The right side includes a embedded Berlin Beer Guide Google Map, with all craft beer bars, breweries and spots where craft beer can bought. This map belongs to the website [Berlin Love](https://withberlinlove.com/berlin-craft-beer/), and was kindly lend to use for educational purposes in this website. 
 The purpose of this map is that users chose a bar or brewery of that, go visit and post their experiences at the Berlin Bestbeers. 
 Themmap disappears in smaller devices.
 
-﻿![Beer_Map_Footer](/assets/images/beer_map.png)
+﻿![Beer_Map_Footer](/static/images/beer_map.png)
 
 #### Other features:
 
   - Logo - the logo is a beer mug, created with Canvas.
   
-﻿![Logo](/assets/images/logo.png)
+﻿![Logo](/static/images/logo.png)
 
   - Favicon - the favicon was created with Canvas.
 
-﻿![Favicon](/assets/images/favicon.png)
+﻿![Favicon](/static/images/favicon.png)
 
   - Links and buttons will change the colour when hovered over.
 
@@ -413,23 +425,23 @@ Below are the wireframes created, and its features:
 
  - **Home:**
 
-﻿![Wireframe_Home](/assets/images/home.png)
+﻿![Wireframe_Home](/static/images/home.png)
 
  - **Blog page:**
 
-﻿![Wireframe_Bars_List](/assets/images/bars_list.png)
+﻿![Wireframe_Bars_List](/static/images/blog.png)
 
  - **Post detail:**
 
-﻿![Wireframes_Post_Detail](/assets/images/post_detail.png)
+﻿![Wireframes_Post_Detail](/static/images/post_detail.png)
 
  - **Add post:**
 
-﻿![Wireframes_Add_Post](/assets/images/add_post.png)
+﻿![Wireframes_Add_Post](/static/images/add_post.png)
 
  - **Mobile:**
 
-﻿![Wireframes_Mobile](/assets/images/mobile.png)
+﻿![Wireframes_Mobile](/static/images/mobile.png)
 
 ### Database Design
 
@@ -469,12 +481,12 @@ The **Comment** class is used to represenst a block of text that a user creates 
 ### Site Map:
 Lucidchart was used to explain the main structure of the entire website and how to navigate in it:
 
-﻿![Site_Map](/assets/images/bestbeers_Flowchart.png)
+﻿![Site_Map](/static/images/bestbeers_Flowchart.jpg)
 
 ### Colours used:
 The palette colour used for Berlin Bestbeers was chosen thinking about the standard yellow colour of the beers. The dark parts like the navigation bar and the footer belongs to the Bootstrap and brought a good contrast with the yellow used one.
 
-﻿![Colour Palette](/assets/images/colour_palette.png)
+﻿![Colour Palette](/static/images/colour_palette.png)
 
 The HEX colours used:
   - #353542 - Dark, Text colour, Navbar and Footer
@@ -490,7 +502,7 @@ I have used font-family **Poppins** and **Roboto**, family Lato, sans-serif 200,
 
 The same font are used to catch the users attention at the name of the Site and name of all posts, which I used the red colour with a dark boarder. 
 
-﻿![Font_used](/assets/images/poppins.png)
+﻿![Font_used](/static/images/poppins.png)
 
 ### Images
 
@@ -567,19 +579,19 @@ Chrome developer tool have been used to check the responsiveness.
 
 W3C Markup Validator was used to find sintax errors. The source code of the live project was copied and pasted to check the entire code and no syntax erros were found. 
 
-﻿![W3_Validator](/assets/images/w3_test.png)
+﻿![W3_Validator](/static/images/w3_test.png)
 
 #### W3C CSS Validator:
 
 To validate the CSS style of the project, the W3C CSS Validator Services were used and no errors were highlighted.
 
-﻿![CSS_Validator](/assets/images/css_test.png)
+﻿![CSS_Validator](/static/images/css_test.png)
 
 #### JSHint:
 
 JSHint was used to validate the JavaScript - no errors showed.
 
-﻿![Jshint](/assets/images/jshint.png)
+﻿![Jshint](/static/images/jshint.png)
 
 #### PEP8 CI Python Linther:
 
@@ -587,29 +599,29 @@ PEP8 CI Python Linther (Python validator) used for these thests. The code passed
 
   - admin.py
 
-﻿![Admin_py_test](/assets/images/admin_py_test.png)
+﻿![Admin_py_test](/static/images/admin_py_test.png)
 
   - forms.py
 
-﻿![Forms_url_py_test](/assets/images/forms_urls_py.png)
+﻿![Forms_url_py_test](/static/images/forms_urls_py.png)
 
   - models.py
 
-﻿![Models_py_test](/assets/images/models_py.png)
+﻿![Models_py_test](/static/images/models_py.png)
 
   - urls.py
 
-﻿![URLs_py-test](/assets/images/urls_py.png)
+﻿![URLs_py-test](/static/images/urls_py.png)
 
   - views.py
 
-﻿![Views_py_test](/assets/images/views_py.png)
+﻿![Views_py_test](/static/images/views_py.png)
 
 #### Lighthouse Test:
 
 The Lighthouse testing of Chrome develeper tools confirmed that although the all images were used in original sizes, the website, its colours and fonts provided an easy-read and accessible website. The performance of 72 can be easily imroved with the resize of all images. 
 
-﻿![Ligthouse_test](/assets/images/lighthouse.png)
+﻿![Ligthouse_test](/static/images/lighthouse.png)
 
 ### Tests on user stories
 
@@ -652,6 +664,13 @@ To be sure that the suer stories work well, it were also tested one by one. All 
 
   - Hover effect - Test done in all buttons and it works as expected.
   - Map funcionality - I have tested the Beer Map embeded at the footer and it works as expected.
+
+### Resubmission Tests
+
+  - Tested same browsers and functionalities.
+  - Added new tests at Bars List page, insertion of Social Media links and if they are usable.
+  - Ran all tests in all links with different users and also admin.
+  - FOR NEW TESTS ALL IS RUNNING AS EXPECTED.
   
 ### Solved bugs
 
@@ -659,16 +678,20 @@ To be sure that the suer stories work well, it were also tested one by one. All 
   - Editing Comments returns to the home and not to the edited post one - This bug was fixed changing the return link at views.py. 
   - Lighthouse test Performance with a "?" - I have got a "?" signal at my Performance when testing with Lighthouse. I changed the test to the incognito window and have got better Performance. That's because I have some extensions installed at Googl Chrome. Thanks to Code Institute’s Slack Channel, this was solved.
   - Several small bugs while codding, which were all solved thanks to Slack Channel advices and tutor's help of Code Institute.
+  - RESUBMISSION: Solved Navbar collapsed for small screens which didn't open.
+  - RESUBMISSION: Solved issue regarding Python version and TIME_ZONE.
+  - RESUBMISSION: Solved deployment issue regarding DISABLE_COLLECTSTATIC at Heroku.
 
 ### Known bugs
 
   - Currently the detected bug at Google chrome Developer Tools Console ist the Google Maps API, because theBerlin Beer Guide Google Map belongs to the website [Berlin Love](https://withberlinlove.com/berlin-craft-beer/), and the map was kindly lend to use for educational purposes in this website. 
 
-﻿![API_Bug_Map](/assets/images/google_api_bug.png)
+﻿![API_Bug_Map](/static/images/google_api_bug.png)
   
   - Long lines at settings.py file, which is not considered as an bug, but understood as a gub one for Django's side.
   
- ﻿![Long_lines_marked_as_bug](/assets/images/long_lines.png)
+ ﻿![Long_lines_marked_as_bug](/static/images/long_lines.png)
+
 
 ## Deployment
 
@@ -700,7 +723,6 @@ The application was deployed to Heroku and the databese stored at ElephantSQL. T
     - Add Cloudinary URL: os.environ["CLOUDINARY_URL"] = ”cloudinary://paste in API Environment Variable”
   - In Heroku => Navigate to the Settings tab => click on Reveal Config Vars.
   - Add ’CLOUDINARY_URL’ to Config Vars with the in API Environment Variable value.
-  - Add ’DISABLE_COLLECTSTATIC’ 1 to Heroku Config Vars (temporary, must be removed before final deployment).
   - In the settings.py file:
     - Add Cloudinary Libraries to installed apps (note: order is important) ’cloudinary_storage',  ’django.contrib.staticfiles', ’cloudinary',
     - Add the following code below STATIC_URL = ’/static/' to use Cloudinary to store media and static files:
@@ -724,7 +746,7 @@ The application was deployed to Heroku and the databese stored at ElephantSQL. T
 
 ## Credits
 
-  - [All bars mentioned:] A huge thank you to all bars and breweries posted and mentioned by the fake users created for tests.	
+  - [All bars mentioned:] A huge thank you to all bars and breweries posted and mentioned by the fake users created for tests.
   - [Am I Responsive:](http://ami.responsivedesign.is) To check responsiveness of the website.
   - [Balsamiq:](https://balsamiq.com/) To create all wireframes.
   - [Bootstrap:](https://getbootstrap.com/docs/4.6/getting-started/introduction/) To style and to build the webpage.
@@ -733,7 +755,7 @@ The application was deployed to Heroku and the databese stored at ElephantSQL. T
   - [Code Institute Tutor Support:](https://app.slack.com/) For help and support.
   - [OHMyCode:](https://ohmycode.com.br/) As inspiration for using Django in some tutorials.
   - [Django documentation:](https://docs.djangoproject.com/en/4.1/) Everything you need to know about Django.
-  - [Developer Mozilla:](https://developer.mozilla.org/) To research about HTML and CSS for this project. 
+  - [Developer Mozilla:](https://developer.mozilla.org/) To research about HTML and CSS for this project.
   - [Lucidchart:](https://www.lucidchart.com/pages/) Used to create the site map.
   - [Colorkit:](https://colorkit.co/) Used to create the main colour palette.
   - [Stack Overflow:](https://stackoverflow.com) For troubleshooting and FAQ.
@@ -741,4 +763,8 @@ The application was deployed to Heroku and the databese stored at ElephantSQL. T
 
 ### Acknowledgements
 
-  - To my partner Conny for her patience and love, when I was under stress. To my mentor at Code Institute, Brian Macharia, to teach me some things in cases wchich I really did not understand. To Freddie Dermesonoglou to help me to understand how Django's Model works and to all tutors at cI who were there in my desparate moments. I won't never forget!
+  - To my partner Conny for her patience and love, when I was under stress. 
+  - To my mentor at Code Institute, Lauren Nicole Poppich to bring me easily the ways to do changes for resubmission.
+  - To Freddie Dermesonoglou to help me to understand how Django's Model works.
+  - To Paul Thomas O’Riordan for the helpful advises and to handle with some difficulties.
+  - To some tutors at CI who were there in my desparate moments.
